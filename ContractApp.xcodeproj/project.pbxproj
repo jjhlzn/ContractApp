@@ -8,12 +8,26 @@
 
 /* Begin PBXBuildFile section */
 		1C23597F1C3B7A47006724C9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C23597E1C3B7A47006724C9 /* AppDelegate.swift */; };
-		1C2359811C3B7A47006724C9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C2359801C3B7A47006724C9 /* ViewController.swift */; };
 		1C2359841C3B7A47006724C9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C2359821C3B7A47006724C9 /* Main.storyboard */; };
 		1C2359861C3B7A47006724C9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1C2359851C3B7A47006724C9 /* Assets.xcassets */; };
 		1C2359891C3B7A47006724C9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C2359871C3B7A47006724C9 /* LaunchScreen.storyboard */; };
 		1C2359941C3B7A47006724C9 /* ContractAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C2359931C3B7A47006724C9 /* ContractAppTests.swift */; };
 		1C23599F1C3B7A47006724C9 /* ContractAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C23599E1C3B7A47006724C9 /* ContractAppUITests.swift */; };
+		1C2359AD1C3B942D006724C9 /* ContractCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C2359AC1C3B942D006724C9 /* ContractCell.swift */; };
+		1C2359B11C3BA8A0006724C9 /* LatestContractListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C2359B01C3BA8A0006724C9 /* LatestContractListController.swift */; };
+		1C2359B31C3BA8C1006724C9 /* Contract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C2359B21C3BA8C1006724C9 /* Contract.swift */; };
+		1C2359B51C3BE0EA006724C9 /* ContractDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C2359B41C3BE0EA006724C9 /* ContractDetailController.swift */; };
+		1C2359B91C3CD1E5006724C9 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C2359B81C3CD1E5006724C9 /* User.swift */; };
+		1C2359BB1C3CD25D006724C9 /* MyInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C2359BA1C3CD25D006724C9 /* MyInfoController.swift */; };
+		1CFAC8621C8173C500EF60D4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CFAC8611C8173C500EF60D4 /* ViewController.swift */; };
+		1CFAC8641C817D6300EF60D4 /* OrderListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CFAC8631C817D6300EF60D4 /* OrderListViewController.swift */; };
+		1CFAC8661C817DF300EF60D4 /* BusinessModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CFAC8651C817DF300EF60D4 /* BusinessModel.swift */; };
+		1CFAC8681C81846100EF60D4 /* OrderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CFAC8671C81846100EF60D4 /* OrderCell.swift */; };
+		1CFAC86A1C82C21B00EF60D4 /* OrderMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CFAC8691C82C21B00EF60D4 /* OrderMenuController.swift */; };
+		1CFAC86C1C82DC9B00EF60D4 /* OrderBasicInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CFAC86B1C82DC9B00EF60D4 /* OrderBasicInfoViewController.swift */; };
+		1CFAC86E1C82E5B300EF60D4 /* OrderShougouInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CFAC86D1C82E5B300EF60D4 /* OrderShougouInfoController.swift */; };
+		1CFAC8701C83388300EF60D4 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CFAC86F1C83388300EF60D4 /* Service.swift */; };
+		1CFAC8721C83D57200EF60D4 /* OrderSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CFAC8711C83D57200EF60D4 /* OrderSearchViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +50,6 @@
 /* Begin PBXFileReference section */
 		1C23597B1C3B7A47006724C9 /* ContractApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ContractApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C23597E1C3B7A47006724C9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		1C2359801C3B7A47006724C9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		1C2359831C3B7A47006724C9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1C2359851C3B7A47006724C9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1C2359881C3B7A47006724C9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +60,21 @@
 		1C23599A1C3B7A47006724C9 /* ContractAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ContractAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C23599E1C3B7A47006724C9 /* ContractAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContractAppUITests.swift; sourceTree = "<group>"; };
 		1C2359A01C3B7A47006724C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1C2359AC1C3B942D006724C9 /* ContractCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContractCell.swift; sourceTree = "<group>"; };
+		1C2359B01C3BA8A0006724C9 /* LatestContractListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LatestContractListController.swift; sourceTree = "<group>"; };
+		1C2359B21C3BA8C1006724C9 /* Contract.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Contract.swift; sourceTree = "<group>"; };
+		1C2359B41C3BE0EA006724C9 /* ContractDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContractDetailController.swift; sourceTree = "<group>"; };
+		1C2359B81C3CD1E5006724C9 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		1C2359BA1C3CD25D006724C9 /* MyInfoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyInfoController.swift; sourceTree = "<group>"; };
+		1CFAC8611C8173C500EF60D4 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		1CFAC8631C817D6300EF60D4 /* OrderListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderListViewController.swift; sourceTree = "<group>"; };
+		1CFAC8651C817DF300EF60D4 /* BusinessModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessModel.swift; sourceTree = "<group>"; };
+		1CFAC8671C81846100EF60D4 /* OrderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderCell.swift; sourceTree = "<group>"; };
+		1CFAC8691C82C21B00EF60D4 /* OrderMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderMenuController.swift; sourceTree = "<group>"; };
+		1CFAC86B1C82DC9B00EF60D4 /* OrderBasicInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderBasicInfoViewController.swift; sourceTree = "<group>"; };
+		1CFAC86D1C82E5B300EF60D4 /* OrderShougouInfoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderShougouInfoController.swift; sourceTree = "<group>"; };
+		1CFAC86F1C83388300EF60D4 /* Service.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		1CFAC8711C83D57200EF60D4 /* OrderSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderSearchViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,11 +126,25 @@
 			isa = PBXGroup;
 			children = (
 				1C23597E1C3B7A47006724C9 /* AppDelegate.swift */,
-				1C2359801C3B7A47006724C9 /* ViewController.swift */,
 				1C2359821C3B7A47006724C9 /* Main.storyboard */,
 				1C2359851C3B7A47006724C9 /* Assets.xcassets */,
 				1C2359871C3B7A47006724C9 /* LaunchScreen.storyboard */,
 				1C23598A1C3B7A47006724C9 /* Info.plist */,
+				1C2359AC1C3B942D006724C9 /* ContractCell.swift */,
+				1C2359B01C3BA8A0006724C9 /* LatestContractListController.swift */,
+				1C2359B21C3BA8C1006724C9 /* Contract.swift */,
+				1C2359B41C3BE0EA006724C9 /* ContractDetailController.swift */,
+				1C2359B81C3CD1E5006724C9 /* User.swift */,
+				1C2359BA1C3CD25D006724C9 /* MyInfoController.swift */,
+				1CFAC8611C8173C500EF60D4 /* ViewController.swift */,
+				1CFAC8631C817D6300EF60D4 /* OrderListViewController.swift */,
+				1CFAC8651C817DF300EF60D4 /* BusinessModel.swift */,
+				1CFAC8671C81846100EF60D4 /* OrderCell.swift */,
+				1CFAC8691C82C21B00EF60D4 /* OrderMenuController.swift */,
+				1CFAC86B1C82DC9B00EF60D4 /* OrderBasicInfoViewController.swift */,
+				1CFAC86D1C82E5B300EF60D4 /* OrderShougouInfoController.swift */,
+				1CFAC86F1C83388300EF60D4 /* Service.swift */,
+				1CFAC8711C83D57200EF60D4 /* OrderSearchViewController.swift */,
 			);
 			path = ContractApp;
 			sourceTree = "<group>";
@@ -193,6 +235,7 @@
 				TargetAttributes = {
 					1C23597A1C3B7A47006724C9 = {
 						CreatedOnToolsVersion = 7.1.1;
+						DevelopmentTeam = KG295RN6U3;
 					};
 					1C23598E1C3B7A47006724C9 = {
 						CreatedOnToolsVersion = 7.1.1;
@@ -256,8 +299,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1C2359811C3B7A47006724C9 /* ViewController.swift in Sources */,
+				1CFAC86E1C82E5B300EF60D4 /* OrderShougouInfoController.swift in Sources */,
+				1CFAC8721C83D57200EF60D4 /* OrderSearchViewController.swift in Sources */,
+				1C2359B11C3BA8A0006724C9 /* LatestContractListController.swift in Sources */,
+				1C2359AD1C3B942D006724C9 /* ContractCell.swift in Sources */,
+				1C2359B51C3BE0EA006724C9 /* ContractDetailController.swift in Sources */,
+				1CFAC86A1C82C21B00EF60D4 /* OrderMenuController.swift in Sources */,
+				1CFAC8621C8173C500EF60D4 /* ViewController.swift in Sources */,
+				1CFAC8641C817D6300EF60D4 /* OrderListViewController.swift in Sources */,
+				1C2359B91C3CD1E5006724C9 /* User.swift in Sources */,
+				1CFAC8701C83388300EF60D4 /* Service.swift in Sources */,
+				1C2359B31C3BA8C1006724C9 /* Contract.swift in Sources */,
 				1C23597F1C3B7A47006724C9 /* AppDelegate.swift in Sources */,
+				1CFAC86C1C82DC9B00EF60D4 /* OrderBasicInfoViewController.swift in Sources */,
+				1C2359BB1C3CD25D006724C9 /* MyInfoController.swift in Sources */,
+				1CFAC8681C81846100EF60D4 /* OrderCell.swift in Sources */,
+				1CFAC8661C817DF300EF60D4 /* BusinessModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -397,10 +454,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = ContractApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = cn.project.ContractApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -408,10 +468,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = ContractApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = cn.project.ContractApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
@@ -482,6 +545,7 @@
 				1C2359A51C3B7A47006724C9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1C2359A61C3B7A47006724C9 /* Build configuration list for PBXNativeTarget "ContractAppTests" */ = {
 			isa = XCConfigurationList;
@@ -490,6 +554,7 @@
 				1C2359A81C3B7A47006724C9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1C2359A91C3B7A47006724C9 /* Build configuration list for PBXNativeTarget "ContractAppUITests" */ = {
 			isa = XCConfigurationList;
@@ -498,6 +563,7 @@
 				1C2359AB1C3B7A47006724C9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
