@@ -43,8 +43,8 @@ class ViewController: UIViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        centerAlignUsername.constant -= view.bounds.width
-        centerAlignPassword.constant -= view.bounds.width
+        //centerAlignUsername.constant -= view.bounds.width
+        //centerAlignPassword.constant -= view.bounds.width
         loginButton.alpha = 0
         
     }
@@ -54,14 +54,14 @@ class ViewController: UIViewController {
         
         UIView.animateWithDuration(0.5, delay: 0.00, options: UIViewAnimationOptions.CurveEaseOut, animations: {
             
-            self.centerAlignUsername.constant += self.view.bounds.width
+           // self.centerAlignUsername.constant += self.view.bounds.width
             self.view.layoutIfNeeded()
             
             }, completion: nil)
         
         UIView.animateWithDuration(0.5, delay: 0.10, options: .CurveEaseOut, animations: {
             
-            self.centerAlignPassword.constant += self.view.bounds.width
+            //self.centerAlignPassword.constant += self.view.bounds.width
             self.view.layoutIfNeeded()
             
             }, completion: nil)

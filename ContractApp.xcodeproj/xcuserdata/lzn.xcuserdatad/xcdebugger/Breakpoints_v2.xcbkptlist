@@ -36,16 +36,31 @@
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "ContractApp.MyInfoController.user.setter : ContractApp.User"
+                  symbolName = "ContractApp.MyInfoController.user.getter : ContractApp.User"
                   moduleName = "ContractApp"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/lzn/Desktop/ContractApp/ContractApp/MyInfoController.swift"
-                  timestampString = "478442957.24667"
+                  timestampString = "478601211.957871"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "0"
                   endingLineNumber = "0"
-                  offsetFromSymbolStart = "16">
+                  offsetFromSymbolStart = "44">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ContractApp.MyInfoController.user.setter : ContractApp.User"
+                  moduleName = "ContractApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lzn/Desktop/ContractApp/ContractApp/MyInfoController.swift"
+                  timestampString = "478601211.960366"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "36">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -55,7 +70,7 @@
                   moduleName = "ContractApp"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/lzn/Desktop/ContractApp/ContractApp/MyInfoController.swift"
-                  timestampString = "478442957.24703"
+                  timestampString = "478601211.960573"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "0"
@@ -70,12 +85,12 @@
                   moduleName = "ContractApp"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/lzn/Desktop/ContractApp/ContractApp/MyInfoController.swift"
-                  timestampString = "478442957.247533"
+                  timestampString = "478601211.960831"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "13"
                   endingLineNumber = "13"
-                  offsetFromSymbolStart = "19">
+                  offsetFromSymbolStart = "24">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -85,12 +100,12 @@
                   moduleName = "ContractApp"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/lzn/Desktop/ContractApp/ContractApp/MyInfoController.swift"
-                  timestampString = "478442957.247932"
+                  timestampString = "478601211.961019"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "13"
                   endingLineNumber = "13"
-                  offsetFromSymbolStart = "58">
+                  offsetFromSymbolStart = "60">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -100,12 +115,12 @@
                   moduleName = "ContractApp"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/lzn/Desktop/ContractApp/ContractApp/MyInfoController.swift"
-                  timestampString = "478442957.24839"
+                  timestampString = "478601211.961214"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "13"
                   endingLineNumber = "13"
-                  offsetFromSymbolStart = "20">
+                  offsetFromSymbolStart = "24">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -194,11 +209,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ContractApp/OrderListViewController.swift"
-            timestampString = "478450017.469104"
+            timestampString = "478573959.454948"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "60"
-            endingLineNumber = "60"
+            startingLineNumber = "53"
+            endingLineNumber = "53"
             landmarkName = "tableView(_:cellForRowAtIndexPath:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -210,11 +225,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ContractApp/OrderListViewController.swift"
-            timestampString = "478450017.469104"
+            timestampString = "478573959.454948"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "65"
-            endingLineNumber = "65"
+            startingLineNumber = "58"
+            endingLineNumber = "58"
             landmarkName = "tableView(_:cellForRowAtIndexPath:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -226,44 +241,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ContractApp/OrderListViewController.swift"
-            timestampString = "478450017.469104"
+            timestampString = "478573959.454948"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "75"
-            endingLineNumber = "75"
+            startingLineNumber = "68"
+            endingLineNumber = "68"
             landmarkName = "prepareForSegue(_:sender:)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ContractApp/Service.swift"
-            timestampString = "478450017.469104"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "42"
-            endingLineNumber = "42"
-            landmarkName = "search(_:startDate:endDate:index:pageSize:completion:)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ContractApp/OrderListViewController.swift"
-            timestampString = "478450017.469104"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "25"
-            endingLineNumber = "25"
-            landmarkName = "viewWillAppear(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -280,6 +263,38 @@
             startingLineNumber = "75"
             endingLineNumber = "75"
             landmarkName = "seachPressed(_:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ContractApp/Service.swift"
+            timestampString = "478503730.826648"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
+            landmarkName = "sendRequest(_:serverResponse:responseHandler:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ContractApp/ApprovalListViewController.swift"
+            timestampString = "478579931.756421"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "55"
+            endingLineNumber = "55"
+            landmarkName = "tableView(_:cellForRowAtIndexPath:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

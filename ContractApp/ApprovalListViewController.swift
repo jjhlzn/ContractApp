@@ -1,19 +1,20 @@
 //
-//  OrderListViewController.swift
+//  ApprovalListViewController.swift
 //  ContractApp
 //
-//  Created by 刘兆娜 on 16/2/27.
+//  Created by 刘兆娜 on 16/3/1.
 //  Copyright © 2016年 金军航. All rights reserved.
 //
 
 import UIKit
 
-class OrderListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate {
-
+class ApprovalListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    
     @IBOutlet weak var tableView: UITableView!
-    var orders = [Order]()
-    var orderService = OrderService()
-    var queryObject: OrderQueryObject?
+
+    var approvals = [Approval]()
+    var approvalService = ApprovalService()
+    var queryObject: ApprovalQueryObject?
     var hasMore = false
     var page = 0
     
@@ -25,7 +26,7 @@ class OrderListViewController: UIViewController, UITableViewDataSource, UITableV
         
         tableView.dataSource = self
         tableView.delegate = self
-        if queryObject != nil && orders.count > 9 {
+        if queryObject != nil && approvals.count > 9 {
             createTableFooter()
         }
     }
@@ -34,37 +35,37 @@ class OrderListViewController: UIViewController, UITableViewDataSource, UITableV
         
         
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return orders.count + 1
+        return approvals.count + 1
     }
     
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         if indexPath.row == 0 {
-            return tableView.dequeueReusableCellWithIdentifier("orderHeaderCell")!
+            return tableView.dequeueReusableCellWithIdentifier("approvalHeaderCell")!
         } else {
-            let order = orders[indexPath.row - 1]
-            let cell = tableView.dequeueReusableCellWithIdentifier("orderContentCell") as! OrderCell
-            cell.businessPersonLabel.text = order.businessPerson
-            cell.orderNoLabel.text = order.orderNo
-            cell.guestNameLabel.text = order.guestName
-            cell.contractNoLabel.text = order.contractNo
-            cell.amountLabel.text = "\(order.amount)"
+            let approval = approvals[indexPath.row - 1]
+            let cell = tableView.dequeueReusableCellWithIdentifier("approvalContentCell") as! ApprovalCell
+            cell.approvalObjectField.text = approval.approvalObject
+            cell.keywordField.text = approval.keyword
+            cell.amountField.text = "\(approval.amount)"
+            cell.reporterField.text = approval.reporter
+            cell.reportDateField.text = approval.reportDate
             return cell
         }
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "orderMenuSegue" {
-            let dest = segue.destinationViewController as! OrderMenuController
-            
-            dest.order = orders[tableView.indexPathForSelectedRow!.row]
+        if segue.identifier == "approvalDetailSegue" {
+            let dest = segue.destinationViewController as! ApprovalDetailController
+            dest.approval = approvals[(tableView.indexPathForSelectedRow?.row)!]
+            //dest. = orders[tableView.indexPathForSelectedRow!.row]
         }
     }
     
@@ -110,15 +111,15 @@ class OrderListViewController: UIViewController, UITableViewDataSource, UITableV
         if scrollView.contentOffset.y > (scrollView.contentSize.height - scrollView.frame.size.height + 30){
             
             //self.initArr()
-            orderService.search(queryObject?.keyword, startDate: queryObject?.startDate, endDate: queryObject?.endDate, index: page * (queryObject?.pageSize)!, pageSize: (queryObject?.pageSize)!) {
-                orderResponse in
+            approvalService.search(queryObject?.keyword, containApproved: (queryObject?.containApproved)!, containUnapproved: (queryObject?.containUnapproved)!, startDate: queryObject?.startDate, endDate: queryObject?.endDate, index: page, pageSize: (queryObject?.pageSize)!) {
+                response in
                 dispatch_async(dispatch_get_main_queue()) {
                     self.page++
-                    let newOrders = orderResponse.orders
-                    for order in newOrders {
-                        self.orders.append(order)
+                    let newApprovals = response.approvals
+                    for approval in newApprovals {
+                        self.approvals.append(approval)
                     }
-                    if self.orders.count >= orderResponse.totalNumber {
+                    if self.approvals.count >= response.totalNumber {
                         self.hasMore = true
                     }
                 }
@@ -126,5 +127,7 @@ class OrderListViewController: UIViewController, UITableViewDataSource, UITableV
             self.tableView.reloadData()
         }
     }
+    
+
 
 }

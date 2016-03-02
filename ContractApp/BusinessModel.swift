@@ -27,12 +27,37 @@ class Order {
     }
 }
 
-class ServerResponse {
+class Approval {
+    var id : String?
+    var approvalObject: String?
+    var keyword: String?
+    var type: String?
+    var amount: NSNumber = 0.0
+    var reporter: String?
+    var reportDate: String?
+    var status: String?
+    
+    init(id: String, approvalObject: String?, keyword: String, amount: NSNumber, reporter: String, reportDate: String, status: String?) {
+        self.id = id
+        self.approvalObject = approvalObject
+        self.keyword = keyword
+        self.amount = amount
+        self.reporter = reporter
+        self.reportDate = reportDate
+        self.status = status
+    }
+    
+    init() {
+        
+    }
+}
+
+class ServerResponse  {
     var status : Int = 0
     var errorMessage : String?
 }
 
-class PageServerResponse {
+class PageServerResponse : ServerResponse{
     var totalNumber : Int = 0
 }
 
@@ -40,6 +65,17 @@ class SeachOrderResponse : PageServerResponse {
     var orders : [Order]!
     init(orders : [Order]) {
         self.orders = orders
+    }
+    override init() {
+        
+    }
+}
+
+
+class SearchApprovalResponse : PageServerResponse {
+    var approvals = [Approval]()
+    init(approvals: [Approval]) {
+        self.approvals = approvals
     }
     override init() {
         
@@ -57,5 +93,22 @@ class OrderQueryObject {
         self.keyword = keyword
         self.startDate = startDate
         self.endDate = endDate
+    }
+}
+
+class ApprovalQueryObject {
+    var keyword: String?
+    var startDate: NSDate?
+    var endDate: NSDate?
+    var pageSize: Int = 10
+    var containApproved: Bool = true
+    var containUnapproved: Bool = true
+    
+    init(keyword: String?, startDate: NSDate?, endDate: NSDate?, containApproved: Bool, containUnapproved: Bool) {
+        self.keyword = keyword
+        self.startDate = startDate
+        self.endDate = endDate
+        self.containApproved = containApproved
+        self.containUnapproved = containUnapproved
     }
 }

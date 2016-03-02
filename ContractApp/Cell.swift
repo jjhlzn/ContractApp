@@ -17,3 +17,12 @@ class OrderCell: UITableViewCell {
     @IBOutlet weak var amountLabel: UILabel!
     @IBOutlet weak var guestNameLabel: UILabel!
 }
+
+class ApprovalCell : UITableViewCell {
+    
+    @IBOutlet weak var approvalObjectField: UILabel!
+    @IBOutlet weak var keywordField: UILabel!
+    @IBOutlet weak var amountField: UILabel!
+    @IBOutlet weak var reporterField: UILabel!
+    @IBOutlet weak var reportDateField: UILabel!
+}
