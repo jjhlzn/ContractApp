@@ -15,7 +15,8 @@ class OrderListViewController: UIViewController, UITableViewDataSource, UITableV
     var orderService = OrderService()
     var queryObject: OrderQueryObject?
     var hasMore = false
-    var page = 0
+    var page = 1
+    var quering = false
     
     var loadMoreText = UILabel()
     let tableFooterView = UIView()//列表的底部，用于显示“上拉查看更多”的提示，当上拉后显示类容为“松开加载更多”
@@ -29,17 +30,7 @@ class OrderListViewController: UIViewController, UITableViewDataSource, UITableV
             createTableFooter()
         }
     }
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        
-    }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return orders.count + 1
     }
@@ -63,7 +54,6 @@ class OrderListViewController: UIViewController, UITableViewDataSource, UITableV
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "orderMenuSegue" {
             let dest = segue.destinationViewController as! OrderMenuController
-            
             dest.order = orders[tableView.indexPathForSelectedRow!.row]
         }
     }
@@ -72,13 +62,15 @@ class OrderListViewController: UIViewController, UITableViewDataSource, UITableV
         
         self.tableView.tableFooterView = nil
         
-        tableFooterView.frame = CGRectMake(0, 0, tableView.bounds.size.width, 60)
-        loadMoreText.frame =  CGRectMake(0, 0, tableView.bounds.size.width, 60)
+        tableFooterView.frame = CGRectMake(0, 0, tableView.bounds.size.width, 40)
+        loadMoreText.frame =  CGRectMake(0, 0, tableView.bounds.size.width, 40)
         loadMoreText.text = "上拉查看更多"
         
         loadMoreText.textAlignment = NSTextAlignment.Center
-        
         tableFooterView.addSubview(loadMoreText)
+        loadMoreText.font = UIFont(name: "Helvetica Neue", size: 15)
+        loadMoreText.center = CGPointMake( (tableView.bounds.size.width - loadMoreText.intrinsicContentSize().width / 16) / 2 , 20)
+        
         
         tableView.tableFooterView = tableFooterView
     }
@@ -94,12 +86,15 @@ class OrderListViewController: UIViewController, UITableViewDataSource, UITableV
             
         }else{
             loadMoreText.text = "上拉查看更多"
-            
         }
     }
     func scrollViewDidEndDragging(scrollView: UIScrollView, willDecelerate decelerate: Bool){
         
         if !hasMore {
+            return
+        }
+        
+        if quering {
             return
         }
         
@@ -109,8 +104,10 @@ class OrderListViewController: UIViewController, UITableViewDataSource, UITableV
         
         if scrollView.contentOffset.y > (scrollView.contentSize.height - scrollView.frame.size.height + 30){
             
+            loadMoreText.text = "加载中"
             //self.initArr()
-            orderService.search(queryObject?.keyword, startDate: queryObject?.startDate, endDate: queryObject?.endDate, index: page * (queryObject?.pageSize)!, pageSize: (queryObject?.pageSize)!) {
+            quering = true
+            orderService.search(queryObject?.keyword, startDate: queryObject?.startDate, endDate: queryObject?.endDate, index: page, pageSize: (queryObject?.pageSize)!) {
                 orderResponse in
                 dispatch_async(dispatch_get_main_queue()) {
                     self.page++
@@ -119,11 +116,13 @@ class OrderListViewController: UIViewController, UITableViewDataSource, UITableV
                         self.orders.append(order)
                     }
                     if self.orders.count >= orderResponse.totalNumber {
-                        self.hasMore = true
+                        self.hasMore = false
                     }
+                    self.tableView.reloadData()
+                    self.quering = false
                 }
             }
-            self.tableView.reloadData()
+            
         }
     }
 

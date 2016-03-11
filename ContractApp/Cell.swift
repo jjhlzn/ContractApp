@@ -26,3 +26,11 @@ class ApprovalCell : UITableViewCell {
     @IBOutlet weak var reporterField: UILabel!
     @IBOutlet weak var reportDateField: UILabel!
 }
+
+class OrderPurchaseInfoCell : UITableViewCell {
+    
+    @IBOutlet weak var contractLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var factoryLabel: UILabel!
+    @IBOutlet weak var amountLabel: UILabel!
+}

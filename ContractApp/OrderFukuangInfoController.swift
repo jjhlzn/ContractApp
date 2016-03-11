@@ -1,26 +1,26 @@
 //
-//  OrderShougouInfoController.swift
+//  OrderFukuangInfoController.swift
 //  ContractApp
 //
-//  Created by 刘兆娜 on 16/2/28.
+//  Created by 刘兆娜 on 16/3/6.
 //  Copyright © 2016年 金军航. All rights reserved.
 //
 
 import UIKit
 
-class OrderShougouInfoController: UIViewController, UITableViewDataSource, UITableViewDelegate{
-    
+class OrderFukuangInfoController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+
     @IBOutlet weak var tableView: UITableView!
-    var shouGouInfo: OrderPurchaseInfo?
+    var fukuangInfo: OrderPurchaseInfo?
     
     let orderService = OrderService()
     var orderId : String?
     
-
+    
     override func viewDidLoad() {
         tableView.dataSource = self
         tableView.delegate = self
-
+        
     }
     
     @IBAction func backPressed(sender: UIBarButtonItem) {
@@ -28,7 +28,7 @@ class OrderShougouInfoController: UIViewController, UITableViewDataSource, UITab
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return (shouGouInfo?.items.count)! + 1
+        return (fukuangInfo?.items.count)! + 1
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -36,7 +36,7 @@ class OrderShougouInfoController: UIViewController, UITableViewDataSource, UITab
             return tableView.dequeueReusableCellWithIdentifier("shougouHeaderCell")!
         } else {
             let cell = tableView.dequeueReusableCellWithIdentifier("shougouContentCell") as! OrderPurchaseInfoCell
-            let item = shouGouInfo?.items[indexPath.row - 1]
+            let item = fukuangInfo?.items[indexPath.row - 1]
             cell.contractLabel.text = item?.contract
             cell.dateLabel.text = item?.date
             cell.factoryLabel.text = item?.factory
@@ -44,6 +44,5 @@ class OrderShougouInfoController: UIViewController, UITableViewDataSource, UITab
             return cell
         }
     }
-
 
 }

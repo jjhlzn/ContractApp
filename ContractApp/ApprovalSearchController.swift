@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ApprovalSearchController: UIViewController, UITextFieldDelegate {
+class ApprovalSearchController: BaseUIViewController, UITextFieldDelegate {
     
     
     @IBOutlet weak var keywordField: UITextField!
@@ -72,10 +72,19 @@ class ApprovalSearchController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func searchPressed(sender: UIButton) {
-        
+ 
+        loadingOverlay.showOverlay(self.view)
         approvalService.search(nil, containApproved: true, containUnapproved: true, startDate: nil, endDate: nil, index: 0, pageSize: 10) { response in
             dispatch_async(dispatch_get_main_queue()) {
-                self.performSegueWithIdentifier("approvalResultSegue", sender: response)
+                self.loadingOverlay.hideOverlayView()
+                if response.status != 0 {
+                    if response.errorMessage != nil {
+                        self.displayMessage(response.errorMessage!)
+                    }
+                } else {
+                    self.performSegueWithIdentifier("approvalResultSegue", sender: response)
+                }
+
             }
         }
         

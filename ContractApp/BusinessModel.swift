@@ -27,6 +27,68 @@ class Order {
     }
 }
 
+//合同基本信息
+class OrderBasicInfo {
+    var timeLimit: String?
+    var startPort: String?
+    var destPort: String?
+    var getMoneyType: String?
+    var priceRule: String?
+    
+    init(timeLimit: String?, startPort: String?, destPort: String?, getMoneyType: String?, priceRule: String?) {
+        self.timeLimit = timeLimit
+        self.startPort = startPort
+        self.destPort = destPort
+        self.getMoneyType = getMoneyType
+        self.priceRule = priceRule
+    }
+}
+
+//合同收购信息, 工厂付款信息
+class OrderPurchaseInfo {
+    var items = [OrderPurchaseItem]()
+}
+
+class OrderPurchaseItem {
+    var contract: String?
+    var date: String?
+    var factory: String?
+    var amount: NSNumber = 0.0
+    
+    init(contract: String?, date: String?, factory: String?, amount: NSNumber) {
+        self.contract = contract
+        self.date = date
+        self.factory = factory
+        self.amount = amount
+    }
+}
+
+//订单出运信息
+class OrderTransportInfo {
+    var detailNo: String?
+    var date: String?
+    var amount: NSNumber = 0.0
+    
+    init(detailNo: String?, date: String?, amount: NSNumber) {
+        self.detailNo = detailNo
+        self.date = date
+        self.amount = amount
+    }
+}
+
+//收汇信息
+class OrderShouHuiInfo {
+    var date: String?
+    var amount: NSNumber = 0.0
+    
+    init(date: String?, amount: NSNumber) {
+        self.date = date
+        self.amount = amount
+    }
+}
+
+
+
 class Approval {
     var id : String?
     var approvalObject: String?
@@ -111,4 +173,47 @@ class ApprovalQueryObject {
         self.containApproved = containApproved
         self.containUnapproved = containUnapproved
     }
+}
+
+class LoginResponse : ServerResponse {
+    var isSuccess : Bool = false
+    var errMessage: String?
+    var name : String?
+    var department : String?
+    
+    init(isSuccess: Bool, name: String?, department: String?) {
+        self.isSuccess = isSuccess
+        self.name = name
+        self.department = department
+    }
+    
+    override init() {
+        
+    }
+}
+
+class GetOrderPurchaseInfoResponse : ServerResponse {
+    var orderPurchaseInfo: OrderPurchaseInfo?
+}
+
+class GetOrderBasicInfoResponse : ServerResponse {
+    var basicInfo: OrderBasicInfo?
+}
+
+class GetOrderChuyunInfoResponse : ServerResponse {
+    var chuyunInfo: OrderTransportInfo?
+}
+
+class GetOrderFukuangInfoResponse : ServerResponse {
+    var fukuangInfo: OrderPurchaseInfo?
+}
+
+class GetOrderShouhuiInfoResponse : ServerResponse {
+    var shouhuiInfo: OrderShouHuiInfo?
+}
+
+class AuditApprovalResponse : ServerResponse {
+    var result: Bool = false
+    var message: String?
+    
 }

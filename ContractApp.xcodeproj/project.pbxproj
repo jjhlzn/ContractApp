@@ -14,9 +14,16 @@
 		1C2359941C3B7A47006724C9 /* ContractAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C2359931C3B7A47006724C9 /* ContractAppTests.swift */; };
 		1C23599F1C3B7A47006724C9 /* ContractAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C23599E1C3B7A47006724C9 /* ContractAppUITests.swift */; };
 		1C2359B91C3CD1E5006724C9 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C2359B81C3CD1E5006724C9 /* User.swift */; };
-		1C2359BB1C3CD25D006724C9 /* MyInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C2359BA1C3CD25D006724C9 /* MyInfoController.swift */; };
 		1CB4ABA71C86C1F0000F5B8C /* ApprovalDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CB4ABA61C86C1F0000F5B8C /* ApprovalDetailController.swift */; };
-		1CFAC8621C8173C500EF60D4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CFAC8611C8173C500EF60D4 /* ViewController.swift */; };
+		1CB4ABAA1C87279F000F5B8C /* ContractApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1CB4ABA81C87279F000F5B8C /* ContractApp.xcdatamodeld */; };
+		1CB4ABAC1C872A95000F5B8C /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CB4ABAB1C872A95000F5B8C /* CoreDataStack.swift */; };
+		1CB4ABAE1C872AFE000F5B8C /* LoginUserStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CB4ABAD1C872AFE000F5B8C /* LoginUserStore.swift */; };
+		1CF69A0B1C8BB65C00D4C59F /* OrderChuyunInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF69A0A1C8BB65C00D4C59F /* OrderChuyunInfoController.swift */; };
+		1CF69A0D1C8BC00600D4C59F /* OrderFukuangInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF69A0C1C8BC00600D4C59F /* OrderFukuangInfoController.swift */; };
+		1CF69A0F1C8BC61800D4C59F /* OrderShouhuiController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF69A0E1C8BC61800D4C59F /* OrderShouhuiController.swift */; };
+		1CF69A131C92616300D4C59F /* LoadingOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF69A121C92616300D4C59F /* LoadingOverlay.swift */; };
+		1CF69A151C9264BA00D4C59F /* BaseUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF69A141C9264BA00D4C59F /* BaseUIViewController.swift */; };
+		1CFAC8621C8173C500EF60D4 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CFAC8611C8173C500EF60D4 /* LoginViewController.swift */; };
 		1CFAC8641C817D6300EF60D4 /* OrderListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CFAC8631C817D6300EF60D4 /* OrderListViewController.swift */; };
 		1CFAC8661C817DF300EF60D4 /* BusinessModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CFAC8651C817DF300EF60D4 /* BusinessModel.swift */; };
 		1CFAC8681C81846100EF60D4 /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CFAC8671C81846100EF60D4 /* Cell.swift */; };
@@ -27,6 +34,9 @@
 		1CFAC8721C83D57200EF60D4 /* OrderSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CFAC8711C83D57200EF60D4 /* OrderSearchViewController.swift */; };
 		1CFAC8931C85823300EF60D4 /* ApprovalSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CFAC8921C85823300EF60D4 /* ApprovalSearchController.swift */; };
 		1CFAC8951C858B2E00EF60D4 /* ApprovalListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CFAC8941C858B2E00EF60D4 /* ApprovalListViewController.swift */; };
+		1CFEDBCD1C87C7AF00503981 /* LoginUser+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CFEDBCB1C87C7AF00503981 /* LoginUser+CoreDataProperties.swift */; };
+		1CFEDBCE1C87C7AF00503981 /* LoginUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CFEDBCC1C87C7AF00503981 /* LoginUser.swift */; };
+		1CFEDBD01C87D94700503981 /* MyInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CFEDBCF1C87D94700503981 /* MyInfoViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,9 +70,16 @@
 		1C23599E1C3B7A47006724C9 /* ContractAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContractAppUITests.swift; sourceTree = "<group>"; };
 		1C2359A01C3B7A47006724C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1C2359B81C3CD1E5006724C9 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		1C2359BA1C3CD25D006724C9 /* MyInfoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyInfoController.swift; sourceTree = "<group>"; };
 		1CB4ABA61C86C1F0000F5B8C /* ApprovalDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApprovalDetailController.swift; sourceTree = "<group>"; };
-		1CFAC8611C8173C500EF60D4 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		1CB4ABA91C87279F000F5B8C /* ContractApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ContractApp.xcdatamodel; sourceTree = "<group>"; };
+		1CB4ABAB1C872A95000F5B8C /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		1CB4ABAD1C872AFE000F5B8C /* LoginUserStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginUserStore.swift; sourceTree = "<group>"; };
+		1CF69A0A1C8BB65C00D4C59F /* OrderChuyunInfoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderChuyunInfoController.swift; sourceTree = "<group>"; };
+		1CF69A0C1C8BC00600D4C59F /* OrderFukuangInfoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderFukuangInfoController.swift; sourceTree = "<group>"; };
+		1CF69A0E1C8BC61800D4C59F /* OrderShouhuiController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderShouhuiController.swift; sourceTree = "<group>"; };
+		1CF69A121C92616300D4C59F /* LoadingOverlay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingOverlay.swift; sourceTree = "<group>"; };
+		1CF69A141C9264BA00D4C59F /* BaseUIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseUIViewController.swift; sourceTree = "<group>"; };
+		1CFAC8611C8173C500EF60D4 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		1CFAC8631C817D6300EF60D4 /* OrderListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderListViewController.swift; sourceTree = "<group>"; };
 		1CFAC8651C817DF300EF60D4 /* BusinessModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessModel.swift; sourceTree = "<group>"; };
 		1CFAC8671C81846100EF60D4 /* Cell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cell.swift; sourceTree = "<group>"; };
@@ -73,6 +90,9 @@
 		1CFAC8711C83D57200EF60D4 /* OrderSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderSearchViewController.swift; sourceTree = "<group>"; };
 		1CFAC8921C85823300EF60D4 /* ApprovalSearchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApprovalSearchController.swift; sourceTree = "<group>"; };
 		1CFAC8941C858B2E00EF60D4 /* ApprovalListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApprovalListViewController.swift; sourceTree = "<group>"; };
+		1CFEDBCB1C87C7AF00503981 /* LoginUser+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LoginUser+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		1CFEDBCC1C87C7AF00503981 /* LoginUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginUser.swift; sourceTree = "<group>"; };
+		1CFEDBCF1C87D94700503981 /* MyInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyInfoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,24 +144,34 @@
 			isa = PBXGroup;
 			children = (
 				1C23597E1C3B7A47006724C9 /* AppDelegate.swift */,
-				1C2359821C3B7A47006724C9 /* Main.storyboard */,
+				1CB4ABA61C86C1F0000F5B8C /* ApprovalDetailController.swift */,
+				1CFAC8941C858B2E00EF60D4 /* ApprovalListViewController.swift */,
+				1CFAC8921C85823300EF60D4 /* ApprovalSearchController.swift */,
 				1C2359851C3B7A47006724C9 /* Assets.xcassets */,
-				1C2359871C3B7A47006724C9 /* LaunchScreen.storyboard */,
-				1C23598A1C3B7A47006724C9 /* Info.plist */,
-				1C2359B81C3CD1E5006724C9 /* User.swift */,
-				1C2359BA1C3CD25D006724C9 /* MyInfoController.swift */,
-				1CFAC8611C8173C500EF60D4 /* ViewController.swift */,
-				1CFAC8631C817D6300EF60D4 /* OrderListViewController.swift */,
 				1CFAC8651C817DF300EF60D4 /* BusinessModel.swift */,
 				1CFAC8671C81846100EF60D4 /* Cell.swift */,
-				1CFAC8691C82C21B00EF60D4 /* OrderMenuController.swift */,
+				1CB4ABA81C87279F000F5B8C /* ContractApp.xcdatamodeld */,
+				1CB4ABAB1C872A95000F5B8C /* CoreDataStack.swift */,
+				1C23598A1C3B7A47006724C9 /* Info.plist */,
+				1C2359871C3B7A47006724C9 /* LaunchScreen.storyboard */,
+				1CFEDBCC1C87C7AF00503981 /* LoginUser.swift */,
+				1CFEDBCB1C87C7AF00503981 /* LoginUser+CoreDataProperties.swift */,
+				1CB4ABAD1C872AFE000F5B8C /* LoginUserStore.swift */,
+				1CFAC8611C8173C500EF60D4 /* LoginViewController.swift */,
+				1C2359821C3B7A47006724C9 /* Main.storyboard */,
+				1CFEDBCF1C87D94700503981 /* MyInfoViewController.swift */,
 				1CFAC86B1C82DC9B00EF60D4 /* OrderBasicInfoViewController.swift */,
-				1CFAC86D1C82E5B300EF60D4 /* OrderShougouInfoController.swift */,
-				1CFAC86F1C83388300EF60D4 /* Service.swift */,
+				1CF69A0A1C8BB65C00D4C59F /* OrderChuyunInfoController.swift */,
+				1CF69A0C1C8BC00600D4C59F /* OrderFukuangInfoController.swift */,
+				1CFAC8631C817D6300EF60D4 /* OrderListViewController.swift */,
+				1CFAC8691C82C21B00EF60D4 /* OrderMenuController.swift */,
 				1CFAC8711C83D57200EF60D4 /* OrderSearchViewController.swift */,
-				1CFAC8921C85823300EF60D4 /* ApprovalSearchController.swift */,
-				1CFAC8941C858B2E00EF60D4 /* ApprovalListViewController.swift */,
-				1CB4ABA61C86C1F0000F5B8C /* ApprovalDetailController.swift */,
+				1CFAC86D1C82E5B300EF60D4 /* OrderShougouInfoController.swift */,
+				1CF69A0E1C8BC61800D4C59F /* OrderShouhuiController.swift */,
+				1CFAC86F1C83388300EF60D4 /* Service.swift */,
+				1C2359B81C3CD1E5006724C9 /* User.swift */,
+				1CF69A121C92616300D4C59F /* LoadingOverlay.swift */,
+				1CF69A141C9264BA00D4C59F /* BaseUIViewController.swift */,
 			);
 			path = ContractApp;
 			sourceTree = "<group>";
@@ -296,21 +326,31 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1CF69A151C9264BA00D4C59F /* BaseUIViewController.swift in Sources */,
 				1CFAC86E1C82E5B300EF60D4 /* OrderShougouInfoController.swift in Sources */,
 				1CFAC8721C83D57200EF60D4 /* OrderSearchViewController.swift in Sources */,
+				1CFEDBD01C87D94700503981 /* MyInfoViewController.swift in Sources */,
 				1CFAC86A1C82C21B00EF60D4 /* OrderMenuController.swift in Sources */,
-				1CFAC8621C8173C500EF60D4 /* ViewController.swift in Sources */,
+				1CFAC8621C8173C500EF60D4 /* LoginViewController.swift in Sources */,
+				1CB4ABAE1C872AFE000F5B8C /* LoginUserStore.swift in Sources */,
+				1CF69A0F1C8BC61800D4C59F /* OrderShouhuiController.swift in Sources */,
+				1CFEDBCD1C87C7AF00503981 /* LoginUser+CoreDataProperties.swift in Sources */,
+				1CFEDBCE1C87C7AF00503981 /* LoginUser.swift in Sources */,
 				1CFAC8641C817D6300EF60D4 /* OrderListViewController.swift in Sources */,
 				1C2359B91C3CD1E5006724C9 /* User.swift in Sources */,
 				1CFAC8701C83388300EF60D4 /* Service.swift in Sources */,
 				1C23597F1C3B7A47006724C9 /* AppDelegate.swift in Sources */,
+				1CF69A0D1C8BC00600D4C59F /* OrderFukuangInfoController.swift in Sources */,
 				1CFAC8951C858B2E00EF60D4 /* ApprovalListViewController.swift in Sources */,
 				1CFAC8931C85823300EF60D4 /* ApprovalSearchController.swift in Sources */,
 				1CFAC86C1C82DC9B00EF60D4 /* OrderBasicInfoViewController.swift in Sources */,
-				1C2359BB1C3CD25D006724C9 /* MyInfoController.swift in Sources */,
+				1CB4ABAC1C872A95000F5B8C /* CoreDataStack.swift in Sources */,
 				1CFAC8681C81846100EF60D4 /* Cell.swift in Sources */,
 				1CFAC8661C817DF300EF60D4 /* BusinessModel.swift in Sources */,
 				1CB4ABA71C86C1F0000F5B8C /* ApprovalDetailController.swift in Sources */,
+				1CB4ABAA1C87279F000F5B8C /* ContractApp.xcdatamodeld in Sources */,
+				1CF69A0B1C8BB65C00D4C59F /* OrderChuyunInfoController.swift in Sources */,
+				1CF69A131C92616300D4C59F /* LoadingOverlay.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -453,8 +493,9 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = ContractApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = cn.project.ContractApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jinjunhang.ContractApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -467,8 +508,9 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = ContractApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = cn.project.ContractApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jinjunhang.ContractApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -562,6 +604,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		1CB4ABA81C87279F000F5B8C /* ContractApp.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				1CB4ABA91C87279F000F5B8C /* ContractApp.xcdatamodel */,
+			);
+			currentVersion = 1CB4ABA91C87279F000F5B8C /* ContractApp.xcdatamodel */;
+			path = ContractApp.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 1C2359731C3B7A47006724C9 /* Project object */;
 }

@@ -16,7 +16,8 @@ class ApprovalListViewController: UIViewController, UITableViewDataSource, UITab
     var approvalService = ApprovalService()
     var queryObject: ApprovalQueryObject?
     var hasMore = false
-    var page = 0
+    var quering = false
+    var page = 1
     
     var loadMoreText = UILabel()
     let tableFooterView = UIView()//列表的底部，用于显示“上拉查看更多”的提示，当上拉后显示类容为“松开加载更多”
@@ -29,16 +30,6 @@ class ApprovalListViewController: UIViewController, UITableViewDataSource, UITab
         if queryObject != nil && approvals.count > 9 {
             createTableFooter()
         }
-    }
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -65,23 +56,23 @@ class ApprovalListViewController: UIViewController, UITableViewDataSource, UITab
         if segue.identifier == "approvalDetailSegue" {
             let dest = segue.destinationViewController as! ApprovalDetailController
             dest.approval = approvals[(tableView.indexPathForSelectedRow?.row)!]
-            //dest. = orders[tableView.indexPathForSelectedRow!.row]
         }
     }
     
-    func createTableFooter(){//初始化tv的footerView
+    func createTableFooter(){
         
         self.tableView.tableFooterView = nil
         
-        tableFooterView.frame = CGRectMake(0, 0, tableView.bounds.size.width, 60)
-        loadMoreText.frame =  CGRectMake(0, 0, tableView.bounds.size.width, 60)
+        tableFooterView.frame = CGRectMake(0, 0, tableView.bounds.size.width, 40)
+        loadMoreText.frame =  CGRectMake(0, 0, tableView.bounds.size.width, 40)
         loadMoreText.text = "上拉查看更多"
         
         loadMoreText.textAlignment = NSTextAlignment.Center
-        
         tableFooterView.addSubview(loadMoreText)
+        loadMoreText.font = UIFont(name: "Helvetica Neue", size: 15)
+        loadMoreText.center = CGPointMake( (tableView.bounds.size.width - loadMoreText.intrinsicContentSize().width / 16) / 2 , 20)
         
-        tableView.tableFooterView = tableFooterView
+        self.tableView.tableFooterView = tableFooterView
     }
     
     func scrollViewDidScroll(scrollView: UIScrollView){//开始上拉到特定位置后改变列表底部的提示
@@ -98,9 +89,14 @@ class ApprovalListViewController: UIViewController, UITableViewDataSource, UITab
             
         }
     }
+
     func scrollViewDidEndDragging(scrollView: UIScrollView, willDecelerate decelerate: Bool){
         
         if !hasMore {
+            return
+        }
+        
+        if quering {
             return
         }
         
@@ -110,9 +106,10 @@ class ApprovalListViewController: UIViewController, UITableViewDataSource, UITab
         
         if scrollView.contentOffset.y > (scrollView.contentSize.height - scrollView.frame.size.height + 30){
             
+            loadMoreText.text = "加载中"
             //self.initArr()
-            approvalService.search(queryObject?.keyword, containApproved: (queryObject?.containApproved)!, containUnapproved: (queryObject?.containUnapproved)!, startDate: queryObject?.startDate, endDate: queryObject?.endDate, index: page, pageSize: (queryObject?.pageSize)!) {
-                response in
+            quering = true
+            approvalService.search(queryObject?.keyword, containApproved: (queryObject?.containApproved)!, containUnapproved: (queryObject?.containUnapproved)!, startDate: queryObject?.startDate, endDate: queryObject?.endDate, index: page, pageSize: (queryObject?.pageSize)!) { response in
                 dispatch_async(dispatch_get_main_queue()) {
                     self.page++
                     let newApprovals = response.approvals
@@ -120,14 +117,16 @@ class ApprovalListViewController: UIViewController, UITableViewDataSource, UITab
                         self.approvals.append(approval)
                     }
                     if self.approvals.count >= response.totalNumber {
-                        self.hasMore = true
+                        self.hasMore = false
                     }
+                    self.tableView.reloadData()
+                    self.quering = false
                 }
             }
-            self.tableView.reloadData()
+            
         }
     }
-    
+
 
 
 }

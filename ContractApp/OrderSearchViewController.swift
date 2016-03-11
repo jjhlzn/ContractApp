@@ -8,7 +8,7 @@
 
 import UIKit
 
-class OrderSearchViewController: UIViewController, UITextFieldDelegate {
+class OrderSearchViewController: BaseUIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var keyworldField: UITextField!
     
@@ -69,10 +69,17 @@ class OrderSearchViewController: UIViewController, UITextFieldDelegate {
     
     
     @IBAction func seachPressed(sender: UIButton) {
-        
+        loadingOverlay.showOverlay(self.view)
         orderService.search(nil, startDate: nil, endDate: nil, index: 0, pageSize: 10) { orderResponse in
             dispatch_async(dispatch_get_main_queue()) {
-                self.performSegueWithIdentifier("orderResultSegue", sender: orderResponse)
+                self.loadingOverlay.hideOverlayView()
+                if orderResponse.status != 0 {
+                    if orderResponse.errorMessage != nil {
+                        self.displayMessage(orderResponse.errorMessage!)
+                    }
+                } else {
+                    self.performSegueWithIdentifier("orderResultSegue", sender: orderResponse)
+                }
             }
             
         }
