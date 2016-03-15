@@ -31,9 +31,9 @@ class LoginViewController: BaseUIViewController {
         passwordTextField.layer.cornerRadius = 5
         loginButton.layer.cornerRadius = 5
         
-        //检查一下是否已经登录，如果登录，则直接进入后面的页面
-        
     }
+    
+   
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return UIStatusBarStyle.LightContent
@@ -46,15 +46,15 @@ class LoginViewController: BaseUIViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        //centerAlignUsername.constant -= view.bounds.width
-        //centerAlignPassword.constant -= view.bounds.width
         loginButton.alpha = 0
-        
+ 
     }
     
+
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        
+
+
         UIView.animateWithDuration(0.5, delay: 0.00, options: UIViewAnimationOptions.CurveEaseOut, animations: {
             
            // self.centerAlignUsername.constant += self.view.bounds.width
@@ -74,6 +74,8 @@ class LoginViewController: BaseUIViewController {
             self.loginButton.alpha = 1
             
             }, completion: nil)
+        
+        
         
     }
     

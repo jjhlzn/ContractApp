@@ -23,6 +23,7 @@
 		1CF69A0F1C8BC61800D4C59F /* OrderShouhuiController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF69A0E1C8BC61800D4C59F /* OrderShouhuiController.swift */; };
 		1CF69A131C92616300D4C59F /* LoadingOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF69A121C92616300D4C59F /* LoadingOverlay.swift */; };
 		1CF69A151C9264BA00D4C59F /* BaseUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF69A141C9264BA00D4C59F /* BaseUIViewController.swift */; };
+		1CF69A171C96708200D4C59F /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF69A161C96708100D4C59F /* LaunchViewController.swift */; };
 		1CFAC8621C8173C500EF60D4 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CFAC8611C8173C500EF60D4 /* LoginViewController.swift */; };
 		1CFAC8641C817D6300EF60D4 /* OrderListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CFAC8631C817D6300EF60D4 /* OrderListViewController.swift */; };
 		1CFAC8661C817DF300EF60D4 /* BusinessModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CFAC8651C817DF300EF60D4 /* BusinessModel.swift */; };
@@ -79,6 +80,7 @@
 		1CF69A0E1C8BC61800D4C59F /* OrderShouhuiController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderShouhuiController.swift; sourceTree = "<group>"; };
 		1CF69A121C92616300D4C59F /* LoadingOverlay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingOverlay.swift; sourceTree = "<group>"; };
 		1CF69A141C9264BA00D4C59F /* BaseUIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseUIViewController.swift; sourceTree = "<group>"; };
+		1CF69A161C96708100D4C59F /* LaunchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
 		1CFAC8611C8173C500EF60D4 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		1CFAC8631C817D6300EF60D4 /* OrderListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderListViewController.swift; sourceTree = "<group>"; };
 		1CFAC8651C817DF300EF60D4 /* BusinessModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessModel.swift; sourceTree = "<group>"; };
@@ -172,6 +174,7 @@
 				1C2359B81C3CD1E5006724C9 /* User.swift */,
 				1CF69A121C92616300D4C59F /* LoadingOverlay.swift */,
 				1CF69A141C9264BA00D4C59F /* BaseUIViewController.swift */,
+				1CF69A161C96708100D4C59F /* LaunchViewController.swift */,
 			);
 			path = ContractApp;
 			sourceTree = "<group>";
@@ -339,6 +342,7 @@
 				1CFAC8641C817D6300EF60D4 /* OrderListViewController.swift in Sources */,
 				1C2359B91C3CD1E5006724C9 /* User.swift in Sources */,
 				1CFAC8701C83388300EF60D4 /* Service.swift in Sources */,
+				1CF69A171C96708200D4C59F /* LaunchViewController.swift in Sources */,
 				1C23597F1C3B7A47006724C9 /* AppDelegate.swift in Sources */,
 				1CF69A0D1C8BC00600D4C59F /* OrderFukuangInfoController.swift in Sources */,
 				1CFAC8951C858B2E00EF60D4 /* ApprovalListViewController.swift in Sources */,
@@ -498,6 +502,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.jinjunhang.ContractApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -513,6 +518,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.jinjunhang.ContractApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

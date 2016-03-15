@@ -11,13 +11,16 @@ import Foundation
 class ServiceConfiguration {
     //static let serverName = "localhost"
     static let serverName = "www.jinjunhang.com"
+    
     static let port = 3000
-    static let SeachOrderUrl = "http://\(serverName):\(port)/order/search.json"
-    static let GetOrderPurcaseInfoUrl = "http://\(serverName):\(port)/order/getPurchaseInfo.json"
-    static let GetBasicInfoUrl = "http://\(serverName):\(port)/order/getBasicInfo.json"
-    static let GetOrderChuyunInfoUrl = "http://\(serverName):\(port)/order/getChuyunInfo.json"
-    static let GetOrderFukuangInfoUrl = "http://\(serverName):\(port)/order/getFukuangInfo.json"
-    static let GetOrderShouhuiInfoUrl = "http://\(serverName):\(port)/order/getShouhuiInfo.json"
+    static let serverName2 = "jjhtest.hengdianworld.com"
+    static let port2 = 80
+    static let SeachOrderUrl = "http://\(serverName2):\(port2)/order/search.json"
+    static let GetOrderPurcaseInfoUrl = "http://\(serverName2):\(port2)/order/getPurchaseInfo.json"
+    static let GetBasicInfoUrl = "http://\(serverName2):\(port2)/order/getBasicInfo.json"
+    static let GetOrderChuyunInfoUrl = "http://\(serverName2):\(port2)/order/getChuyunInfo.json"
+    static let GetOrderFukuangInfoUrl = "http://\(serverName2):\(port2)/order/getFukuangInfo.json"
+    static let GetOrderShouhuiInfoUrl = "http://\(serverName2):\(port2)/order/getShouhuiInfo.json"
 
     static let SeachApprovalUrl = "http://\(serverName):\(port)/approval/search.json"
     static let AuditApprovalUrl = "http://\(serverName):\(port)/approval/audit.json"
@@ -37,6 +40,7 @@ class BasicService {
             // Make sure we get an OK response
             guard let realResponse = response as? NSHTTPURLResponse where
                 realResponse.statusCode == 200 else {
+                    print(url)
                     print("Not a 200 response")
                     serverResponse.status = -1
                     serverResponse.errorMessage = "服务器返回出错"
@@ -112,7 +116,7 @@ class OrderService : BasicService{
     }
     
     func makeGetBasicInfoUrl(orderId: String) -> String {
-        return ServiceConfiguration.GetBasicInfoUrl
+        return ServiceConfiguration.GetBasicInfoUrl + "?orderId=\(orderId)"
     }
     
     //获取合同收购信息
@@ -122,9 +126,8 @@ class OrderService : BasicService{
         let url = makeGetOrderPurchaseInfoUrl(orderId)
         sendRequest(url, serverResponse: response) { (dict) -> Void in
             if response.status == 0 {
-                let json = dict["purchaseInfo"] as! NSDictionary
                 let purchaseInfo = OrderPurchaseInfo()
-                let jsonItems = json["items"] as! NSArray
+                let jsonItems = dict["purchaseInfo"] as! NSArray
                 var items = [OrderPurchaseItem]()
                 for jsonItem in jsonItems {
                     let item = OrderPurchaseItem(contract: jsonItem["contract"] as? String, date: jsonItem["date"] as? String, factory: jsonItem["factory"] as? String, amount: jsonItem["amount"] as! NSNumber)
@@ -139,7 +142,7 @@ class OrderService : BasicService{
     }
     
     func makeGetOrderPurchaseInfoUrl(orderId: String) -> String {
-        return ServiceConfiguration.GetOrderPurcaseInfoUrl
+        return ServiceConfiguration.GetOrderPurcaseInfoUrl + "?orderId=\(orderId)"
     }
     
     func getChuyunInfo(orderId: String, completion: ((response: GetOrderChuyunInfoResponse) -> Void)) -> GetOrderChuyunInfoResponse {
@@ -158,7 +161,7 @@ class OrderService : BasicService{
     }
     
     func makeGetOrderChuyunInfoUrl(orderId: String) -> String {
-        return ServiceConfiguration.GetOrderChuyunInfoUrl
+        return ServiceConfiguration.GetOrderChuyunInfoUrl + "?orderId=\(orderId)"
     }
     
     func getFukuangInfo(orderId: String, completion: ((response: GetOrderFukuangInfoResponse) -> Void)) -> GetOrderFukuangInfoResponse {
@@ -167,9 +170,8 @@ class OrderService : BasicService{
         let url = makeGetOrderFukuangInfoUrl(orderId)
         sendRequest(url, serverResponse: response) { (dict) -> Void in
             if response.status == 0 {
-                let json = dict["fukuangInfo"] as! NSDictionary
                 let purchaseInfo = OrderPurchaseInfo()
-                let jsonItems = json["items"] as! NSArray
+                let jsonItems = dict["fukuangInfo"] as! NSArray
                 var items = [OrderPurchaseItem]()
                 for jsonItem in jsonItems {
                     let item = OrderPurchaseItem(contract: jsonItem["contract"] as? String, date: jsonItem["date"] as? String, factory: jsonItem["factory"] as? String, amount: jsonItem["amount"] as! NSNumber)
@@ -184,7 +186,7 @@ class OrderService : BasicService{
     }
     
     func makeGetOrderFukuangInfoUrl(orderId: String) -> String {
-        return ServiceConfiguration.GetOrderFukuangInfoUrl
+        return ServiceConfiguration.GetOrderFukuangInfoUrl + "?orderId=\(orderId)"
     }
     
     func getShouhuiInfo(orderId: String, completion: ((response: GetOrderShouhuiInfoResponse) -> Void)) -> GetOrderShouhuiInfoResponse {
@@ -203,7 +205,7 @@ class OrderService : BasicService{
     }
     
     func makeGetOrderShouhuiInfoUrl(orderId: String) -> String {
-        return ServiceConfiguration.GetOrderShouhuiInfoUrl
+        return ServiceConfiguration.GetOrderShouhuiInfoUrl + "?orderId=\(orderId)"
     }
     
 }

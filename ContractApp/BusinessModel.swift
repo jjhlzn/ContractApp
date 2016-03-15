@@ -25,6 +25,9 @@ class Order {
         self.amount = amount
         self.guestName = guestName
     }
+    init() {
+        
+    }
 }
 
 //合同基本信息

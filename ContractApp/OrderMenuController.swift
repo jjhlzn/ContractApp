@@ -67,7 +67,7 @@ class OrderMenuController: BaseUIViewController, UITableViewDataSource, UITableV
         
         if indexPath.row == 0 {
             loadingOverlay.showOverlay(self.view)
-            orderService.getBasicInfo("") { response -> Void in
+            orderService.getBasicInfo(order.contractNo!) { response -> Void in
                 dispatch_async(dispatch_get_main_queue()) {
                     self.loadingOverlay.hideOverlayView()
                     if response.status != 0 {
@@ -82,7 +82,7 @@ class OrderMenuController: BaseUIViewController, UITableViewDataSource, UITableV
         
         if indexPath.row == 1 {
             loadingOverlay.showOverlay(self.view)
-            orderService.getOrderPurchaseInfo("") { response -> Void in
+            orderService.getOrderPurchaseInfo(order.contractNo!) { response -> Void in
                 dispatch_async(dispatch_get_main_queue()) {
                     self.loadingOverlay.hideOverlayView()
                     if response.status != 0 {
@@ -96,7 +96,7 @@ class OrderMenuController: BaseUIViewController, UITableViewDataSource, UITableV
         
         if indexPath.row == 2 {
             loadingOverlay.showOverlay(self.view)
-            orderService.getChuyunInfo("") { response -> Void in
+            orderService.getChuyunInfo(order.contractNo!) { response -> Void in
                 dispatch_async(dispatch_get_main_queue()) {
                     self.loadingOverlay.hideOverlayView()
                     if response.status != 0 {
@@ -111,7 +111,7 @@ class OrderMenuController: BaseUIViewController, UITableViewDataSource, UITableV
         
         if indexPath.row == 3 {
             loadingOverlay.showOverlay(self.view)
-            orderService.getFukuangInfo("") { response -> Void in
+            orderService.getFukuangInfo(order.contractNo!) { response -> Void in
                 dispatch_async(dispatch_get_main_queue()) {
                     self.loadingOverlay.hideOverlayView()
                     if response.status != 0 {
@@ -125,7 +125,7 @@ class OrderMenuController: BaseUIViewController, UITableViewDataSource, UITableV
         
         if indexPath.row == 4 {
             loadingOverlay.showOverlay(self.view)
-            orderService.getShouhuiInfo("") { response -> Void in
+            orderService.getShouhuiInfo(order.contractNo!) { response -> Void in
                 dispatch_async(dispatch_get_main_queue()) {
                     self.loadingOverlay.hideOverlayView()
                     if response.status != 0 {

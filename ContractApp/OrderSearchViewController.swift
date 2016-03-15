@@ -23,15 +23,24 @@ class OrderSearchViewController: BaseUIViewController, UITextFieldDelegate {
         let startDatePicker = UIDatePicker()
         let endDatePicker = UIDatePicker()
         
+        let currentDateTime = NSDate()
+        let formatter = NSDateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        
+        let oneMonthAgo = currentDateTime.dateByAddingTimeInterval(-30 * 24 * 60 * 60)
         
         startDatePicker.datePickerMode = UIDatePickerMode.Date
+        startDatePicker.date = oneMonthAgo
         startDatePicker.locale = NSLocale(localeIdentifier: "zh_cn")
         startDateField.delegate = self
+        startDateField.text =  formatter.stringFromDate(oneMonthAgo)
+        
         
         endDatePicker.datePickerMode = UIDatePickerMode.Date
 
         endDatePicker.locale = NSLocale(localeIdentifier: "zh_cn")
         endDateField.delegate = self
+        endDateField.text = formatter.stringFromDate(currentDateTime)
         
         startDatePicker.addTarget(self, action: "datePickerChanged:", forControlEvents: .ValueChanged)
         endDatePicker.addTarget(self, action: "datePickerChanged1:", forControlEvents: .ValueChanged)
