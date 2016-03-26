@@ -22,8 +22,15 @@ class ApprovalSearchController: BaseUIViewController, UITextFieldDelegate {
     
     var approvalService = ApprovalService()
     
+    var loginUser: LoginUser!
+    let loginUserStore = LoginUserStore()
+
+    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        
+        loginUser = loginUserStore.GetLoginUser()!
+        
         let startDatePicker = UIDatePicker()
         let endDatePicker = UIDatePicker()
         
@@ -70,20 +77,36 @@ class ApprovalSearchController: BaseUIViewController, UITextFieldDelegate {
         return true
     }
     
+    func getStartDate() -> NSDate {
+        let formatter = NSDateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        return formatter.dateFromString(startDateField.text!)!
+    }
+    
+    func getEndDate() -> NSDate {
+        let formatter = NSDateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        return formatter.dateFromString(endDateField.text!)!
+    }
+    
+    func getKeyword() -> String {
+        return keywordField.text == nil ? "" : keywordField.text!;
+    }
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "approvalResultSegue" {
             let dest = segue.destinationViewController as! ApprovalListViewController
             let response = sender as! SearchApprovalResponse
             dest.approvals = response.approvals
             dest.hasMore = dest.approvals.count < response.totalNumber
-            dest.queryObject = ApprovalQueryObject(keyword: keywordField.text, startDate: nil, endDate: nil, containApproved: approvedSwitch.on, containUnapproved: unapprovedSwitch.on)
+            dest.queryObject = ApprovalQueryObject(keyword: getKeyword(), startDate: getStartDate(), endDate: getEndDate(), containApproved: approvedSwitch.on, containUnapproved: unapprovedSwitch.on)
         }
     }
     
     @IBAction func searchPressed(sender: UIButton) {
  
         loadingOverlay.showOverlay(self.view)
-        approvalService.search(nil, containApproved: true, containUnapproved: true, startDate: nil, endDate: nil, index: 0, pageSize: 10) { response in
+        approvalService.search(loginUser.userName!, keyword: getKeyword(), containApproved: approvedSwitch.on, containUnapproved: unapprovedSwitch.on, startDate: getStartDate(), endDate: getEndDate(), index: 0, pageSize: 10) { response in
             dispatch_async(dispatch_get_main_queue()) {
                 self.loadingOverlay.hideOverlayView()
                 if response.status != 0 {

@@ -90,6 +90,13 @@ class OrderShouHuiInfo {
     }
 }
 
+extension Double
+{
+    func truncate(places : Int)-> Double
+    {
+        return Double(floor(pow(10.0, Double(places)) * self)/pow(10.0, Double(places)))
+    }
+}
 
 
 class Approval {
@@ -148,12 +155,12 @@ class SearchApprovalResponse : PageServerResponse {
 }
 
 class OrderQueryObject {
-    var keyword: String?
-    var startDate: NSDate?
-    var endDate: NSDate?
+    var keyword: String
+    var startDate: NSDate
+    var endDate: NSDate
     var pageSize: Int = 10
     
-    init(keyword: String?, startDate: NSDate?, endDate: NSDate?)
+    init(keyword: String, startDate: NSDate, endDate: NSDate)
     {
         self.keyword = keyword
         self.startDate = startDate
@@ -162,14 +169,14 @@ class OrderQueryObject {
 }
 
 class ApprovalQueryObject {
-    var keyword: String?
-    var startDate: NSDate?
-    var endDate: NSDate?
+    var keyword: String
+    var startDate: NSDate
+    var endDate: NSDate
     var pageSize: Int = 10
     var containApproved: Bool = true
     var containUnapproved: Bool = true
     
-    init(keyword: String?, startDate: NSDate?, endDate: NSDate?, containApproved: Bool, containUnapproved: Bool) {
+    init(keyword: String, startDate: NSDate, endDate: NSDate, containApproved: Bool, containUnapproved: Bool) {
         self.keyword = keyword
         self.startDate = startDate
         self.endDate = endDate

@@ -66,20 +66,38 @@ class OrderSearchViewController: BaseUIViewController, UITextFieldDelegate {
         return true
     }
     
+    func getStartDate() -> NSDate {
+        let formatter = NSDateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        return formatter.dateFromString(startDateField.text!)!
+    }
+    
+    func getEndDate() -> NSDate {
+        let formatter = NSDateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        return formatter.dateFromString(endDateField.text!)!
+    }
+    
+    func getKeyword() -> String {
+        return keyworldField.text == nil ? "" : keyworldField.text!;
+    }
+    
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "orderResultSegue" {
             let dest = segue.destinationViewController as! OrderListViewController
             let orderResponse = sender as! SeachOrderResponse
             dest.orders = orderResponse.orders
             dest.hasMore = dest.orders.count < orderResponse.totalNumber
-            dest.queryObject = OrderQueryObject(keyword: keyworldField.text, startDate: nil, endDate: nil)
+            dest.queryObject = OrderQueryObject(keyword: getKeyword(), startDate: getStartDate(), endDate: getEndDate())
         }
     }
     
     
     @IBAction func seachPressed(sender: UIButton) {
         loadingOverlay.showOverlay(self.view)
-        orderService.search(nil, startDate: nil, endDate: nil, index: 0, pageSize: 10) { orderResponse in
+        orderService.search(getKeyword(), startDate: getStartDate(),
+            endDate: getEndDate(), index: 0, pageSize: 10) { orderResponse in
             dispatch_async(dispatch_get_main_queue()) {
                 self.loadingOverlay.hideOverlayView()
                 if orderResponse.status != 0 {

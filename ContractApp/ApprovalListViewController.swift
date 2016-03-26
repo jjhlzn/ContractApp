@@ -19,11 +19,17 @@ class ApprovalListViewController: UIViewController, UITableViewDataSource, UITab
     var quering = false
     var page = 1
     
+    var loginUser: LoginUser!
+    let loginUserStore = LoginUserStore()
+    
+    
     var loadMoreText = UILabel()
     let tableFooterView = UIView()//列表的底部，用于显示“上拉查看更多”的提示，当上拉后显示类容为“松开加载更多”
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        
+        loginUser = loginUserStore.GetLoginUser()!
         
         tableView.dataSource = self
         tableView.delegate = self
@@ -45,7 +51,8 @@ class ApprovalListViewController: UIViewController, UITableViewDataSource, UITab
             let cell = tableView.dequeueReusableCellWithIdentifier("approvalContentCell") as! ApprovalCell
             cell.approvalObjectField.text = approval.approvalObject
             cell.keywordField.text = approval.keyword
-            cell.amountField.text = "\(approval.amount)"
+            var amount = "\(Double(approval.amount).truncate(2))"
+            cell.amountField.text = amount
             cell.reporterField.text = approval.reporter
             cell.reportDateField.text = approval.reportDate
             return cell
@@ -55,7 +62,7 @@ class ApprovalListViewController: UIViewController, UITableViewDataSource, UITab
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "approvalDetailSegue" {
             let dest = segue.destinationViewController as! ApprovalDetailController
-            dest.approval = approvals[(tableView.indexPathForSelectedRow?.row)!]
+            dest.approval = approvals[(tableView.indexPathForSelectedRow?.row)! - 1]
         }
     }
     
@@ -109,7 +116,7 @@ class ApprovalListViewController: UIViewController, UITableViewDataSource, UITab
             loadMoreText.text = "加载中"
             //self.initArr()
             quering = true
-            approvalService.search(queryObject?.keyword, containApproved: (queryObject?.containApproved)!, containUnapproved: (queryObject?.containUnapproved)!, startDate: queryObject?.startDate, endDate: queryObject?.endDate, index: page, pageSize: (queryObject?.pageSize)!) { response in
+            approvalService.search(loginUser.userName!, keyword: (queryObject?.keyword)!, containApproved: (queryObject?.containApproved)!, containUnapproved: (queryObject?.containUnapproved)!, startDate: (queryObject?.startDate)!, endDate: (queryObject?.endDate)!, index: page, pageSize: (queryObject?.pageSize)!) { response in
                 dispatch_async(dispatch_get_main_queue()) {
                     self.page++
                     let newApprovals = response.approvals

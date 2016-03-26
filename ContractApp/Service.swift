@@ -22,8 +22,8 @@ class ServiceConfiguration {
     static let GetOrderFukuangInfoUrl = "http://\(serverName2):\(port2)/order/getFukuangInfo.json"
     static let GetOrderShouhuiInfoUrl = "http://\(serverName2):\(port2)/order/getShouhuiInfo.json"
 
-    static let SeachApprovalUrl = "http://\(serverName):\(port)/approval/search.json"
-    static let AuditApprovalUrl = "http://\(serverName):\(port)/approval/audit.json"
+    static let SeachApprovalUrl = "http://\(serverName2):\(port2)/approval/search.json"
+    static let AuditApprovalUrl = "http://\(serverName2):\(port2)/approval/audit.json"
     
     static let loginUrl = "http://\(serverName):\(port)/login/login.json"
 }
@@ -34,7 +34,7 @@ class BasicService {
         let postEndpoint: String = url
         let session = NSURLSession.sharedSession()
         let url = NSURL(string: postEndpoint)!
-        
+        print("send url: \(url)")
         // Make the POST call and handle it in a completion handler
         session.dataTaskWithURL(url, completionHandler: { ( data: NSData?, response: NSURLResponse?, error: NSError?) -> Void in
             // Make sure we get an OK response
@@ -75,7 +75,7 @@ class BasicService {
 
 class OrderService : BasicService{
 
-    func search(keyword: String?, startDate: NSDate?, endDate: NSDate?, index: Int, pageSize: Int, completion: ((seachOrderResponse: SeachOrderResponse) -> Void)) -> SeachOrderResponse {
+    func search(keyword: String, startDate: NSDate, endDate: NSDate, index: Int, pageSize: Int, completion: ((seachOrderResponse: SeachOrderResponse) -> Void)) -> SeachOrderResponse {
         let orderResponse = SeachOrderResponse()
         
         // Setup the session to make REST GET call.  Notice the URL is https NOT http!!
@@ -96,8 +96,10 @@ class OrderService : BasicService{
         return orderResponse
     }
     
-    func makeUrl(keyword: String?, startDate: NSDate?, endDate: NSDate?, index: Int, pageSize: Int) -> String {
-        return ServiceConfiguration.SeachOrderUrl + "?" + "index=\(index)&pageSize=\(pageSize)"
+    func makeUrl(keyword: String, startDate: NSDate, endDate: NSDate, index: Int, pageSize: Int) -> String {
+        let formatter:NSDateFormatter = NSDateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        return ServiceConfiguration.SeachOrderUrl + "?" + "keyword=\(keyword)&startdate=\(formatter.stringFromDate(startDate))&enddate=\(formatter.stringFromDate(endDate))&index=\(index)&pagesize=\(pageSize)"
     }
     
     //获取合同基本信息
@@ -211,9 +213,9 @@ class OrderService : BasicService{
 }
 
 class ApprovalService : BasicService {
-    func search(keyword: String?, containApproved: Bool, containUnapproved: Bool, startDate: NSDate?, endDate: NSDate?, index: Int, pageSize: Int, completion: ((searchApprovalResponse: SearchApprovalResponse) -> Void)) -> SearchApprovalResponse {
+    func search(userId: String, keyword: String, containApproved: Bool, containUnapproved: Bool, startDate: NSDate, endDate: NSDate, index: Int, pageSize: Int, completion: ((searchApprovalResponse: SearchApprovalResponse) -> Void)) -> SearchApprovalResponse {
         let response = SearchApprovalResponse()
-        let url = makeUrl(keyword, containApproved: containApproved, containUnapproved: containUnapproved, startDate: startDate, endDate: endDate, index: index, pageSize: pageSize)
+        let url = makeUrl(userId, keyword: keyword, containApproved: containApproved, containUnapproved: containUnapproved, startDate: startDate, endDate: endDate, index: index, pageSize: pageSize)
         sendRequest(url, serverResponse: response) { dict -> Void in
             if response.status == 0 {
                 var approvals = [Approval]()
@@ -231,14 +233,17 @@ class ApprovalService : BasicService {
         return response
     }
     
-    func makeUrl(keyword: String?, containApproved: Bool, containUnapproved: Bool, startDate: NSDate?, endDate: NSDate?, index: Int, pageSize: Int) -> String {
-        return ServiceConfiguration.SeachApprovalUrl
+    func makeUrl(userId: String, keyword: String, containApproved: Bool, containUnapproved: Bool, startDate: NSDate, endDate: NSDate, index: Int, pageSize: Int) -> String {
+        let formatter:NSDateFormatter = NSDateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        
+        return ServiceConfiguration.SeachApprovalUrl + "?userid=\(userId)&keyword=\(keyword)&containapproved=\(containApproved)&containunapproved=\(containUnapproved)&startdate=\(formatter.stringFromDate(startDate))&enddate=\(formatter.stringFromDate(endDate))&index=\(index)&pagesize=\(pageSize)"
     }
     
-    func audit(approvalId: String, result: String, completion: ((response: AuditApprovalResponse) -> Void)) -> AuditApprovalResponse {
+    func audit(userId: String, approvalId: String, result: String, completion: ((response: AuditApprovalResponse) -> Void)) -> AuditApprovalResponse {
         
         let response = AuditApprovalResponse()
-        let url = makeAuditUrl(approvalId, result: result)
+        let url = makeAuditUrl(userId, approvalId: approvalId, result: result)
         sendRequest(url, serverResponse: response) { dict -> Void in
             if response.status == 0 {
                 let json = dict["auditResult"] as! NSDictionary
@@ -250,8 +255,8 @@ class ApprovalService : BasicService {
         return response
     }
     
-    func makeAuditUrl(approvalId: String, result: String) -> String {
-        return ServiceConfiguration.AuditApprovalUrl
+    func makeAuditUrl(userId: String, approvalId: String, result: String) -> String {
+        return ServiceConfiguration.AuditApprovalUrl + "?userid=\(userId)&result=\(result)&approvalid=\(approvalId)"
     }
 
 }

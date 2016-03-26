@@ -107,7 +107,7 @@ class OrderListViewController: UIViewController, UITableViewDataSource, UITableV
             loadMoreText.text = "加载中"
             //self.initArr()
             quering = true
-            orderService.search(queryObject?.keyword, startDate: queryObject?.startDate, endDate: queryObject?.endDate, index: page, pageSize: (queryObject?.pageSize)!) {
+            orderService.search((queryObject?.keyword)!, startDate: (queryObject?.startDate)!, endDate: (queryObject?.endDate)!, index: page, pageSize: (queryObject?.pageSize)!) {
                 orderResponse in
                 dispatch_async(dispatch_get_main_queue()) {
                     self.page++

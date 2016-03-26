@@ -26,10 +26,16 @@ class ApprovalDetailController: BaseUIViewController {
     
     @IBOutlet weak var unpassButton: UIButton!
     
+    var loginUser: LoginUser!
+    let loginUserStore = LoginUserStore()
+
+    
     var approval: Approval!
     let approvalService = ApprovalService()
     
     override func viewWillAppear(animated: Bool) {
+        
+        loginUser = loginUserStore.GetLoginUser()!
         
         approvalObjectLabel.text = approval.approvalObject
         keywordLabel.text = approval.keyword
@@ -38,7 +44,7 @@ class ApprovalDetailController: BaseUIViewController {
         reportDateLabel.text = approval.reportDate
         statusLabel.text = approval.status
         
-        if approval.status != "未审核" {
+        if approval.status != "待批" {
             passButton.enabled = false
             unpassButton.enabled = false
             self.passButton.hidden = true
@@ -48,11 +54,11 @@ class ApprovalDetailController: BaseUIViewController {
     }
     
     @IBAction func passPressed(sender: UIButton) {
-        if approval.status != "未审核" {
+        if approval.status != "待批" {
             return
         }
         self.loadingOverlay.showOverlay(self.view)
-        approvalService.audit("", result: "pass") { response -> Void in
+        approvalService.audit(loginUser.userName!, approvalId: approval.id!, result: "0") { response -> Void in
             dispatch_async(dispatch_get_main_queue()) {
                 self.loadingOverlay.hideOverlayView()
                 if response.status != 0 {
@@ -76,11 +82,11 @@ class ApprovalDetailController: BaseUIViewController {
     }
     
     @IBAction func unpassPressed(sender: UIButton) {
-        if approval.status != "未审核" {
+        if approval.status != "待批" {
             return
         }
         self.loadingOverlay.showOverlay(self.view)
-        approvalService.audit("", result: "unpass") { response -> Void in
+        approvalService.audit(loginUser.userName!, approvalId: approval.id!, result: "0") { response -> Void in
             dispatch_async(dispatch_get_main_queue()) {
                 self.loadingOverlay.hideOverlayView()
                 if response.status != 0 {
