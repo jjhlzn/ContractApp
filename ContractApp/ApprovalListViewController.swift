@@ -33,9 +33,16 @@ class ApprovalListViewController: UIViewController, UITableViewDataSource, UITab
         
         tableView.dataSource = self
         tableView.delegate = self
-        if queryObject != nil && approvals.count > 9 {
+        //if queryObject != nil && approvals.count > 9 {
             createTableFooter()
+        //}
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        if self.navigationController?.viewControllers.indexOf(self) == nil {
+            ((self.parentViewController as! UINavigationController).topViewController as! ApprovalSearchController).queryObject = queryObject
         }
+        super.viewWillAppear(animated)
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -51,7 +58,7 @@ class ApprovalListViewController: UIViewController, UITableViewDataSource, UITab
             let cell = tableView.dequeueReusableCellWithIdentifier("approvalContentCell") as! ApprovalCell
             cell.approvalObjectField.text = approval.approvalObject
             cell.keywordField.text = approval.keyword
-            var amount = "\(Double(approval.amount).truncate(2))"
+            let amount = "\(Double(approval.amount).truncate(2))"
             cell.amountField.text = amount
             cell.reporterField.text = approval.reporter
             cell.reportDateField.text = approval.reportDate
@@ -118,7 +125,7 @@ class ApprovalListViewController: UIViewController, UITableViewDataSource, UITab
             quering = true
             approvalService.search(loginUser.userName!, keyword: (queryObject?.keyword)!, containApproved: (queryObject?.containApproved)!, containUnapproved: (queryObject?.containUnapproved)!, startDate: (queryObject?.startDate)!, endDate: (queryObject?.endDate)!, index: page, pageSize: (queryObject?.pageSize)!) { response in
                 dispatch_async(dispatch_get_main_queue()) {
-                    self.page++
+                    self.page = self.page + 1
                     let newApprovals = response.approvals
                     for approval in newApprovals {
                         self.approvals.append(approval)

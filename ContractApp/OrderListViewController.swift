@@ -26,10 +26,18 @@ class OrderListViewController: UIViewController, UITableViewDataSource, UITableV
         
         tableView.dataSource = self
         tableView.delegate = self
-        if queryObject != nil && orders.count > 9 {
+        //if queryObject != nil && orders.count > 9 {
             createTableFooter()
-        }
+        //}
     }
+    
+    override func viewWillDisappear(animated: Bool) {
+        if self.navigationController?.viewControllers.indexOf(self) == nil {
+            ((self.parentViewController as! UINavigationController).topViewController as! OrderSearchViewController).queryObject = queryObject
+        }
+        super.viewWillAppear(animated)
+    }
+
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return orders.count + 1

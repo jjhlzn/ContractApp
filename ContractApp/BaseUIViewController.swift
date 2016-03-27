@@ -23,5 +23,34 @@ class BaseUIViewController: UIViewController {
         alertView.show()
         
     }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+       // self.hideKeyboardWhenTappedAround()
+    }
+    
+    func checkDate(date: String) -> Bool {
+        let formatter = NSDateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        return formatter.dateFromString(date) != nil 
+    }
+    
+    func checkExist(value: String?) -> Bool {
+        if value == nil || value == "" {
+            return false
+        }
+        return true
+    }
 
+}
+
+extension UIViewController {
+    func hideKeyboardWhenTappedAround() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
+        view.addGestureRecognizer(tap)
+    }
+    
+    func dismissKeyboard() {
+        view.endEditing(true)
+    }
 }

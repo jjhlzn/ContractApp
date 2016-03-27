@@ -65,15 +65,15 @@ class ApprovalDetailController: BaseUIViewController {
                     self.displayMessage(response.errorMessage!)
                 } else {
                     if response.result {
-                        self.displayMessage("审核成功")
-                        self.approval.status = "审核通过"
-                        self.statusLabel.text = "审核通过"
+                        self.displayMessage("审批成功")
+                        self.approval.status = "已批"
+                        self.statusLabel.text = "已批"
                         self.passButton.enabled = false
                         self.unpassButton.enabled = false
                         self.passButton.hidden = true
                         self.unpassButton.hidden = true
                     } else {
-                        self.displayMessage("审核失败")
+                        self.displayMessage("审批失败")
                     }
                 }
             }
@@ -93,15 +93,15 @@ class ApprovalDetailController: BaseUIViewController {
                     self.displayMessage(response.errorMessage!)
                 } else {
                     if response.result {
-                        self.displayMessage("审核成功")
-                        self.approval.status = "审核不通过"
-                        self.statusLabel.text = "审核不通过"
+                        self.displayMessage("审批成功")
+                        self.approval.status = "已批"
+                        self.statusLabel.text = "已批"
                         self.passButton.enabled = false
                         self.unpassButton.enabled = false
                         self.passButton.hidden = true
                         self.unpassButton.hidden = true
                     } else {
-                        self.displayMessage("审核失败")
+                        self.displayMessage("审批失败")
                     }
                 }
             }

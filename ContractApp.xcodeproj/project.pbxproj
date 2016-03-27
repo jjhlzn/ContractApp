@@ -14,6 +14,8 @@
 		1C2359941C3B7A47006724C9 /* ContractAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C2359931C3B7A47006724C9 /* ContractAppTests.swift */; };
 		1C23599F1C3B7A47006724C9 /* ContractAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C23599E1C3B7A47006724C9 /* ContractAppUITests.swift */; };
 		1C2359B91C3CD1E5006724C9 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C2359B81C3CD1E5006724C9 /* User.swift */; };
+		1C450E641CA6C1D00019A5CA /* ApprovalEmptyResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C450E631CA6C1D00019A5CA /* ApprovalEmptyResultViewController.swift */; };
+		1C450E661CA6C44A0019A5CA /* OrderEmptyResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C450E651CA6C44A0019A5CA /* OrderEmptyResultViewController.swift */; };
 		1CB4ABA71C86C1F0000F5B8C /* ApprovalDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CB4ABA61C86C1F0000F5B8C /* ApprovalDetailController.swift */; };
 		1CB4ABAA1C87279F000F5B8C /* ContractApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1CB4ABA81C87279F000F5B8C /* ContractApp.xcdatamodeld */; };
 		1CB4ABAC1C872A95000F5B8C /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CB4ABAB1C872A95000F5B8C /* CoreDataStack.swift */; };
@@ -71,6 +73,8 @@
 		1C23599E1C3B7A47006724C9 /* ContractAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContractAppUITests.swift; sourceTree = "<group>"; };
 		1C2359A01C3B7A47006724C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1C2359B81C3CD1E5006724C9 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		1C450E631CA6C1D00019A5CA /* ApprovalEmptyResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApprovalEmptyResultViewController.swift; sourceTree = "<group>"; };
+		1C450E651CA6C44A0019A5CA /* OrderEmptyResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderEmptyResultViewController.swift; sourceTree = "<group>"; };
 		1CB4ABA61C86C1F0000F5B8C /* ApprovalDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApprovalDetailController.swift; sourceTree = "<group>"; };
 		1CB4ABA91C87279F000F5B8C /* ContractApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ContractApp.xcdatamodel; sourceTree = "<group>"; };
 		1CB4ABAB1C872A95000F5B8C /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
@@ -175,6 +179,8 @@
 				1CF69A121C92616300D4C59F /* LoadingOverlay.swift */,
 				1CF69A141C9264BA00D4C59F /* BaseUIViewController.swift */,
 				1CF69A161C96708100D4C59F /* LaunchViewController.swift */,
+				1C450E631CA6C1D00019A5CA /* ApprovalEmptyResultViewController.swift */,
+				1C450E651CA6C44A0019A5CA /* OrderEmptyResultViewController.swift */,
 			);
 			path = ContractApp;
 			sourceTree = "<group>";
@@ -337,8 +343,10 @@
 				1CFAC8621C8173C500EF60D4 /* LoginViewController.swift in Sources */,
 				1CB4ABAE1C872AFE000F5B8C /* LoginUserStore.swift in Sources */,
 				1CF69A0F1C8BC61800D4C59F /* OrderShouhuiController.swift in Sources */,
+				1C450E661CA6C44A0019A5CA /* OrderEmptyResultViewController.swift in Sources */,
 				1CFEDBCD1C87C7AF00503981 /* LoginUser+CoreDataProperties.swift in Sources */,
 				1CFEDBCE1C87C7AF00503981 /* LoginUser.swift in Sources */,
+				1C450E641CA6C1D00019A5CA /* ApprovalEmptyResultViewController.swift in Sources */,
 				1CFAC8641C817D6300EF60D4 /* OrderListViewController.swift in Sources */,
 				1C2359B91C3CD1E5006724C9 /* User.swift in Sources */,
 				1CFAC8701C83388300EF60D4 /* Service.swift in Sources */,
@@ -502,7 +510,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.jinjunhang.ContractApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -518,7 +526,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.jinjunhang.ContractApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

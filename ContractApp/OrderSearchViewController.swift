@@ -18,32 +18,50 @@ class OrderSearchViewController: BaseUIViewController, UITextFieldDelegate {
     
     var orderService = OrderService()
     
+    var queryObject: OrderQueryObject?
+    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        self.hideKeyboardWhenTappedAround()
+        
         let startDatePicker = UIDatePicker()
         let endDatePicker = UIDatePicker()
         
-        let currentDateTime = NSDate()
         let formatter = NSDateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
         
-        let oneMonthAgo = currentDateTime.dateByAddingTimeInterval(-30 * 24 * 60 * 60)
+        if queryObject != nil {
+            keyworldField.text = queryObject?.keyword
+            startDateField.text = formatter.stringFromDate((queryObject?.startDate)!)
+            startDatePicker.date = (queryObject?.startDate)!
+            endDateField.text = formatter.stringFromDate((queryObject?.endDate)!)
+            endDatePicker.date = (queryObject?.endDate)!
+            
+        } else {
+            let currentDateTime = NSDate()
+            let oneMonthAgo = currentDateTime.dateByAddingTimeInterval(-30 * 24 * 60 * 60)
+            startDatePicker.date = oneMonthAgo
+            
+            startDateField.text = formatter.stringFromDate(oneMonthAgo)
+            endDateField.text = formatter.stringFromDate(currentDateTime)
+        }
+
         
         startDatePicker.datePickerMode = UIDatePickerMode.Date
-        startDatePicker.date = oneMonthAgo
+     
         startDatePicker.locale = NSLocale(localeIdentifier: "zh_cn")
         startDateField.delegate = self
-        startDateField.text =  formatter.stringFromDate(oneMonthAgo)
-        
         
         endDatePicker.datePickerMode = UIDatePickerMode.Date
-
+        
         endDatePicker.locale = NSLocale(localeIdentifier: "zh_cn")
         endDateField.delegate = self
-        endDateField.text = formatter.stringFromDate(currentDateTime)
+
+
         
-        startDatePicker.addTarget(self, action: "datePickerChanged:", forControlEvents: .ValueChanged)
-        endDatePicker.addTarget(self, action: "datePickerChanged1:", forControlEvents: .ValueChanged)
+        
+        startDatePicker.addTarget(self, action: #selector(OrderSearchViewController.datePickerChanged(_:)), forControlEvents: .ValueChanged)
+        endDatePicker.addTarget(self, action: #selector(OrderSearchViewController.datePickerChanged1(_:)), forControlEvents: .ValueChanged)
         
         startDateField.inputView = startDatePicker
         endDateField.inputView = endDatePicker
@@ -90,11 +108,19 @@ class OrderSearchViewController: BaseUIViewController, UITextFieldDelegate {
             dest.orders = orderResponse.orders
             dest.hasMore = dest.orders.count < orderResponse.totalNumber
             dest.queryObject = OrderQueryObject(keyword: getKeyword(), startDate: getStartDate(), endDate: getEndDate())
+        } else if segue.identifier == "emptyResultSegue" {
+            let dest = segue.destinationViewController as! OrderEmptyResultViewController
+            dest.queryObject = OrderQueryObject(keyword: getKeyword(), startDate: getStartDate(), endDate: getEndDate())
         }
     }
     
     
     @IBAction func seachPressed(sender: UIButton) {
+        
+        if !checkForm() {
+            return
+        }
+        
         loadingOverlay.showOverlay(self.view)
         orderService.search(getKeyword(), startDate: getStartDate(),
             endDate: getEndDate(), index: 0, pageSize: 10) { orderResponse in
@@ -105,10 +131,49 @@ class OrderSearchViewController: BaseUIViewController, UITextFieldDelegate {
                         self.displayMessage(orderResponse.errorMessage!)
                     }
                 } else {
-                    self.performSegueWithIdentifier("orderResultSegue", sender: orderResponse)
+                    if orderResponse.totalNumber != 0 {
+                        self.performSegueWithIdentifier("orderResultSegue", sender: orderResponse)
+                    } else {
+                        self.performSegueWithIdentifier("emptyResultSegue", sender: orderResponse)
+                    }
                 }
             }
             
         }
     }
+    
+    
+    func checkForm() -> Bool {
+        if !checkExist(startDateField.text) {
+            displayMessage("必须输入开始日期")
+            return false
+        }
+        
+        if !checkExist(endDateField.text) {
+            displayMessage("必须输入结束日期")
+            return false
+        }
+        
+        if !checkDate(startDateField.text!) {
+            displayMessage("开始日期格式不正确")
+            return false
+        }
+        
+        if !checkDate(endDateField.text!) {
+            displayMessage("结束日期格式不正确")
+            return false
+        }
+        
+        let formatter = NSDateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        let startDate = formatter.dateFromString(startDateField.text!)
+        let endDate = formatter.dateFromString(endDateField.text!)
+        if startDate?.compare(endDate!) == NSComparisonResult.OrderedDescending {
+            displayMessage("开始日期不能晚于结束日期")
+            return false
+        }
+        
+        return true
+    }
+
 }

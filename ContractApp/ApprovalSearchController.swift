@@ -24,37 +24,49 @@ class ApprovalSearchController: BaseUIViewController, UITextFieldDelegate {
     
     var loginUser: LoginUser!
     let loginUserStore = LoginUserStore()
+    var queryObject : ApprovalQueryObject?
 
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        self.hideKeyboardWhenTappedAround()
         
         loginUser = loginUserStore.GetLoginUser()!
         
         let startDatePicker = UIDatePicker()
         let endDatePicker = UIDatePicker()
         
-        let currentDateTime = NSDate()
         let formatter = NSDateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
-        
-        let oneMonthAgo = currentDateTime.dateByAddingTimeInterval(-30 * 24 * 60 * 60)
 
         
-        startDatePicker.datePickerMode = UIDatePickerMode.Date
-        startDatePicker.date = oneMonthAgo
+        if queryObject != nil {
+            keywordField.text = queryObject?.keyword
+            startDateField.text = formatter.stringFromDate((queryObject?.startDate)!)
+            startDatePicker.date = (queryObject?.startDate)!
+            endDateField.text = formatter.stringFromDate((queryObject?.endDate)!)
+            endDatePicker.date = (queryObject?.endDate)!
+            approvedSwitch.on = (queryObject?.containApproved)!
+            unapprovedSwitch.on = (queryObject?.containUnapproved)!
+            
+        } else {
+            let currentDateTime = NSDate()
+            let oneMonthAgo = currentDateTime.dateByAddingTimeInterval(-30 * 24 * 60 * 60)
+            startDatePicker.date = oneMonthAgo
+            
+            startDateField.text = formatter.stringFromDate(oneMonthAgo)
+            endDateField.text = formatter.stringFromDate(currentDateTime)
+        }
+         startDatePicker.datePickerMode = UIDatePickerMode.Date
         startDatePicker.locale = NSLocale(localeIdentifier: "zh_cn")
-        startDateField.delegate = self
-        startDateField.text = formatter.stringFromDate(oneMonthAgo)
         
         endDatePicker.datePickerMode = UIDatePickerMode.Date
-        
         endDatePicker.locale = NSLocale(localeIdentifier: "zh_cn")
+        startDateField.delegate = self
         endDateField.delegate = self
-        endDateField.text = formatter.stringFromDate(currentDateTime)
         
-        startDatePicker.addTarget(self, action: "datePickerChanged:", forControlEvents: .ValueChanged)
-        endDatePicker.addTarget(self, action: "datePickerChanged1:", forControlEvents: .ValueChanged)
+        startDatePicker.addTarget(self, action: #selector(ApprovalSearchController.datePickerChanged(_:)), forControlEvents: .ValueChanged)
+        endDatePicker.addTarget(self, action: #selector(ApprovalSearchController.datePickerChanged1(_:)), forControlEvents: .ValueChanged)
         
         startDateField.inputView = startDatePicker
         endDateField.inputView = endDatePicker
@@ -100,10 +112,16 @@ class ApprovalSearchController: BaseUIViewController, UITextFieldDelegate {
             dest.approvals = response.approvals
             dest.hasMore = dest.approvals.count < response.totalNumber
             dest.queryObject = ApprovalQueryObject(keyword: getKeyword(), startDate: getStartDate(), endDate: getEndDate(), containApproved: approvedSwitch.on, containUnapproved: unapprovedSwitch.on)
+        } else if segue.identifier == "emptyResultSegue" {
+            let dest = segue.destinationViewController as! ApprovalEmptyResultViewController
+            dest.queryObject = ApprovalQueryObject(keyword: getKeyword(), startDate: getStartDate(), endDate: getEndDate(), containApproved: approvedSwitch.on, containUnapproved: unapprovedSwitch.on)
         }
     }
     
     @IBAction func searchPressed(sender: UIButton) {
+        if !checkForm() {
+            return
+        }
  
         loadingOverlay.showOverlay(self.view)
         approvalService.search(loginUser.userName!, keyword: getKeyword(), containApproved: approvedSwitch.on, containUnapproved: unapprovedSwitch.on, startDate: getStartDate(), endDate: getEndDate(), index: 0, pageSize: 10) { response in
@@ -114,12 +132,49 @@ class ApprovalSearchController: BaseUIViewController, UITextFieldDelegate {
                         self.displayMessage(response.errorMessage!)
                     }
                 } else {
-                    self.performSegueWithIdentifier("approvalResultSegue", sender: response)
+                    if response.totalNumber != 0 {
+                        self.performSegueWithIdentifier("approvalResultSegue", sender: response)
+                    } else {
+                        self.performSegueWithIdentifier("emptyResultSegue", sender: response)
+                    }
                 }
 
             }
         }
         
+    }
+    
+    func checkForm() -> Bool {
+        if !checkExist(startDateField.text) {
+            displayMessage("必须输入开始日期")
+            return false
+        }
+        
+        if !checkExist(endDateField.text) {
+            displayMessage("必须输入结束日期")
+            return false
+        }
+        
+        if !checkDate(startDateField.text!) {
+            displayMessage("开始日期格式不正确")
+            return false
+        }
+        
+        if !checkDate(endDateField.text!) {
+            displayMessage("结束日期格式不正确")
+            return false
+        }
+        
+        let formatter = NSDateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        let startDate = formatter.dateFromString(startDateField.text!)
+        let endDate = formatter.dateFromString(endDateField.text!)
+        if startDate?.compare(endDate!) == NSComparisonResult.OrderedDescending {
+            displayMessage("开始日期不能晚于结束日期")
+            return false
+        }
+        
+        return true
     }
 
 

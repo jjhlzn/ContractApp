@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="kf3-dZ-P1J">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="kf3-dZ-P1J">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
         <!--订单详情-->
@@ -19,7 +19,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="orderMenuCell" id="4pt-YA-sWh">
-                                        <rect key="frame" x="0.0" y="28" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="92" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4pt-YA-sWh" id="cze-6O-yEm">
                                             <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
@@ -438,7 +438,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="orderHeaderCell" id="FBh-n8-nvV">
-                                        <rect key="frame" x="0.0" y="28" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="92" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="FBh-n8-nvV" id="vqA-wK-naH">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
@@ -483,7 +483,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="orderContentCell" rowHeight="44" id="8Cq-4k-sEf" customClass="OrderCell" customModule="ContractApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="72" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="136" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8Cq-4k-sEf" id="1P6-lS-fvf">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
@@ -549,7 +549,7 @@
             </objects>
             <point key="canvasLocation" x="1017" y="-834"/>
         </scene>
-        <!--订单查询-->
+        <!--订单-->
         <scene sceneID="B4k-It-phJ">
             <objects>
                 <viewController id="epc-ht-vIV" customClass="OrderSearchViewController" customModule="ContractApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -610,12 +610,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="订单查询" id="ARd-zL-oQY"/>
+                    <navigationItem key="navigationItem" title="订单" id="ARd-zL-oQY"/>
                     <connections>
                         <outlet property="endDateField" destination="5n5-H0-CFS" id="YD1-qa-aQu"/>
                         <outlet property="keyworldField" destination="1lv-VY-35h" id="7Sf-4Y-osf"/>
                         <outlet property="startDateField" destination="iNV-d3-mAe" id="Udj-eo-P9O"/>
                         <segue destination="Pir-PI-ohB" kind="push" identifier="orderResultSegue" id="oUE-0k-PPN"/>
+                        <segue destination="sqL-he-MnV" kind="push" identifier="emptyResultSegue" id="Ta5-Zd-uAn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RtW-ms-gRn" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -638,7 +639,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y7j-fK-yX7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1143" y="-524"/>
+            <point key="canvasLocation" x="-1475" y="-224"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="dwm-k4-30T">
@@ -658,14 +659,14 @@
                                         <color key="backgroundColor" red="0.99989169840000003" green="1" blue="0.99988096950000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="20"/>
-                                        <textInputTraits key="textInputTraits" keyboardAppearance="light"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad" keyboardAppearance="light"/>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="密    码" textAlignment="natural" minimumFontSize="17" id="0C8-oz-yBO">
                                         <rect key="frame" x="27" y="163" width="272" height="50"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="0.99989169840000003" green="1" blue="0.99988096950000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="20"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="hLM-JO-Jiz">
                                         <rect key="frame" x="85" y="248" width="150" height="50"/>
@@ -717,7 +718,7 @@
             </objects>
             <point key="canvasLocation" x="-408" y="-167"/>
         </scene>
-        <!--审批查询-->
+        <!--审批-->
         <scene sceneID="0sG-W9-Qat">
             <objects>
                 <viewController id="xtI-Do-5Pd" customClass="ApprovalSearchController" customModule="ContractApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -770,7 +771,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="已审核：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="NZw-Tc-LuE">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="已审批：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="NZw-Tc-LuE">
                                 <rect key="frame" x="31" y="282" width="68" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -791,7 +792,7 @@
                                 <rect key="frame" x="95" y="233" width="51" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </switch>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="未审核：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="a1B-Su-WEm">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="未审批：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="a1B-Su-WEm">
                                 <rect key="frame" x="31" y="237" width="68" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -801,7 +802,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="审批查询" id="cC4-GY-LZh"/>
+                    <navigationItem key="navigationItem" title="审批" id="cC4-GY-LZh"/>
                     <connections>
                         <outlet property="approvedSwitch" destination="WZx-yT-xZp" id="DaU-t7-Whq"/>
                         <outlet property="endDateField" destination="pcK-dc-XC1" id="Gw6-VH-ZNN"/>
@@ -809,11 +810,36 @@
                         <outlet property="startDateField" destination="Irl-Nk-iCn" id="6M7-q3-eDy"/>
                         <outlet property="unapprovedSwitch" destination="THa-KB-kbB" id="CgP-Ci-REN"/>
                         <segue destination="RSj-cg-b6l" kind="push" identifier="approvalResultSegue" id="dSC-tZ-aTp"/>
+                        <segue destination="L87-jN-o3w" kind="push" identifier="emptyResultSegue" id="Gsk-eR-fkU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Xl-u4-2Ab" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="452" y="-114"/>
+        </scene>
+        <!--审批列表-->
+        <scene sceneID="4G9-L5-Oka">
+            <objects>
+                <viewController id="L87-jN-o3w" customClass="ApprovalEmptyResultViewController" customModule="ContractApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ANI-VN-I7m">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="没有找到任何审批" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="WXV-aK-2V5">
+                                <rect key="frame" x="93" y="273" width="136" height="21"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="审批列表" id="k2h-LY-ArA"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7iq-OU-Kii" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="849" y="247"/>
         </scene>
         <!--审批列表-->
         <scene sceneID="ulj-2s-WVN">
@@ -1077,7 +1103,7 @@
         <scene sceneID="qik-5l-IkC">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="IEv-ZK-C4v" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="我" image="me" id="fMS-QG-02n"/>
+                    <tabBarItem key="tabBarItem" title="我" image="me" selectedImage="me-filled" id="fMS-QG-02n"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="EfY-iL-uZH">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -1092,11 +1118,11 @@
             </objects>
             <point key="canvasLocation" x="62" y="964"/>
         </scene>
-        <!--审批查询-->
+        <!--审批-->
         <scene sceneID="4xs-V1-s6g">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Qjy-51-WUe" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="审批查询" image="shenpi" id="e2H-BB-out"/>
+                    <tabBarItem key="tabBarItem" title="审批" image="shenpi" selectedImage="shenpi-filled" id="e2H-BB-out"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Y3g-Qj-Tks">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -1115,7 +1141,7 @@
         <scene sceneID="IRF-Mp-m0U">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ym3-Dx-ab8" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="订单查询" image="order" id="G9M-aL-fLc"/>
+                    <tabBarItem key="tabBarItem" title="订单" image="order" selectedImage="order-filled" id="G9M-aL-fLc"/>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="订单查询" id="Gci-Kc-SGC"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="VsV-8s-Y2A">
@@ -1313,14 +1339,41 @@
             </objects>
             <point key="canvasLocation" x="2244" y="-325"/>
         </scene>
+        <!--订单列表-->
+        <scene sceneID="1qE-I3-emQ">
+            <objects>
+                <viewController id="sqL-he-MnV" customClass="OrderEmptyResultViewController" customModule="ContractApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Dc6-lp-JDE">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="没有找到任何订单" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="fpZ-5o-RCE">
+                                <rect key="frame" x="92" y="0.0" width="136" height="568"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="订单列表" id="dHW-Vs-rom"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RFu-X6-9bx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="914" y="-167"/>
+        </scene>
     </scenes>
     <resources>
-        <image name="me" width="29" height="32"/>
-        <image name="order" width="29" height="32"/>
-        <image name="shenpi" width="29" height="32"/>
+        <image name="me" width="27" height="27"/>
+        <image name="me-filled" width="27" height="27"/>
+        <image name="order" width="27" height="27"/>
+        <image name="order-filled" width="27" height="27"/>
+        <image name="shenpi" width="27" height="27"/>
+        <image name="shenpi-filled" width="27" height="27"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="IGP-XW-Mia"/>
+        <segue reference="7Z6-St-x9K"/>
         <segue reference="Pys-JN-YZ2"/>
     </inferredMetricsTieBreakers>
 </document>
