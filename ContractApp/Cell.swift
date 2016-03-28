@@ -34,3 +34,9 @@ class OrderPurchaseInfoCell : UITableViewCell {
     @IBOutlet weak var factoryLabel: UILabel!
     @IBOutlet weak var amountLabel: UILabel!
 }
+
+class MyInfoCell : UITableViewCell {
+    
+    @IBOutlet weak var valueLabel: UILabel!
+    @IBOutlet weak var nameLabel: UILabel!
+}

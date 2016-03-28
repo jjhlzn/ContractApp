@@ -34,5 +34,6 @@ class MyInfoViewController: UIViewController {
         performSegueWithIdentifier("logoutSegue", sender: nil)
     }
     
+  
 
 }
