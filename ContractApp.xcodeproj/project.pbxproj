@@ -16,7 +16,7 @@
 		1C2359B91C3CD1E5006724C9 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C2359B81C3CD1E5006724C9 /* User.swift */; };
 		1C450E641CA6C1D00019A5CA /* ApprovalEmptyResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C450E631CA6C1D00019A5CA /* ApprovalEmptyResultViewController.swift */; };
 		1C450E661CA6C44A0019A5CA /* OrderEmptyResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C450E651CA6C44A0019A5CA /* OrderEmptyResultViewController.swift */; };
-		1C450E681CA809400019A5CA /* MyInfoViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C450E671CA809400019A5CA /* MyInfoViewController2.swift */; };
+		1C450E681CA809400019A5CA /* MyInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C450E671CA809400019A5CA /* MyInfoViewController.swift */; };
 		1CB4ABA71C86C1F0000F5B8C /* ApprovalDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CB4ABA61C86C1F0000F5B8C /* ApprovalDetailController.swift */; };
 		1CB4ABAA1C87279F000F5B8C /* ContractApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1CB4ABA81C87279F000F5B8C /* ContractApp.xcdatamodeld */; };
 		1CB4ABAC1C872A95000F5B8C /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CB4ABAB1C872A95000F5B8C /* CoreDataStack.swift */; };
@@ -40,7 +40,6 @@
 		1CFAC8951C858B2E00EF60D4 /* ApprovalListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CFAC8941C858B2E00EF60D4 /* ApprovalListViewController.swift */; };
 		1CFEDBCD1C87C7AF00503981 /* LoginUser+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CFEDBCB1C87C7AF00503981 /* LoginUser+CoreDataProperties.swift */; };
 		1CFEDBCE1C87C7AF00503981 /* LoginUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CFEDBCC1C87C7AF00503981 /* LoginUser.swift */; };
-		1CFEDBD01C87D94700503981 /* MyInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CFEDBCF1C87D94700503981 /* MyInfoViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,7 +75,7 @@
 		1C2359B81C3CD1E5006724C9 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		1C450E631CA6C1D00019A5CA /* ApprovalEmptyResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApprovalEmptyResultViewController.swift; sourceTree = "<group>"; };
 		1C450E651CA6C44A0019A5CA /* OrderEmptyResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderEmptyResultViewController.swift; sourceTree = "<group>"; };
-		1C450E671CA809400019A5CA /* MyInfoViewController2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyInfoViewController2.swift; sourceTree = "<group>"; };
+		1C450E671CA809400019A5CA /* MyInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyInfoViewController.swift; sourceTree = "<group>"; };
 		1CB4ABA61C86C1F0000F5B8C /* ApprovalDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApprovalDetailController.swift; sourceTree = "<group>"; };
 		1CB4ABA91C87279F000F5B8C /* ContractApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ContractApp.xcdatamodel; sourceTree = "<group>"; };
 		1CB4ABAB1C872A95000F5B8C /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
@@ -100,7 +99,6 @@
 		1CFAC8941C858B2E00EF60D4 /* ApprovalListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApprovalListViewController.swift; sourceTree = "<group>"; };
 		1CFEDBCB1C87C7AF00503981 /* LoginUser+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LoginUser+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		1CFEDBCC1C87C7AF00503981 /* LoginUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginUser.swift; sourceTree = "<group>"; };
-		1CFEDBCF1C87D94700503981 /* MyInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyInfoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,7 +165,6 @@
 				1CB4ABAD1C872AFE000F5B8C /* LoginUserStore.swift */,
 				1CFAC8611C8173C500EF60D4 /* LoginViewController.swift */,
 				1C2359821C3B7A47006724C9 /* Main.storyboard */,
-				1CFEDBCF1C87D94700503981 /* MyInfoViewController.swift */,
 				1CFAC86B1C82DC9B00EF60D4 /* OrderBasicInfoViewController.swift */,
 				1CF69A0A1C8BB65C00D4C59F /* OrderChuyunInfoController.swift */,
 				1CF69A0C1C8BC00600D4C59F /* OrderFukuangInfoController.swift */,
@@ -183,7 +180,7 @@
 				1CF69A161C96708100D4C59F /* LaunchViewController.swift */,
 				1C450E631CA6C1D00019A5CA /* ApprovalEmptyResultViewController.swift */,
 				1C450E651CA6C44A0019A5CA /* OrderEmptyResultViewController.swift */,
-				1C450E671CA809400019A5CA /* MyInfoViewController2.swift */,
+				1C450E671CA809400019A5CA /* MyInfoViewController.swift */,
 			);
 			path = ContractApp;
 			sourceTree = "<group>";
@@ -341,7 +338,6 @@
 				1CF69A151C9264BA00D4C59F /* BaseUIViewController.swift in Sources */,
 				1CFAC86E1C82E5B300EF60D4 /* OrderShougouInfoController.swift in Sources */,
 				1CFAC8721C83D57200EF60D4 /* OrderSearchViewController.swift in Sources */,
-				1CFEDBD01C87D94700503981 /* MyInfoViewController.swift in Sources */,
 				1CFAC86A1C82C21B00EF60D4 /* OrderMenuController.swift in Sources */,
 				1CFAC8621C8173C500EF60D4 /* LoginViewController.swift in Sources */,
 				1CB4ABAE1C872AFE000F5B8C /* LoginUserStore.swift in Sources */,
@@ -357,7 +353,7 @@
 				1C23597F1C3B7A47006724C9 /* AppDelegate.swift in Sources */,
 				1CF69A0D1C8BC00600D4C59F /* OrderFukuangInfoController.swift in Sources */,
 				1CFAC8951C858B2E00EF60D4 /* ApprovalListViewController.swift in Sources */,
-				1C450E681CA809400019A5CA /* MyInfoViewController2.swift in Sources */,
+				1C450E681CA809400019A5CA /* MyInfoViewController.swift in Sources */,
 				1CFAC8931C85823300EF60D4 /* ApprovalSearchController.swift in Sources */,
 				1CFAC86C1C82DC9B00EF60D4 /* OrderBasicInfoViewController.swift in Sources */,
 				1CB4ABAC1C872A95000F5B8C /* CoreDataStack.swift in Sources */,
