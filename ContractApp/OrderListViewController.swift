@@ -26,9 +26,7 @@ class OrderListViewController: UIViewController, UITableViewDataSource, UITableV
         
         tableView.dataSource = self
         tableView.delegate = self
-        //if queryObject != nil && orders.count > 9 {
-            createTableFooter()
-        //}
+        createTableFooter()
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -40,23 +38,21 @@ class OrderListViewController: UIViewController, UITableViewDataSource, UITableV
 
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return orders.count + 1
+        return orders.count
     }
     
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        if indexPath.row == 0 {
-            return tableView.dequeueReusableCellWithIdentifier("orderHeaderCell")!
-        } else {
-            let order = orders[indexPath.row - 1]
+
+            let order = orders[indexPath.row]
             let cell = tableView.dequeueReusableCellWithIdentifier("orderContentCell") as! OrderCell
             cell.businessPersonLabel.text = order.businessPerson
             cell.orderNoLabel.text = order.orderNo
             cell.guestNameLabel.text = order.guestName
             cell.contractNoLabel.text = order.contractNo
-            cell.amountLabel.text = "\(order.amount)"
+            cell.amountLabel.text = "¥\(order.amount)"
             return cell
-        }
+        
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -118,7 +114,7 @@ class OrderListViewController: UIViewController, UITableViewDataSource, UITableV
             orderService.search((queryObject?.keyword)!, startDate: (queryObject?.startDate)!, endDate: (queryObject?.endDate)!, index: page, pageSize: (queryObject?.pageSize)!) {
                 orderResponse in
                 dispatch_async(dispatch_get_main_queue()) {
-                    self.page++
+                    self.page = self.page + 1
                     let newOrders = orderResponse.orders
                     for order in newOrders {
                         self.orders.append(order)
