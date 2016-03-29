@@ -89,8 +89,9 @@ class ApprovalListViewController: UIViewController, UITableViewDataSource, UITab
         loadMoreText.text = "上拉查看更多"
         
         loadMoreText.textAlignment = NSTextAlignment.Center
+        loadMoreText.textColor = UIColor.grayColor()
         tableFooterView.addSubview(loadMoreText)
-        loadMoreText.font = UIFont(name: "Helvetica Neue", size: 15)
+        loadMoreText.font = UIFont(name: "Helvetica Neue", size: 10)
         loadMoreText.center = CGPointMake( (tableView.bounds.size.width - loadMoreText.intrinsicContentSize().width / 16) / 2 , 20)
         
         
@@ -108,7 +109,8 @@ class ApprovalListViewController: UIViewController, UITableViewDataSource, UITab
         
         
         
-        loadMoreText.font = UIFont(name: "Helvetica Neue", size: 15)
+        loadMoreText.font = UIFont(name: "Helvetica Neue", size: 10)
+        loadMoreText.textColor = UIColor.grayColor()
         loadMoreText.center = CGPointMake( (tableView.bounds.size.width - loadMoreText.intrinsicContentSize().width / 16) / 2 , 20)
         let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.Gray)
         activityIndicator.frame = CGRect(x: 0, y: 0, width: 50, height: 50)

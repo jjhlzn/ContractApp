@@ -28,19 +28,21 @@ class OrderShougouInfoController: UIViewController, UITableViewDataSource, UITab
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return (shouGouInfo?.items.count)! + 1
+        return shouGouInfo?.items.count == 0 ? 1 : (shouGouInfo?.items.count)!
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        if indexPath.row == 0 {
+        if shouGouInfo?.items.count == 0 {
             return tableView.dequeueReusableCellWithIdentifier("shougouHeaderCell")!
         } else {
             let cell = tableView.dequeueReusableCellWithIdentifier("shougouContentCell") as! OrderPurchaseInfoCell
-            let item = shouGouInfo?.items[indexPath.row - 1]
+            let item = shouGouInfo?.items[indexPath.row]
             cell.contractLabel.text = item?.contract
-            cell.dateLabel.text = item?.date
+            cell.dateLabel.text = item?.date == nil ? "" : item?.date!.stringByReplacingOccurrencesOfString("/", withString: "-", options: NSStringCompareOptions.LiteralSearch, range: nil)
             cell.factoryLabel.text = item?.factory
-            cell.amountLabel.text = "\((item?.amount)!)"
+            if item?.amount != nil {
+                cell.amountLabel.text = "¥\(String(format: "%.2f", Double((item?.amount)!)))"
+            }
             return cell
         }
     }

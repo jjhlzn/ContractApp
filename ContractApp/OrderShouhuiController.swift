@@ -20,7 +20,7 @@ class OrderShouhuiController: UIViewController {
         super.viewDidLoad()
 
         dateLabel.text = shouhuiInfo.date
-        amountLabel.text = "\(shouhuiInfo.amount)"
+        amountLabel.text = "¥\(String(format: "%.2f", Double(shouhuiInfo.amount)))"
     }
 
     override func didReceiveMemoryWarning() {

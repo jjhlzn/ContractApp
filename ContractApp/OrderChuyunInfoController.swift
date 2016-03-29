@@ -23,7 +23,7 @@ class OrderChuyunInfoController: UIViewController {
 
         detailNoLabel.text = chuyunInfo.detailNo
         dateLabel.text = chuyunInfo.date
-        amountLabel.text = "\(chuyunInfo.amount)"
+        amountLabel.text = "¥\(String(format:"%.2f", Double(chuyunInfo.amount)))"
     }
 
     override func didReceiveMemoryWarning() {
