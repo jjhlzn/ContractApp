@@ -154,7 +154,11 @@ class SearchApprovalResponse : PageServerResponse {
     }
 }
 
-class OrderQueryObject {
+class QueryObject {
+    
+}
+
+class OrderQueryObject : QueryObject {
     var keyword: String
     var startDate: NSDate
     var endDate: NSDate
@@ -168,7 +172,7 @@ class OrderQueryObject {
     }
 }
 
-class ApprovalQueryObject {
+class ApprovalQueryObject : QueryObject {
     var keyword: String
     var startDate: NSDate
     var endDate: NSDate

@@ -19,7 +19,7 @@ class OrderListViewController: UIViewController, UITableViewDataSource, UITableV
     var quering = false
     
     var loadMoreText = UILabel()
-    let tableFooterView = UIView()//列表的底部，用于显示“上拉查看更多”的提示，当上拉后显示类容为“松开加载更多”
+    var tableFooterView = UIView()//列表的底部，用于显示“上拉查看更多”的提示，当上拉后显示类容为“松开加载更多”
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
@@ -63,9 +63,12 @@ class OrderListViewController: UIViewController, UITableViewDataSource, UITableV
     }
     
     func createTableFooter(){//初始化tv的footerView
-        
+        setNotLoadFooter()
+    }
+    
+    func setNotLoadFooter() {
         self.tableView.tableFooterView = nil
-        
+        tableFooterView = UIView()
         tableFooterView.frame = CGRectMake(0, 0, tableView.bounds.size.width, 40)
         loadMoreText.frame =  CGRectMake(0, 0, tableView.bounds.size.width, 40)
         loadMoreText.text = "上拉查看更多"
@@ -79,55 +82,83 @@ class OrderListViewController: UIViewController, UITableViewDataSource, UITableV
         tableView.tableFooterView = tableFooterView
     }
     
-    func scrollViewDidScroll(scrollView: UIScrollView){//开始上拉到特定位置后改变列表底部的提示
-        if !hasMore {
-            loadMoreText.text = "已加载全部数据"
-            return
-        }
+    func setLoadingFooter() {
+        self.tableView.tableFooterView = nil
+        tableFooterView = UIView()
+        tableFooterView.frame = CGRectMake(0, 0, tableView.bounds.size.width, 40)
+        loadMoreText.frame =  CGRectMake(0, 0, tableView.bounds.size.width, 40)
+        loadMoreText.text = "加载中"
         
-        if scrollView.contentOffset.y > (scrollView.contentSize.height - scrollView.frame.size.height + 30){
-            loadMoreText.text = "松开载入更多"
-            
-        }else{
-            loadMoreText.text = "上拉查看更多"
-        }
+        loadMoreText.textAlignment = NSTextAlignment.Center
+        
+        
+        
+        loadMoreText.font = UIFont(name: "Helvetica Neue", size: 15)
+        loadMoreText.center = CGPointMake( (tableView.bounds.size.width - loadMoreText.intrinsicContentSize().width / 16) / 2 , 20)
+        let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.Gray)
+        activityIndicator.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
+        activityIndicator.center = CGPointMake( (tableView.bounds.size.width - 80 - loadMoreText.intrinsicContentSize().width / 16) / 2 , 20)
+        activityIndicator.startAnimating()
+        
+        tableFooterView.addSubview(activityIndicator)
+        tableFooterView.addSubview(loadMoreText)
+        
+        tableView.tableFooterView = tableFooterView
     }
-    func scrollViewDidEndDragging(scrollView: UIScrollView, willDecelerate decelerate: Bool){
-        
-        if !hasMore {
-            return
-        }
-        
+    
+    
+    //开始上拉到特定位置后改变列表底部的提示
+    func scrollViewDidScroll(scrollView: UIScrollView){
         if quering {
             return
         }
         
-        loadMoreText.text = "上拉查看更多"
-        
-        /*上拉到一定程度松开后开始加载更多*/
-        
-        if scrollView.contentOffset.y > (scrollView.contentSize.height - scrollView.frame.size.height + 30){
-            
-            loadMoreText.text = "加载中"
-            //self.initArr()
-            quering = true
-            orderService.search((queryObject?.keyword)!, startDate: (queryObject?.startDate)!, endDate: (queryObject?.endDate)!, index: page, pageSize: (queryObject?.pageSize)!) {
-                orderResponse in
-                dispatch_async(dispatch_get_main_queue()) {
-                    self.page = self.page + 1
-                    let newOrders = orderResponse.orders
-                    for order in newOrders {
-                        self.orders.append(order)
-                    }
-                    if self.orders.count >= orderResponse.totalNumber {
-                        self.hasMore = false
-                    }
-                    self.tableView.reloadData()
-                    self.quering = false
-                }
-            }
-            
+        if !hasMore {
+            loadMoreText.text = "已加载全部数据"
+            return
         }
+        //print("scrollView.contentOffset.y = \(scrollView.contentOffset.y)")
+        //print("scrollView.contentSize.height = \(scrollView.contentSize.height)")
+        //print("scrollView.frame.size.height = \(scrollView.frame.size.height)")
+        if scrollView.contentOffset.y > (scrollView.contentSize.height - scrollView.frame.size.height ){
+        
+            loadMore()
+        }
+    }
+    
+    
+    func loadMore() {
+        quering = true
+        print("loading")
+        //loadMoreText.text = "正在加载中"
+        setLoadingFooter()
+        //self.initArr()
+        
+        orderService.search((queryObject?.keyword)!, startDate: (queryObject?.startDate)!, endDate: (queryObject?.endDate)!, index: page, pageSize: (queryObject?.pageSize)!) {
+            orderResponse in
+            dispatch_async(dispatch_get_main_queue()) {
+                self.page = self.page + 1
+                let newOrders = orderResponse.orders
+                for order in newOrders {
+                    self.orders.append(order)
+                }
+                if self.orders.count >= orderResponse.totalNumber {
+                    self.hasMore = false
+                }
+                
+                self.setNotLoadFooter()
+                if self.hasMore {
+                    self.loadMoreText.text = "上拉查看更多"
+                } else {
+                    self.loadMoreText.text = "已加载全部数据"
+                }
+                
+                self.tableView.reloadData()
+                self.quering = false
+                
+            }
+        }
+
     }
 
 }

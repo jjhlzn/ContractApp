@@ -11,6 +11,7 @@ import Foundation
 class ServiceConfiguration {
     //static let serverName = "localhost"
     static let serverName = "www.jinjunhang.com"
+    static let serverName3 = "localhost"
     
     static let port = 3000
     static let serverName2 = "jjhtest.hengdianworld.com"
