@@ -108,8 +108,9 @@ class Approval {
     var reporter: String?
     var reportDate: String?
     var status: String?
+    var approvalResult: String?
     
-    init(id: String, approvalObject: String?, keyword: String, amount: NSNumber, reporter: String, reportDate: String, status: String?) {
+    init(id: String, approvalObject: String?, keyword: String, amount: NSNumber, reporter: String, reportDate: String, status: String?, approvalResult: String?, type: String?) {
         self.id = id
         self.approvalObject = approvalObject
         self.keyword = keyword
@@ -117,6 +118,8 @@ class Approval {
         self.reporter = reporter
         self.reportDate = reportDate
         self.status = status
+        self.approvalResult = approvalResult
+        self.type = type
     }
     
     init() {

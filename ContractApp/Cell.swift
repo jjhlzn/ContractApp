@@ -25,6 +25,8 @@ class ApprovalCell : UITableViewCell {
     @IBOutlet weak var amountField: UILabel!
     @IBOutlet weak var reporterField: UILabel!
     @IBOutlet weak var reportDateField: UILabel!
+    @IBOutlet weak var statusField: UILabel!
+    @IBOutlet weak var typeField: UILabel!
 }
 
 class OrderPurchaseInfoCell : UITableViewCell {

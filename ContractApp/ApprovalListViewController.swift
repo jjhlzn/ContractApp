@@ -44,30 +44,34 @@ class ApprovalListViewController: UIViewController, UITableViewDataSource, UITab
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return approvals.count + 1
+        return approvals.count
     }
     
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        if indexPath.row == 0 {
-            return tableView.dequeueReusableCellWithIdentifier("approvalHeaderCell")!
+
+        let approval = approvals[indexPath.row]
+        let cell = tableView.dequeueReusableCellWithIdentifier("approvalContentCell") as! ApprovalCell
+        cell.approvalObjectField.text = approval.approvalObject
+        cell.keywordField.text = approval.keyword
+        let amount = "¥\(String(format:"%.2f", Double(approval.amount)))"
+        cell.amountField.text = amount
+        cell.reporterField.text = approval.reporter
+        cell.reportDateField.text = approval.reportDate
+        cell.typeField.text = approval.type
+        if approval.status == "已批" && approval.approvalResult != nil {
+            cell.statusField.text = approval.approvalResult!
         } else {
-            let approval = approvals[indexPath.row - 1]
-            let cell = tableView.dequeueReusableCellWithIdentifier("approvalContentCell") as! ApprovalCell
-            cell.approvalObjectField.text = approval.approvalObject
-            cell.keywordField.text = approval.keyword
-            let amount = "\(Double(approval.amount).truncate(2))"
-            cell.amountField.text = amount
-            cell.reporterField.text = approval.reporter
-            cell.reportDateField.text = approval.reportDate
-            return cell
+            cell.statusField.text = approval.status
         }
+        return cell
+        
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "approvalDetailSegue" {
             let dest = segue.destinationViewController as! ApprovalDetailController
-            dest.approval = approvals[(tableView.indexPathForSelectedRow?.row)! - 1]
+            dest.approval = approvals[(tableView.indexPathForSelectedRow?.row)!]
         }
     }
 

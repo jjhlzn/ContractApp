@@ -223,7 +223,7 @@ class ApprovalService : BasicService {
                 let jsonApprovals = dict["approvals"] as! NSArray
                 response.totalNumber = dict["totalNumber"] as! Int
                 for jsonApproval in jsonApprovals {
-                    let approval = Approval(id: (jsonApproval["id"] as? String)!, approvalObject: jsonApproval["approvalObject"] as? String, keyword: jsonApproval["keyword"] as! String, amount: jsonApproval["amount"] as! NSNumber, reporter: jsonApproval["reporter"] as! String, reportDate: jsonApproval["reportDate"] as! String, status: jsonApproval["status"] as? String)
+                    let approval = Approval(id: (jsonApproval["id"] as? String)!, approvalObject: jsonApproval["approvalObject"] as? String, keyword: jsonApproval["keyword"] as! String, amount: jsonApproval["amount"] as! NSNumber, reporter: jsonApproval["reporter"] as! String, reportDate: jsonApproval["reportDate"] as! String, status: jsonApproval["status"] as? String, approvalResult: jsonApproval["approvalResult"] as? String, type: jsonApproval["type"] as? String)
                     approvals.append(approval)
                 }
                 response.approvals = approvals
