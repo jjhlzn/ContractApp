@@ -62,6 +62,13 @@ class ApprovalDetailController: BaseUIViewController, UIAlertViewDelegate {
         }
     }
     
+    override func viewWillDisappear(animated: Bool) {
+        if self.navigationController?.viewControllers.indexOf(self) == nil {
+            ((self.parentViewController as! UINavigationController).topViewController as! ApprovalListViewController).tableView.reloadData()
+            
+        }
+    }
+    
     @IBAction func passPressed(sender: UIButton) {
         isPassPressed = true
         displayConfirmMessage("确认批准吗？", delegate: self)

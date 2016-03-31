@@ -26,7 +26,7 @@ class ServiceConfiguration {
     static let SeachApprovalUrl = "http://\(serverName2):\(port2)/approval/search.json"
     static let AuditApprovalUrl = "http://\(serverName2):\(port2)/approval/audit.json"
     
-    static let loginUrl = "http://\(serverName2):\(port2)/login/login.json"
+    static let loginUrl = "http://\(serverName):\(port)/login/login.json"
 }
 
 class BasicService {

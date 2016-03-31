@@ -39,6 +39,7 @@ class ApprovalListViewController: UIViewController, UITableViewDataSource, UITab
     override func viewWillDisappear(animated: Bool) {
         if self.navigationController?.viewControllers.indexOf(self) == nil {
             ((self.parentViewController as! UINavigationController).topViewController as! ApprovalSearchController).queryObject = queryObject
+            
         }
         super.viewWillAppear(animated)
     }

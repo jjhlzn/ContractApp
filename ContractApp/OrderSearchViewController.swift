@@ -103,7 +103,7 @@ class OrderSearchViewController: BaseUIViewController, UITextFieldDelegate {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let backItem = UIBarButtonItem()
-        backItem.title = "查询"
+        backItem.title = "返回"
         navigationItem.backBarButtonItem = backItem
         
         if segue.identifier == "orderResultSegue" {

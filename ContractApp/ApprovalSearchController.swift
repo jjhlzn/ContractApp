@@ -106,6 +106,10 @@ class ApprovalSearchController: BaseUIViewController, UITextFieldDelegate {
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let backItem = UIBarButtonItem()
+        backItem.title = "返回"
+        navigationItem.backBarButtonItem = backItem
+        
         if segue.identifier == "approvalResultSegue" {
             let dest = segue.destinationViewController as! ApprovalListViewController
             let response = sender as! SearchApprovalResponse
