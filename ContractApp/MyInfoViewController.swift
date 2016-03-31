@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MyInfoViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
+class MyInfoViewController: BaseUIViewController, UITableViewDataSource, UITableViewDelegate, UIAlertViewDelegate{
     
     var loginUser: LoginUser!
     var loginUserStore = LoginUserStore()
@@ -65,7 +65,20 @@ class MyInfoViewController: UIViewController, UITableViewDataSource, UITableView
     }
 
     @IBAction func logoutPressed(sender: AnyObject) {
-        loginUserStore.removeLoginUser()
-        performSegueWithIdentifier("logoutSegue", sender: nil)
+        displayConfirmMessage("确认退出登录吗？", delegate: self)
     }
-   }
+    
+    func alertView(alertView: UIAlertView, clickedButtonAtIndex buttonIndex: Int) {
+        switch buttonIndex {
+        case 0:
+            loginUserStore.removeLoginUser()
+            performSegueWithIdentifier("logoutSegue", sender: nil)
+
+            break;
+        case 1:
+            break;
+        default:
+            break;
+        }
+    }
+}

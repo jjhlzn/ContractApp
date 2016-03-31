@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ApprovalDetailController: BaseUIViewController {
+class ApprovalDetailController: BaseUIViewController, UIAlertViewDelegate {
     
     @IBOutlet weak var approvalObjectLabel: UILabel!
 
@@ -29,6 +29,8 @@ class ApprovalDetailController: BaseUIViewController {
     @IBOutlet weak var approvalResultLabel: UILabel!
     
     @IBOutlet weak var approvalResultNameLabel: UILabel!
+    
+    var isPassPressed: Bool = false
     
     var loginUser: LoginUser!
     let loginUserStore = LoginUserStore()
@@ -54,17 +56,21 @@ class ApprovalDetailController: BaseUIViewController {
             unpassButton.enabled = false
             self.passButton.hidden = true
             self.unpassButton.hidden = true
-            self.approvalResultLabel.text = "无"
+           
+        } else {
+             self.approvalResultLabel.text = "无"
         }
     }
     
     @IBAction func passPressed(sender: UIButton) {
-        approve("0")
+        isPassPressed = true
+        displayConfirmMessage("确认批准吗？", delegate: self)
         
     }
     
     @IBAction func unpassPressed(sender: UIButton) {
-        approve("-1")
+        isPassPressed = false
+        displayConfirmMessage("确认不批准吗？", delegate: self)
     }
     
     func approve(approvalResult: String) {
@@ -92,16 +98,33 @@ class ApprovalDetailController: BaseUIViewController {
                     
                     if approvalResult == "0" {
                         self.approvalResultLabel.text = "批准"
+                        self.approval.approvalResult = "批准"
+
                     } else {
                         self.approvalResultLabel.text = "不批准"
+                        self.approval.approvalResult = "不批准"
                     }
                 }
             }
         }
     }
-
+    
     
 
-
-    
+    func alertView(alertView: UIAlertView, clickedButtonAtIndex buttonIndex: Int) {
+        switch buttonIndex {
+        case 0:
+            if isPassPressed {
+                approve("0")
+            } else {
+                approve("-1")
+            }
+            break;
+        case 1:
+            break;
+        default:
+            break;
+        }
+    }
 }
+

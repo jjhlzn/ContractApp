@@ -24,6 +24,16 @@ class BaseUIViewController: UIViewController {
         
     }
     
+    func displayConfirmMessage(message : String, delegate: UIAlertViewDelegate) {
+        let alertView = UIAlertView()
+        //alertView.title = "系统提示"
+        alertView.message = message
+        alertView.addButtonWithTitle("确认")
+        alertView.addButtonWithTitle("取消")
+        alertView.delegate=delegate
+        alertView.show()
+    }
+    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
        // self.hideKeyboardWhenTappedAround()
@@ -41,8 +51,11 @@ class BaseUIViewController: UIViewController {
         }
         return true
     }
-
+    
+    
 }
+
+
 
 extension UIViewController {
     func hideKeyboardWhenTappedAround() {

@@ -11,11 +11,7 @@ import CoreData
 
 class LoginViewController: BaseUIViewController {
     
-    
-    @IBAction func backButtonDidTouch(sender: AnyObject) {
-        self.navigationController?.popToRootViewControllerAnimated(true)
-    }
-    
+
     @IBOutlet weak var uesernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
@@ -27,57 +23,18 @@ class LoginViewController: BaseUIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        uesernameTextField.layer.cornerRadius = 5
-        passwordTextField.layer.cornerRadius = 5
-        loginButton.layer.cornerRadius = 5
+        //uesernameTextField.layer.cornerRadius = 5
+        //passwordTextField.layer.cornerRadius = 5
+        //loginButton.layer.cornerRadius = 5
         
     }
     
    
     
-    override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        return UIStatusBarStyle.LightContent
-    }
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        loginButton.alpha = 0
- 
-    }
-    
-
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
-
-
-        UIView.animateWithDuration(0.5, delay: 0.00, options: UIViewAnimationOptions.CurveEaseOut, animations: {
-            
-           // self.centerAlignUsername.constant += self.view.bounds.width
-            self.view.layoutIfNeeded()
-            
-            }, completion: nil)
-        
-        UIView.animateWithDuration(0.5, delay: 0.10, options: .CurveEaseOut, animations: {
-            
-            //self.centerAlignPassword.constant += self.view.bounds.width
-            self.view.layoutIfNeeded()
-            
-            }, completion: nil)
-        
-        UIView.animateWithDuration(0.5, delay: 0.20, options: .CurveEaseOut, animations: {
-            
-            self.loginButton.alpha = 1
-            
-            }, completion: nil)
-        
-        
-        
-    }
     
     @IBAction func loginButtonDidTouch(sender: UIButton) {
         
