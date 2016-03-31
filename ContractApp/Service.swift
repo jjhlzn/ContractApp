@@ -26,7 +26,7 @@ class ServiceConfiguration {
     static let SeachApprovalUrl = "http://\(serverName2):\(port2)/approval/search.json"
     static let AuditApprovalUrl = "http://\(serverName2):\(port2)/approval/audit.json"
     
-    static let loginUrl = "http://\(serverName):\(port)/login/login.json"
+    static let loginUrl = "http://\(serverName2):\(port2)/login/login.json"
 }
 
 class BasicService {
@@ -269,7 +269,7 @@ class LoginService : BasicService {
         sendRequest(url, serverResponse: response) { dict -> Void in
             if response.status == 0 {
                 let jsonLoginResult = dict["result"] as! NSDictionary
-                if jsonLoginResult["success"] as! NSNumber == 0 {
+                if jsonLoginResult["success"] as! Bool {
                     response.isSuccess = true
                     response.name = jsonLoginResult["name"] as? String
                     response.department = jsonLoginResult["department"] as? String
