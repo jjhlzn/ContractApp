@@ -11,7 +11,7 @@ import Foundation
 class ServiceConfiguration {
     //static let serverName = "localhost"
     static let serverName = "www.jinjunhang.com"
-    static let serverName3 = "localhost"
+    static let serverName21 = "localhost"
     
     static let port = 3000
     static let serverName2 = "jjhtest.hengdianworld.com"
@@ -47,16 +47,20 @@ class BasicService {
                     serverResponse.errorMessage = "服务器返回出错"
                     responseHandler(dict: NSDictionary())
                     return
-            }
+                }
             
             // Read the JSON
             do {
-                if let ipString = NSString(data:data!, encoding: NSUTF8StringEncoding) {
+                if let jsonString = NSString(data:data!, encoding: NSUTF8StringEncoding) {
                     // Print what we got from the call
-                    print(ipString)
+                    print(jsonString)
                     
                     let dict = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers) as! NSDictionary
                     
+                    serverResponse.status = dict["status"] as! Int
+                    if  serverResponse.status !=  0 {
+                        return
+                    }
                     
                     responseHandler(dict: dict)
                 }

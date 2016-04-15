@@ -325,11 +325,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ContractApp/Service.swift"
-            timestampString = "480846142.493615"
+            timestampString = "482397938.648249"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "112"
-            endingLineNumber = "112"
+            startingLineNumber = "116"
+            endingLineNumber = "116"
             landmarkName = "getBasicInfo(_:completion:)"
             landmarkType = "5">
          </BreakpointContent>
