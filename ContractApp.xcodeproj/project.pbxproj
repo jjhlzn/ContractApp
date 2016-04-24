@@ -13,6 +13,7 @@
 		1C2359891C3B7A47006724C9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C2359871C3B7A47006724C9 /* LaunchScreen.storyboard */; };
 		1C2359B91C3CD1E5006724C9 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C2359B81C3CD1E5006724C9 /* User.swift */; };
 		1C26847D1CCC71150032C014 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C26847C1CCC71150032C014 /* LoginViewController.swift */; };
+		1C26847F1CCC9AC70032C014 /* MyInfoMainCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C26847E1CCC9AC70032C014 /* MyInfoMainCell.swift */; };
 		1C450E641CA6C1D00019A5CA /* ApprovalEmptyResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C450E631CA6C1D00019A5CA /* ApprovalEmptyResultViewController.swift */; };
 		1C450E661CA6C44A0019A5CA /* OrderEmptyResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C450E651CA6C44A0019A5CA /* OrderEmptyResultViewController.swift */; };
 		1C450E681CA809400019A5CA /* MyInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C450E671CA809400019A5CA /* MyInfoViewController.swift */; };
@@ -68,6 +69,7 @@
 		1C23599A1C3B7A47006724C9 /* ContractAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ContractAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C2359B81C3CD1E5006724C9 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		1C26847C1CCC71150032C014 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		1C26847E1CCC9AC70032C014 /* MyInfoMainCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyInfoMainCell.swift; sourceTree = "<group>"; };
 		1C450E631CA6C1D00019A5CA /* ApprovalEmptyResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApprovalEmptyResultViewController.swift; sourceTree = "<group>"; };
 		1C450E651CA6C44A0019A5CA /* OrderEmptyResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderEmptyResultViewController.swift; sourceTree = "<group>"; };
 		1C450E671CA809400019A5CA /* MyInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyInfoViewController.swift; sourceTree = "<group>"; };
@@ -141,6 +143,7 @@
 		1C23597D1C3B7A47006724C9 /* ContractApp */ = {
 			isa = PBXGroup;
 			children = (
+				1C2684801CCC9AF00032C014 /* cell */,
 				1C26847B1CCC6C140032C014 /* model */,
 				1C26847A1CCC6BF60032C014 /* service */,
 				1C2684791CCC6B8E0032C014 /* storyboard */,
@@ -149,7 +152,6 @@
 				1CFAC8941C858B2E00EF60D4 /* ApprovalListViewController.swift */,
 				1CFAC8921C85823300EF60D4 /* ApprovalSearchController.swift */,
 				1C2359851C3B7A47006724C9 /* Assets.xcassets */,
-				1CFAC8671C81846100EF60D4 /* Cell.swift */,
 				1CB4ABA81C87279F000F5B8C /* ContractApp.xcdatamodeld */,
 				1C23598A1C3B7A47006724C9 /* Info.plist */,
 				1CFAC86B1C82DC9B00EF60D4 /* OrderBasicInfoViewController.swift */,
@@ -199,6 +201,15 @@
 				1CFEDBCC1C87C7AF00503981 /* LoginUser.swift */,
 			);
 			name = model;
+			sourceTree = "<group>";
+		};
+		1C2684801CCC9AF00032C014 /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				1C26847E1CCC9AC70032C014 /* MyInfoMainCell.swift */,
+				1CFAC8671C81846100EF60D4 /* Cell.swift */,
+			);
+			name = cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -350,6 +361,7 @@
 				1C23597F1C3B7A47006724C9 /* AppDelegate.swift in Sources */,
 				1CF69A0D1C8BC00600D4C59F /* OrderFukuangInfoController.swift in Sources */,
 				1CFAC8951C858B2E00EF60D4 /* ApprovalListViewController.swift in Sources */,
+				1C26847F1CCC9AC70032C014 /* MyInfoMainCell.swift in Sources */,
 				1C450E681CA809400019A5CA /* MyInfoViewController.swift in Sources */,
 				1CFAC8931C85823300EF60D4 /* ApprovalSearchController.swift in Sources */,
 				1C26847D1CCC71150032C014 /* LoginViewController.swift in Sources */,
