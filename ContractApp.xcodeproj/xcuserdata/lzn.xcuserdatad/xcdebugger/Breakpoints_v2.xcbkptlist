@@ -197,13 +197,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ContractApp/LoginViewController.swift"
-            timestampString = "481005054.529592"
+            timestampString = "483161318.412162"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "51"
-            endingLineNumber = "51"
-            landmarkName = "loginButtonDidTouch(_:)"
-            landmarkType = "5">
+            startingLineNumber = "207"
+            endingLineNumber = "207">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -405,13 +403,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ContractApp/LoginViewController.swift"
-            timestampString = "481005054.529592"
+            timestampString = "483161318.412162"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "54"
-            endingLineNumber = "54"
-            landmarkName = "loginButtonDidTouch(_:)"
-            landmarkType = "5">
+            startingLineNumber = "210"
+            endingLineNumber = "210">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -565,13 +561,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ContractApp/LoginViewController.swift"
-            timestampString = "481077887.981698"
+            timestampString = "483161318.412162"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "57"
-            endingLineNumber = "57"
-            landmarkName = "loginButtonDidTouch(_:)"
-            landmarkType = "5">
+            startingLineNumber = "213"
+            endingLineNumber = "213">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -581,13 +575,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ContractApp/LoginViewController.swift"
-            timestampString = "481077890.041991"
+            timestampString = "483161318.412162"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "55"
-            endingLineNumber = "55"
-            landmarkName = "loginButtonDidTouch(_:)"
-            landmarkType = "5">
+            startingLineNumber = "211"
+            endingLineNumber = "211">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

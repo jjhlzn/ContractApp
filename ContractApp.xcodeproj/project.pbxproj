@@ -11,9 +11,8 @@
 		1C2359841C3B7A47006724C9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C2359821C3B7A47006724C9 /* Main.storyboard */; };
 		1C2359861C3B7A47006724C9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1C2359851C3B7A47006724C9 /* Assets.xcassets */; };
 		1C2359891C3B7A47006724C9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C2359871C3B7A47006724C9 /* LaunchScreen.storyboard */; };
-		1C2359941C3B7A47006724C9 /* ContractAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C2359931C3B7A47006724C9 /* ContractAppTests.swift */; };
-		1C23599F1C3B7A47006724C9 /* ContractAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C23599E1C3B7A47006724C9 /* ContractAppUITests.swift */; };
 		1C2359B91C3CD1E5006724C9 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C2359B81C3CD1E5006724C9 /* User.swift */; };
+		1C26847D1CCC71150032C014 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C26847C1CCC71150032C014 /* LoginViewController.swift */; };
 		1C450E641CA6C1D00019A5CA /* ApprovalEmptyResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C450E631CA6C1D00019A5CA /* ApprovalEmptyResultViewController.swift */; };
 		1C450E661CA6C44A0019A5CA /* OrderEmptyResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C450E651CA6C44A0019A5CA /* OrderEmptyResultViewController.swift */; };
 		1C450E681CA809400019A5CA /* MyInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C450E671CA809400019A5CA /* MyInfoViewController.swift */; };
@@ -27,7 +26,6 @@
 		1CF69A131C92616300D4C59F /* LoadingOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF69A121C92616300D4C59F /* LoadingOverlay.swift */; };
 		1CF69A151C9264BA00D4C59F /* BaseUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF69A141C9264BA00D4C59F /* BaseUIViewController.swift */; };
 		1CF69A171C96708200D4C59F /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF69A161C96708100D4C59F /* LaunchViewController.swift */; };
-		1CFAC8621C8173C500EF60D4 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CFAC8611C8173C500EF60D4 /* LoginViewController.swift */; };
 		1CFAC8641C817D6300EF60D4 /* OrderListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CFAC8631C817D6300EF60D4 /* OrderListViewController.swift */; };
 		1CFAC8661C817DF300EF60D4 /* BusinessModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CFAC8651C817DF300EF60D4 /* BusinessModel.swift */; };
 		1CFAC8681C81846100EF60D4 /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CFAC8671C81846100EF60D4 /* Cell.swift */; };
@@ -67,12 +65,9 @@
 		1C2359881C3B7A47006724C9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1C23598A1C3B7A47006724C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1C23598F1C3B7A47006724C9 /* ContractAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ContractAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		1C2359931C3B7A47006724C9 /* ContractAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContractAppTests.swift; sourceTree = "<group>"; };
-		1C2359951C3B7A47006724C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1C23599A1C3B7A47006724C9 /* ContractAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ContractAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		1C23599E1C3B7A47006724C9 /* ContractAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContractAppUITests.swift; sourceTree = "<group>"; };
-		1C2359A01C3B7A47006724C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1C2359B81C3CD1E5006724C9 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		1C26847C1CCC71150032C014 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		1C450E631CA6C1D00019A5CA /* ApprovalEmptyResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApprovalEmptyResultViewController.swift; sourceTree = "<group>"; };
 		1C450E651CA6C44A0019A5CA /* OrderEmptyResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderEmptyResultViewController.swift; sourceTree = "<group>"; };
 		1C450E671CA809400019A5CA /* MyInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyInfoViewController.swift; sourceTree = "<group>"; };
@@ -86,7 +81,6 @@
 		1CF69A121C92616300D4C59F /* LoadingOverlay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingOverlay.swift; sourceTree = "<group>"; };
 		1CF69A141C9264BA00D4C59F /* BaseUIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseUIViewController.swift; sourceTree = "<group>"; };
 		1CF69A161C96708100D4C59F /* LaunchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
-		1CFAC8611C8173C500EF60D4 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		1CFAC8631C817D6300EF60D4 /* OrderListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderListViewController.swift; sourceTree = "<group>"; };
 		1CFAC8651C817DF300EF60D4 /* BusinessModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessModel.swift; sourceTree = "<group>"; };
 		1CFAC8671C81846100EF60D4 /* Cell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cell.swift; sourceTree = "<group>"; };
@@ -130,8 +124,6 @@
 			isa = PBXGroup;
 			children = (
 				1C23597D1C3B7A47006724C9 /* ContractApp */,
-				1C2359921C3B7A47006724C9 /* ContractAppTests */,
-				1C23599D1C3B7A47006724C9 /* ContractAppUITests */,
 				1C23597C1C3B7A47006724C9 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -149,22 +141,17 @@
 		1C23597D1C3B7A47006724C9 /* ContractApp */ = {
 			isa = PBXGroup;
 			children = (
+				1C26847B1CCC6C140032C014 /* model */,
+				1C26847A1CCC6BF60032C014 /* service */,
+				1C2684791CCC6B8E0032C014 /* storyboard */,
 				1C23597E1C3B7A47006724C9 /* AppDelegate.swift */,
 				1CB4ABA61C86C1F0000F5B8C /* ApprovalDetailController.swift */,
 				1CFAC8941C858B2E00EF60D4 /* ApprovalListViewController.swift */,
 				1CFAC8921C85823300EF60D4 /* ApprovalSearchController.swift */,
 				1C2359851C3B7A47006724C9 /* Assets.xcassets */,
-				1CFAC8651C817DF300EF60D4 /* BusinessModel.swift */,
 				1CFAC8671C81846100EF60D4 /* Cell.swift */,
 				1CB4ABA81C87279F000F5B8C /* ContractApp.xcdatamodeld */,
-				1CB4ABAB1C872A95000F5B8C /* CoreDataStack.swift */,
 				1C23598A1C3B7A47006724C9 /* Info.plist */,
-				1C2359871C3B7A47006724C9 /* LaunchScreen.storyboard */,
-				1CFEDBCC1C87C7AF00503981 /* LoginUser.swift */,
-				1CFEDBCB1C87C7AF00503981 /* LoginUser+CoreDataProperties.swift */,
-				1CB4ABAD1C872AFE000F5B8C /* LoginUserStore.swift */,
-				1CFAC8611C8173C500EF60D4 /* LoginViewController.swift */,
-				1C2359821C3B7A47006724C9 /* Main.storyboard */,
 				1CFAC86B1C82DC9B00EF60D4 /* OrderBasicInfoViewController.swift */,
 				1CF69A0A1C8BB65C00D4C59F /* OrderChuyunInfoController.swift */,
 				1CF69A0C1C8BC00600D4C59F /* OrderFukuangInfoController.swift */,
@@ -173,34 +160,45 @@
 				1CFAC8711C83D57200EF60D4 /* OrderSearchViewController.swift */,
 				1CFAC86D1C82E5B300EF60D4 /* OrderShougouInfoController.swift */,
 				1CF69A0E1C8BC61800D4C59F /* OrderShouhuiController.swift */,
-				1CFAC86F1C83388300EF60D4 /* Service.swift */,
-				1C2359B81C3CD1E5006724C9 /* User.swift */,
 				1CF69A121C92616300D4C59F /* LoadingOverlay.swift */,
 				1CF69A141C9264BA00D4C59F /* BaseUIViewController.swift */,
 				1CF69A161C96708100D4C59F /* LaunchViewController.swift */,
 				1C450E631CA6C1D00019A5CA /* ApprovalEmptyResultViewController.swift */,
 				1C450E651CA6C44A0019A5CA /* OrderEmptyResultViewController.swift */,
 				1C450E671CA809400019A5CA /* MyInfoViewController.swift */,
+				1C26847C1CCC71150032C014 /* LoginViewController.swift */,
 			);
 			path = ContractApp;
 			sourceTree = "<group>";
 		};
-		1C2359921C3B7A47006724C9 /* ContractAppTests */ = {
+		1C2684791CCC6B8E0032C014 /* storyboard */ = {
 			isa = PBXGroup;
 			children = (
-				1C2359931C3B7A47006724C9 /* ContractAppTests.swift */,
-				1C2359951C3B7A47006724C9 /* Info.plist */,
+				1C2359821C3B7A47006724C9 /* Main.storyboard */,
+				1C2359871C3B7A47006724C9 /* LaunchScreen.storyboard */,
 			);
-			path = ContractAppTests;
+			name = storyboard;
 			sourceTree = "<group>";
 		};
-		1C23599D1C3B7A47006724C9 /* ContractAppUITests */ = {
+		1C26847A1CCC6BF60032C014 /* service */ = {
 			isa = PBXGroup;
 			children = (
-				1C23599E1C3B7A47006724C9 /* ContractAppUITests.swift */,
-				1C2359A01C3B7A47006724C9 /* Info.plist */,
+				1CFAC86F1C83388300EF60D4 /* Service.swift */,
 			);
-			path = ContractAppUITests;
+			name = service;
+			sourceTree = "<group>";
+		};
+		1C26847B1CCC6C140032C014 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				1CFAC8651C817DF300EF60D4 /* BusinessModel.swift */,
+				1CB4ABAB1C872A95000F5B8C /* CoreDataStack.swift */,
+				1C2359B81C3CD1E5006724C9 /* User.swift */,
+				1CB4ABAD1C872AFE000F5B8C /* LoginUserStore.swift */,
+				1CFEDBCB1C87C7AF00503981 /* LoginUser+CoreDataProperties.swift */,
+				1CFEDBCC1C87C7AF00503981 /* LoginUser.swift */,
+			);
+			name = model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -339,7 +337,6 @@
 				1CFAC86E1C82E5B300EF60D4 /* OrderShougouInfoController.swift in Sources */,
 				1CFAC8721C83D57200EF60D4 /* OrderSearchViewController.swift in Sources */,
 				1CFAC86A1C82C21B00EF60D4 /* OrderMenuController.swift in Sources */,
-				1CFAC8621C8173C500EF60D4 /* LoginViewController.swift in Sources */,
 				1CB4ABAE1C872AFE000F5B8C /* LoginUserStore.swift in Sources */,
 				1CF69A0F1C8BC61800D4C59F /* OrderShouhuiController.swift in Sources */,
 				1C450E661CA6C44A0019A5CA /* OrderEmptyResultViewController.swift in Sources */,
@@ -355,6 +352,7 @@
 				1CFAC8951C858B2E00EF60D4 /* ApprovalListViewController.swift in Sources */,
 				1C450E681CA809400019A5CA /* MyInfoViewController.swift in Sources */,
 				1CFAC8931C85823300EF60D4 /* ApprovalSearchController.swift in Sources */,
+				1C26847D1CCC71150032C014 /* LoginViewController.swift in Sources */,
 				1CFAC86C1C82DC9B00EF60D4 /* OrderBasicInfoViewController.swift in Sources */,
 				1CB4ABAC1C872A95000F5B8C /* CoreDataStack.swift in Sources */,
 				1CFAC8681C81846100EF60D4 /* Cell.swift in Sources */,
@@ -370,7 +368,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1C2359941C3B7A47006724C9 /* ContractAppTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -378,7 +375,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1C23599F1C3B7A47006724C9 /* ContractAppUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
