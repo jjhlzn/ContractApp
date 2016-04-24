@@ -53,6 +53,21 @@ class BaseUIViewController: UIViewController {
     }
     
     
+    func becomeLineBorder(field: UITextField) {
+        field.borderStyle = .None
+        let bottomBorder = CALayer()
+        bottomBorder.frame = CGRectMake(0.0, field.frame.size.height - 1, field.frame.size.width, 1.0);
+        bottomBorder.backgroundColor = UIColor.lightGrayColor().CGColor
+        field.layer.addSublayer(bottomBorder)
+    }
+    
+    func setTextFieldHeight(field: UITextField, height: CGFloat) {
+        var frameRect = field.frame
+        frameRect.size.height = height
+        field.frame = frameRect
+    }
+    
+    
 }
 
 

@@ -29,13 +29,8 @@ class LoginViewController: BaseUIViewController {
         super.viewDidLoad()
         super.hideKeyboardWhenTappedAround()
         
-        var frameRect = userNameField.frame
-        frameRect.size.height = 45
-        userNameField.frame = frameRect
-        
-        var frameRect1 = passwordField.frame
-        frameRect1.size.height = 45
-        passwordField.frame = frameRect1
+        setTextFieldHeight(userNameField, height: 45)
+        setTextFieldHeight(passwordField, height: 45)
         
         
         becomeLineBorder(userNameField)
@@ -55,15 +50,10 @@ class LoginViewController: BaseUIViewController {
             NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIKeyboardWillHideNotification, object: nil)
         }
         
+        
     }
     
-    func becomeLineBorder(field: UITextField) {
-        field.borderStyle = .None
-        let bottomBorder = CALayer()
-        bottomBorder.frame = CGRectMake(0.0, field.frame.size.height - 1, field.frame.size.width, 1.0);
-        bottomBorder.backgroundColor = UIColor.lightGrayColor().CGColor
-        field.layer.addSublayer(bottomBorder)
-    }
+    
     
     func addIconToField(field: UITextField, imageName: String) {
         let imageView = UIImageView();

@@ -65,7 +65,33 @@ class OrderSearchViewController: BaseUIViewController, UITextFieldDelegate {
         
         startDateField.inputView = startDatePicker
         endDateField.inputView = endDatePicker
+        
+        setTextFieldHeight(keyworldField, height: 45)
+        setTextFieldHeight(startDateField, height: 45)
+        setTextFieldHeight(endDateField, height: 45)
+        
+        becomeLineBorder(keyworldField)
+        becomeLineBorder(startDateField)
+        becomeLineBorder(endDateField)
+        
+        addIconToField(keyworldField, imageName: "search")
+        addIconToField(startDateField, imageName: "date")
+        addIconToField(endDateField, imageName: "date")
     }
+    
+    func addIconToField(field: UITextField, imageName: String) {
+        let imageView = UIImageView();
+        let image = UIImage(named: imageName);
+        imageView.frame = CGRect(x: 0, y: 0, width: 25, height: 25)
+        view.addSubview(imageView)
+        imageView.image = image;
+        
+        let paddingView = UIView(frame: CGRectMake(0, 0, 25, 25))
+        paddingView.addSubview(imageView)
+        field.rightView = paddingView;
+        field.rightViewMode = UITextFieldViewMode.Always
+    }
+
     
     func datePickerChanged(sender: UIDatePicker) {
         let formatter = NSDateFormatter()
@@ -145,6 +171,7 @@ class OrderSearchViewController: BaseUIViewController, UITextFieldDelegate {
             
         }
     }
+    
     
     
     func checkForm() -> Bool {
