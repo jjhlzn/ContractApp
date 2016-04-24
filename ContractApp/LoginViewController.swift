@@ -71,8 +71,13 @@ class LoginViewController: BaseUIViewController {
         imageView.frame = CGRect(x: 0, y: 0, width: 25, height: 25)
         view.addSubview(imageView)
         imageView.image = image;
-        field.leftView = imageView
+        //field.leftView = imageView
         
+        //field.leftViewMode = UITextFieldViewMode.Always
+        
+        let paddingView = UIView(frame: CGRectMake(0, 0, 40, 25))
+        paddingView.addSubview(imageView)
+        field.leftView = paddingView;
         field.leftViewMode = UITextFieldViewMode.Always
     }
     
