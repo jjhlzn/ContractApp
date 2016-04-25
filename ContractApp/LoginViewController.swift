@@ -144,8 +144,8 @@ class LoginViewController: BaseUIViewController {
                         
                         self.performSegueWithIdentifier("loginSuccessSegue", sender: self)
                     } else {
-                        if response.errMessage != nil {
-                            self.displayMessage(response.errMessage!)
+                        if response.errorMessage != nil {
+                            self.displayMessage(response.errorMessage!)
                         } else {
                             self.displayMessage("登录失败")
                         }

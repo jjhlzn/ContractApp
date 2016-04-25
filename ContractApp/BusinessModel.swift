@@ -184,7 +184,11 @@ class ApprovalQueryObject : QueryObject {
     var pageSize: Int = 10
     var containApproved: Bool = true
     var containUnapproved: Bool = true
-    
+    override init() {
+        keyword = ""
+        startDate = NSDate()
+        endDate = NSDate()
+    }
     init(keyword: String, startDate: NSDate, endDate: NSDate, containApproved: Bool, containUnapproved: Bool) {
         self.keyword = keyword
         self.startDate = startDate

@@ -39,7 +39,7 @@ class OrderSearchViewController: BaseUIViewController, UITextFieldDelegate {
             
         } else {
             let currentDateTime = NSDate()
-            let oneMonthAgo = currentDateTime.dateByAddingTimeInterval(-30 * 24 * 60 * 60)
+            let oneMonthAgo = currentDateTime.dateByAddingTimeInterval(-31 * 24 * 60 * 60)
             startDatePicker.date = oneMonthAgo
             
             startDateField.text = formatter.stringFromDate(oneMonthAgo)
@@ -161,11 +161,11 @@ class OrderSearchViewController: BaseUIViewController, UITextFieldDelegate {
                         self.displayMessage(orderResponse.errorMessage!)
                     }
                 } else {
-                    if orderResponse.totalNumber != 0 {
+                    //if orderResponse.totalNumber != 0 {
                         self.performSegueWithIdentifier("orderResultSegue", sender: orderResponse)
-                    } else {
-                        self.performSegueWithIdentifier("emptyResultSegue", sender: orderResponse)
-                    }
+                    //} else {
+                      //  self.performSegueWithIdentifier("emptyResultSegue", sender: orderResponse)
+                    //}
                 }
             }
             

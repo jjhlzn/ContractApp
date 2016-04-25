@@ -152,7 +152,6 @@
 				1CFAC8941C858B2E00EF60D4 /* ApprovalListViewController.swift */,
 				1CFAC8921C85823300EF60D4 /* ApprovalSearchController.swift */,
 				1C2359851C3B7A47006724C9 /* Assets.xcassets */,
-				1CB4ABA81C87279F000F5B8C /* ContractApp.xcdatamodeld */,
 				1C23598A1C3B7A47006724C9 /* Info.plist */,
 				1CFAC86B1C82DC9B00EF60D4 /* OrderBasicInfoViewController.swift */,
 				1CF69A0A1C8BB65C00D4C59F /* OrderChuyunInfoController.swift */,
@@ -199,6 +198,7 @@
 				1CB4ABAD1C872AFE000F5B8C /* LoginUserStore.swift */,
 				1CFEDBCB1C87C7AF00503981 /* LoginUser+CoreDataProperties.swift */,
 				1CFEDBCC1C87C7AF00503981 /* LoginUser.swift */,
+				1CB4ABA81C87279F000F5B8C /* ContractApp.xcdatamodeld */,
 			);
 			name = model;
 			sourceTree = "<group>";

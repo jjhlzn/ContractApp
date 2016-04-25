@@ -17,5 +17,6 @@ extension LoginUser {
     @NSManaged var department: String?
     @NSManaged var name: String?
     @NSManaged var userName: String?
+    @NSManaged var lastUpdateApproval: NSDate?
 
 }

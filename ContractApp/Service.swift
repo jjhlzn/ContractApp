@@ -13,7 +13,7 @@ class ServiceConfiguration {
     static let serverName = "www.jinjunhang.com"
     static let serverName21 = "localhost"
     
-    static let port = 3000
+    static let port21 = 3000
     static let serverName2 = "jjhtest.hengdianworld.com"
     static let port2 = 80
     static let SeachOrderUrl = "http://\(serverName2):\(port2)/order/search.json"
@@ -26,7 +26,7 @@ class ServiceConfiguration {
     static let SeachApprovalUrl = "http://\(serverName2):\(port2)/approval/search.json"
     static let AuditApprovalUrl = "http://\(serverName2):\(port2)/approval/audit.json"
     
-    static let loginUrl = "http://\(serverName):\(port)/login/login.json"
+    static let loginUrl = "http://\(serverName2):\(port2)/login/login.json"
 }
 
 class BasicService {
@@ -294,6 +294,7 @@ class LoginService : BasicService {
     
        
     func makeUrl(userName: String, password: String) -> String {
-        return ServiceConfiguration.loginUrl
+        let queryString = "x=\(userName)&y=\(password)"
+        return ServiceConfiguration.loginUrl + "?" + queryString.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())!
     }
 }

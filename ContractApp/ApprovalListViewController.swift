@@ -9,41 +9,142 @@
 import UIKit
 
 class ApprovalListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    let UPDATETIEM = 5.0 * 60
     
     @IBOutlet weak var tableView: UITableView!
+    
+    var loadingOverlay = LoadingOverlay()
 
     var approvals = [Approval]()
     var approvalService = ApprovalService()
     var queryObject: ApprovalQueryObject?
-    var hasMore = false
+    var hasMore = true
     var quering = false
-    var page = 1
+    var page = 0
     
+    var firstLoad = true
+    var userName: String!
     var loginUser: LoginUser!
     let loginUserStore = LoginUserStore()
     
     
     var loadMoreText = UILabel()
     var tableFooterView = UIView()//列表的底部，用于显示“上拉查看更多”的提示，当上拉后显示类容为“松开加载更多”
+    var refreshControl: UIRefreshControl!
+    
+    
+    override func viewDidLoad() {
+        refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(refresh), forControlEvents: UIControlEvents.ValueChanged)
+        tableView.addSubview(refreshControl) // not required when using UITableViewController
+        print("viewDidLoad")
+        loginUser = loginUserStore.GetLoginUser()!
+        userName = loginUser.userName
+        tableView.dataSource = self
+        tableView.delegate = self
+        
+        if (queryObject == nil) {
+            queryObject = createQueryObject()
+        }
+
+
+    }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        print("viewWillAppear")
         
-        loginUser = loginUserStore.GetLoginUser()!
         
-        tableView.dataSource = self
-        tableView.delegate = self
         createTableFooter()
+        
     }
     
-    override func viewWillDisappear(animated: Bool) {
-        if self.navigationController?.viewControllers.indexOf(self) == nil {
-            ((self.parentViewController as! UINavigationController).topViewController as! ApprovalSearchController).queryObject = queryObject
-            
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        if !firstLoad {
+            if needRefreshForTimeout() {
+                page = 0
+                hasMore = true
+                quering = false
+                print("need refresh")
+                refresh(1)
+            }
         }
-        super.viewWillAppear(animated)
+        
+        firstLoad = false
     }
     
+    
+    private func needRefreshForTimeout() -> Bool {
+        loginUser = loginUserStore.GetLoginUser()
+        if (loginUser.lastUpdateApproval == nil) {
+            return false
+        }
+        
+        let lastUpdate = loginUser.lastUpdateApproval!
+        let currentDateTime = NSDate()
+        let delta = currentDateTime.timeIntervalSince1970 - lastUpdate.timeIntervalSince1970
+        print("delta = \(delta)")
+        return delta > UPDATETIEM
+    }
+    
+    func refresh(sender:AnyObject) {
+        refreshControl.endRefreshing()
+        refreshControl.endRefreshing()
+        if (quering) {
+            refreshControl.endRefreshing()
+            return
+        }
+        quering = true
+
+        self.page = 0
+        print("refreshing")
+        
+        approvalService.search(loginUser.userName!, keyword: (queryObject?.keyword)!, containApproved: (queryObject?.containApproved)!, containUnapproved: (queryObject?.containUnapproved)!, startDate: (queryObject?.startDate)!, endDate: (queryObject?.endDate)!, index: page, pageSize: (queryObject?.pageSize)!) { response in
+            dispatch_async(dispatch_get_main_queue()) {
+                if self.page == 0 {
+                    self.loginUserStore.updateApprovalUpdateTime(self.loginUser, time: NSDate())
+                }
+                self.refreshControl.endRefreshing()
+                self.quering = false
+                if response.status != 0 {
+                    return
+                }
+                self.page = self.page + 1
+                self.approvals = response.approvals
+                
+                if self.approvals.count >= response.totalNumber {
+                    self.hasMore = false
+                }
+                
+                self.setNotLoadFooter()
+                
+                
+                self.tableView.reloadData()
+                
+                self.setFootText()
+            }
+        }
+
+    }
+    
+    
+    
+    private func createQueryObject() -> ApprovalQueryObject {
+        let currentDateTime = NSDate()
+        //let oneMonthAgo = currentDateTime.dateByAddingTimeInterval(-10 * 12 * 31 * 24 * 60 * 60)
+        let oneMonthAgo = currentDateTime.dateByAddingTimeInterval(-31 * 24 * 60 * 60)
+        
+        let queryObject = ApprovalQueryObject()
+        queryObject.keyword = ""
+        queryObject.startDate = oneMonthAgo
+        queryObject.endDate = currentDateTime
+        queryObject.containApproved = false
+        queryObject.containUnapproved = true
+        return queryObject
+    }
+    
+        
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return approvals.count
     }
@@ -73,45 +174,64 @@ class ApprovalListViewController: UIViewController, UITableViewDataSource, UITab
         if segue.identifier == "approvalDetailSegue" {
             let dest = segue.destinationViewController as! ApprovalDetailController
             dest.approval = approvals[(tableView.indexPathForSelectedRow?.row)!]
+        } else if segue.identifier == "searchApprovalSegue" {
+            let dest = segue.destinationViewController as! ApprovalSearchController
+            dest.queryObject = queryObject
         }
     }
 
 
-    
-    func createTableFooter(){//初始化tv的footerView
+    private func createTableFooter(){//初始化tv的footerView
         setNotLoadFooter()
     }
     
-    func setNotLoadFooter() {
+    private func setNotLoadFooter() {
         self.tableView.tableFooterView = nil
         tableFooterView = UIView()
         tableFooterView.frame = CGRectMake(0, 0, tableView.bounds.size.width, 40)
         loadMoreText.frame =  CGRectMake(0, 0, tableView.bounds.size.width, 40)
-        loadMoreText.text = "上拉查看更多"
+        
         
         loadMoreText.textAlignment = NSTextAlignment.Center
-        loadMoreText.textColor = UIColor.grayColor()
         tableFooterView.addSubview(loadMoreText)
-        loadMoreText.font = UIFont(name: "Helvetica Neue", size: 10)
         loadMoreText.center = CGPointMake( (tableView.bounds.size.width - loadMoreText.intrinsicContentSize().width / 16) / 2 , 20)
-        
+        self.setFootText()
         
         tableView.tableFooterView = tableFooterView
     }
+    
+    private func setFootText() {
+        loadMoreText.font = UIFont(name: "Helvetica Neue", size: 10)
+        loadMoreText.textColor = UIColor.grayColor()
+        if quering {
+            self.loadMoreText.text = "加载中"
+            
+        } else {
+            if self.hasMore {
+                self.loadMoreText.text = "上拉查看更多"
+            } else {
+                if self.approvals.count == 0 {
+                    loadMoreText.font = UIFont(name: "Helvetica Neue", size: 14)
+                    self.loadMoreText.text = "没找到任何审批"
+                } else {
+                    
+                    self.loadMoreText.text = "已加载全部数据"
+                }
+            }
+        }
+    }
+    
     
     func setLoadingFooter() {
         self.tableView.tableFooterView = nil
         tableFooterView = UIView()
         tableFooterView.frame = CGRectMake(0, 0, tableView.bounds.size.width, 40)
         loadMoreText.frame =  CGRectMake(0, 0, tableView.bounds.size.width, 40)
-        loadMoreText.text = "加载中"
+        
         
         loadMoreText.textAlignment = NSTextAlignment.Center
         
         
-        
-        loadMoreText.font = UIFont(name: "Helvetica Neue", size: 10)
-        loadMoreText.textColor = UIColor.grayColor()
         loadMoreText.center = CGPointMake( (tableView.bounds.size.width - loadMoreText.intrinsicContentSize().width / 16) / 2 , 20)
         let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.Gray)
         activityIndicator.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
@@ -120,7 +240,7 @@ class ApprovalListViewController: UIViewController, UITableViewDataSource, UITab
         
         tableFooterView.addSubview(activityIndicator)
         tableFooterView.addSubview(loadMoreText)
-        
+        setFootText()
         tableView.tableFooterView = tableFooterView
     }
     
@@ -130,9 +250,8 @@ class ApprovalListViewController: UIViewController, UITableViewDataSource, UITab
         if quering {
             return
         }
-        
+        setFootText()
         if !hasMore {
-            loadMoreText.text = "已加载全部数据"
             return
         }
         //print("scrollView.contentOffset.y = \(scrollView.contentOffset.y)")
@@ -148,12 +267,14 @@ class ApprovalListViewController: UIViewController, UITableViewDataSource, UITab
     func loadMore() {
         quering = true
         print("loading")
-        //loadMoreText.text = "正在加载中"
         setLoadingFooter()
-        //self.initArr()
         
-        approvalService.search(loginUser.userName!, keyword: (queryObject?.keyword)!, containApproved: (queryObject?.containApproved)!, containUnapproved: (queryObject?.containUnapproved)!, startDate: (queryObject?.startDate)!, endDate: (queryObject?.endDate)!, index: page, pageSize: (queryObject?.pageSize)!) { response in
+        approvalService.search(userName, keyword: (queryObject?.keyword)!, containApproved: (queryObject?.containApproved)!, containUnapproved: (queryObject?.containUnapproved)!, startDate: (queryObject?.startDate)!, endDate: (queryObject?.endDate)!, index: page, pageSize: (queryObject?.pageSize)!) { response in
             dispatch_async(dispatch_get_main_queue()) {
+                if self.page == 0 {
+                    self.loginUserStore.updateApprovalUpdateTime(self.loginUser, time: NSDate())
+                }
+                
                 self.page = self.page + 1
                 let newApprovals = response.approvals
                 for approval in newApprovals {
@@ -164,15 +285,11 @@ class ApprovalListViewController: UIViewController, UITableViewDataSource, UITab
                 }
                 
                 self.setNotLoadFooter()
-                if self.hasMore {
-                    self.loadMoreText.text = "上拉查看更多"
-                } else {
-                    self.loadMoreText.text = "已加载全部数据"
-                }
+                
                 
                 self.tableView.reloadData()
                 self.quering = false
-                
+                self.setFootText()
             }
         }
         

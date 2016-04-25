@@ -19,7 +19,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="orderMenuCell" id="4pt-YA-sWh">
-                                        <rect key="frame" x="0.0" y="28" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="92" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4pt-YA-sWh" id="cze-6O-yEm">
                                             <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
@@ -59,7 +59,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="shougouHeaderCell" id="z4T-D3-erf">
-                                        <rect key="frame" x="0.0" y="28" width="320" height="60"/>
+                                        <rect key="frame" x="0.0" y="92" width="320" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="z4T-D3-erf" id="ggh-7Z-aAe">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="59"/>
@@ -76,7 +76,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="shougouContentCell" id="QPT-G5-dUa" customClass="OrderPurchaseInfoCell" customModule="ContractApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="88" width="320" height="60"/>
+                                        <rect key="frame" x="0.0" y="152" width="320" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="QPT-G5-dUa" id="Yi0-e7-1TQ">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="59"/>
@@ -395,7 +395,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="39C-kB-XMU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-553" y="444"/>
+            <point key="canvasLocation" x="441" y="458"/>
         </scene>
         <!--订单列表-->
         <scene sceneID="Fqr-ca-mPy">
@@ -411,7 +411,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="orderContentCell" id="FBh-n8-nvV" customClass="OrderCell" customModule="ContractApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="320" height="60"/>
+                                        <rect key="frame" x="0.0" y="92" width="320" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="FBh-n8-nvV" id="vqA-wK-naH">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="59"/>
@@ -475,7 +475,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WpO-nC-bkz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1019" y="-899"/>
+            <point key="canvasLocation" x="771" y="-1363"/>
         </scene>
         <!--订单-->
         <scene sceneID="B4k-It-phJ">
@@ -538,12 +538,11 @@
                         <outlet property="keyworldField" destination="1lv-VY-35h" id="7Sf-4Y-osf"/>
                         <outlet property="startDateField" destination="iNV-d3-mAe" id="Udj-eo-P9O"/>
                         <segue destination="Pir-PI-ohB" kind="push" identifier="orderResultSegue" id="oUE-0k-PPN"/>
-                        <segue destination="sqL-he-MnV" kind="push" identifier="emptyResultSegue" id="Ta5-Zd-uAn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RtW-ms-gRn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="528" y="-1049"/>
+            <point key="canvasLocation" x="359" y="-1223"/>
         </scene>
         <!--启动-->
         <scene sceneID="8kA-uf-Tm3">
@@ -574,13 +573,13 @@
                     </tabBar>
                     <connections>
                         <segue destination="ym3-Dx-ab8" kind="relationship" relationship="viewControllers" id="BUO-aU-egJ"/>
-                        <segue destination="Qjy-51-WUe" kind="relationship" relationship="viewControllers" id="dZh-W0-rw3"/>
+                        <segue destination="G6A-Ot-Y2s" kind="relationship" relationship="viewControllers" id="Fhg-nP-DFq"/>
                         <segue destination="nWY-6V-ywI" kind="relationship" relationship="viewControllers" id="mjj-de-WcG"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vFP-vf-Kzp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-547" y="-803"/>
+            <point key="canvasLocation" x="-794" y="-816"/>
         </scene>
         <!--审批-->
         <scene sceneID="0sG-W9-Qat">
@@ -669,42 +668,17 @@
                         <outlet property="keywordField" destination="yXC-Vi-KMw" id="aKH-lp-uZg"/>
                         <outlet property="startDateField" destination="Irl-Nk-iCn" id="6M7-q3-eDy"/>
                         <outlet property="unapprovedSwitch" destination="THa-KB-kbB" id="CgP-Ci-REN"/>
-                        <segue destination="RSj-cg-b6l" kind="push" identifier="approvalResultSegue" id="dSC-tZ-aTp"/>
-                        <segue destination="L87-jN-o3w" kind="push" identifier="emptyResultSegue" id="Gsk-eR-fkU"/>
+                        <segue destination="RSj-cg-b6l" kind="push" identifier="approvalResultSegue" id="d4w-Az-vRY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Xl-u4-2Ab" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="629" y="-133"/>
-        </scene>
-        <!--审批列表-->
-        <scene sceneID="4G9-L5-Oka">
-            <objects>
-                <viewController hidesBottomBarWhenPushed="YES" id="L87-jN-o3w" customClass="ApprovalEmptyResultViewController" customModule="ContractApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="ANI-VN-I7m">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="没有找到任何审批" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="WXV-aK-2V5">
-                                <rect key="frame" x="93" y="273" width="136" height="21"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="审批列表" id="k2h-LY-ArA"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="7iq-OU-Kii" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="835" y="601"/>
+            <point key="canvasLocation" x="1864" y="965"/>
         </scene>
         <!--审批列表-->
         <scene sceneID="ulj-2s-WVN">
             <objects>
-                <viewController hidesBottomBarWhenPushed="YES" id="RSj-cg-b6l" customClass="ApprovalListViewController" customModule="ContractApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="RSj-cg-b6l" customClass="ApprovalListViewController" customModule="ContractApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0cE-tm-4Y9">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -715,7 +689,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="approvalContentCell" rowHeight="60" id="05M-3a-6PN" customClass="ApprovalCell" customModule="ContractApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="320" height="60"/>
+                                        <rect key="frame" x="0.0" y="92" width="320" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="05M-3a-6PN" id="Dg7-lT-V8v">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="59"/>
@@ -756,8 +730,8 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="状态" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="f0O-21-jFr">
-                                                    <rect key="frame" x="207" y="7" width="29" height="29"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="状态" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="f0O-21-jFr">
+                                                    <rect key="frame" x="206" y="7" width="34" height="29"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -788,14 +762,20 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="审批列表" id="gwp-tS-QN6"/>
+                    <navigationItem key="navigationItem" title="审批列表" id="gwp-tS-QN6">
+                        <barButtonItem key="leftBarButtonItem" systemItem="search" id="2c5-4E-Osk">
+                            <connections>
+                                <segue destination="xtI-Do-5Pd" kind="push" identifier="searchApprovalSegue" id="tvU-hR-39Z"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="WKD-Ui-sfA" id="I2F-wm-PLX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ijh-ci-3Tx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1028" y="-128"/>
+            <point key="canvasLocation" x="1106" y="220"/>
         </scene>
         <!--审批详情-->
         <scene sceneID="nFO-eT-g2l">
@@ -946,26 +926,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j1Q-Rp-Sda" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1513" y="-105"/>
-        </scene>
-        <!--审批-->
-        <scene sceneID="4xs-V1-s6g">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Qjy-51-WUe" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="审批" image="shenpi" selectedImage="shenpi-filled" id="e2H-BB-out"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Y3g-Qj-Tks">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="xtI-Do-5Pd" kind="relationship" relationship="rootViewController" id="0oe-Nm-2ah"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4hZ-Pz-orf" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-133" y="-387"/>
+            <point key="canvasLocation" x="2045" y="-105"/>
         </scene>
         <!--订单查询-->
         <scene sceneID="IRF-Mp-m0U">
@@ -985,7 +946,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rzy-QS-kbS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="139" y="-1157"/>
+            <point key="canvasLocation" x="-362" y="-1378"/>
         </scene>
         <!--收汇信息-->
         <scene sceneID="460-N4-4gc">
@@ -1034,7 +995,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nk7-MO-cxd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2061" y="-128"/>
+            <point key="canvasLocation" x="2593" y="-128"/>
         </scene>
         <!--工厂付款信息-->
         <scene sceneID="Quv-98-jbM">
@@ -1050,7 +1011,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="shougouHeaderCell" id="DHZ-bW-Npv">
-                                        <rect key="frame" x="0.0" y="28" width="320" height="60"/>
+                                        <rect key="frame" x="0.0" y="92" width="320" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="DHZ-bW-Npv" id="YtY-Ey-HFv">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="59"/>
@@ -1067,7 +1028,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="shougouContentCell" id="8f8-aW-rPe" customClass="OrderPurchaseInfoCell" customModule="ContractApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="88" width="320" height="60"/>
+                                        <rect key="frame" x="0.0" y="152" width="320" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8f8-aW-rPe" id="bhY-ks-ZiQ">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="59"/>
@@ -1124,30 +1085,6 @@
             </objects>
             <point key="canvasLocation" x="2214" y="-1034"/>
         </scene>
-        <!--订单列表-->
-        <scene sceneID="1qE-I3-emQ">
-            <objects>
-                <viewController id="sqL-he-MnV" customClass="OrderEmptyResultViewController" customModule="ContractApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Dc6-lp-JDE">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="没有找到任何订单" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="fpZ-5o-RCE">
-                                <rect key="frame" x="92" y="0.0" width="136" height="568"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="订单列表" id="dHW-Vs-rom"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="RFu-X6-9bx" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="966" y="-1507"/>
-        </scene>
         <!--我-->
         <scene sceneID="WCo-pa-RUa">
             <objects>
@@ -1166,7 +1103,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PYZ-Zo-vY9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-307" y="-14"/>
+            <point key="canvasLocation" x="-75" y="-128"/>
         </scene>
         <!--登录-->
         <scene sceneID="U8F-nD-sVQ">
@@ -1228,6 +1165,26 @@
             </objects>
             <point key="canvasLocation" x="-1079" y="-1328"/>
         </scene>
+        <!--审批-->
+        <scene sceneID="Bfp-aO-8Zp">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="G6A-Ot-Y2s" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="审批" image="shenpi" selectedImage="shenpi-filled" id="kyb-VZ-6tP"/>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="QQ3-bF-6pK"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="PZg-2Q-7Wk">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="RSj-cg-b6l" kind="relationship" relationship="rootViewController" id="49w-if-76T"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QRd-Su-JKx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="832" y="-625"/>
+        </scene>
     </scenes>
     <resources>
         <image name="launch-image" width="102" height="100"/>
@@ -1240,8 +1197,9 @@
         <image name="userIcon" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="iWu-hX-vIV"/>
-        <segue reference="5cR-bU-QgN"/>
+        <segue reference="IGP-XW-Mia"/>
+        <segue reference="Yj5-5N-0r6"/>
+        <segue reference="d4w-Az-vRY"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.019607843140000001" green="0.37647058820000001" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
 </document>

@@ -51,7 +51,7 @@ class ApprovalSearchController: BaseUIViewController, UITextFieldDelegate {
             
         } else {
             let currentDateTime = NSDate()
-            let oneMonthAgo = currentDateTime.dateByAddingTimeInterval(-30 * 24 * 60 * 60)
+            let oneMonthAgo = currentDateTime.dateByAddingTimeInterval(-31 * 24 * 60 * 60)
             startDatePicker.date = oneMonthAgo
             
             startDateField.text = formatter.stringFromDate(oneMonthAgo)
@@ -83,6 +83,15 @@ class ApprovalSearchController: BaseUIViewController, UITextFieldDelegate {
         addIconToField(startDateField, imageName: "date")
         addIconToField(endDateField, imageName: "date")
     }
+    
+    override func viewWillDisappear(animated: Bool) {
+        /*
+        if self.navigationController?.viewControllers.indexOf(self) == nil {
+            ((self.parentViewController as! UITabBarController).topViewController as! ApprovalSearchController).
+        }*/
+        super.viewWillAppear(animated)
+    }
+
     
     func datePickerChanged(sender: UIDatePicker) {
         let formatter = NSDateFormatter()
@@ -139,9 +148,9 @@ class ApprovalSearchController: BaseUIViewController, UITextFieldDelegate {
         
         if segue.identifier == "approvalResultSegue" {
             let dest = segue.destinationViewController as! ApprovalListViewController
-            let response = sender as! SearchApprovalResponse
-            dest.approvals = response.approvals
-            dest.hasMore = dest.approvals.count < response.totalNumber
+            //let response = sender as! SearchApprovalResponse
+            //dest.approvals = response.approvals
+            //dest.hasMore = dest.approvals.count < response.totalNumber
             dest.queryObject = ApprovalQueryObject(keyword: getKeyword(), startDate: getStartDate(), endDate: getEndDate(), containApproved: approvedSwitch.on, containUnapproved: unapprovedSwitch.on)
         } else if segue.identifier == "emptyResultSegue" {
             let dest = segue.destinationViewController as! ApprovalEmptyResultViewController
@@ -149,11 +158,15 @@ class ApprovalSearchController: BaseUIViewController, UITextFieldDelegate {
         }
     }
     
+    
     @IBAction func searchPressed(sender: UIButton) {
         if !checkForm() {
             return
         }
  
+        self.performSegueWithIdentifier("approvalResultSegue", sender: nil)
+        
+        /*
         loadingOverlay.showOverlay(self.view)
         approvalService.search(loginUser.userName!, keyword: getKeyword(), containApproved: approvedSwitch.on, containUnapproved: unapprovedSwitch.on, startDate: getStartDate(), endDate: getEndDate(), index: 0, pageSize: 10) { response in
             dispatch_async(dispatch_get_main_queue()) {
@@ -164,14 +177,14 @@ class ApprovalSearchController: BaseUIViewController, UITextFieldDelegate {
                     }
                 } else {
                     if response.totalNumber != 0 {
-                        self.performSegueWithIdentifier("approvalResultSegue", sender: response)
+                        
                     } else {
                         self.performSegueWithIdentifier("emptyResultSegue", sender: response)
                     }
                 }
 
             }
-        }
+        }*/
         
     }
     

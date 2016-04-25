@@ -65,20 +65,40 @@ class OrderListViewController: UIViewController, UITableViewDataSource, UITableV
         setNotLoadFooter()
     }
     
+    private func setFootText() {
+        loadMoreText.font = UIFont(name: "Helvetica Neue", size: 10)
+        loadMoreText.textColor = UIColor.grayColor()
+        if quering {
+            self.loadMoreText.text = "加载中"
+            
+        } else {
+            if self.hasMore {
+                self.loadMoreText.text = "上拉查看更多"
+            } else {
+                if self.orders.count == 0 {
+                    loadMoreText.font = UIFont(name: "Helvetica Neue", size: 14)
+                    self.loadMoreText.text = "没找到任何订单"
+                } else {
+                    
+                    self.loadMoreText.text = "已加载全部数据"
+                }
+            }
+        }
+    }
+    
     func setNotLoadFooter() {
         self.tableView.tableFooterView = nil
         tableFooterView = UIView()
         tableFooterView.frame = CGRectMake(0, 0, tableView.bounds.size.width, 40)
         loadMoreText.frame =  CGRectMake(0, 0, tableView.bounds.size.width, 40)
-        loadMoreText.text = "上拉查看更多"
+       
         
         loadMoreText.textAlignment = NSTextAlignment.Center
         tableFooterView.addSubview(loadMoreText)
-        loadMoreText.font = UIFont(name: "Helvetica Neue", size: 10)
-        loadMoreText.textColor = UIColor.grayColor()
+
         loadMoreText.center = CGPointMake( (tableView.bounds.size.width - loadMoreText.intrinsicContentSize().width / 16) / 2 , 20)
         
-        
+        setFootText()
         tableView.tableFooterView = tableFooterView
     }
     
@@ -87,14 +107,13 @@ class OrderListViewController: UIViewController, UITableViewDataSource, UITableV
         tableFooterView = UIView()
         tableFooterView.frame = CGRectMake(0, 0, tableView.bounds.size.width, 40)
         loadMoreText.frame =  CGRectMake(0, 0, tableView.bounds.size.width, 40)
-        loadMoreText.text = "加载中"
+        
         
         loadMoreText.textAlignment = NSTextAlignment.Center
         
         
         
-        loadMoreText.font = UIFont(name: "Helvetica Neue", size: 10)
-        loadMoreText.textColor = UIColor.grayColor()
+        
         loadMoreText.center = CGPointMake( (tableView.bounds.size.width - loadMoreText.intrinsicContentSize().width / 16) / 2 , 20)
         let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.Gray)
         activityIndicator.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
@@ -104,6 +123,7 @@ class OrderListViewController: UIViewController, UITableViewDataSource, UITableV
         tableFooterView.addSubview(activityIndicator)
         tableFooterView.addSubview(loadMoreText)
         
+        setFootText()
         tableView.tableFooterView = tableFooterView
     }
     
@@ -114,8 +134,8 @@ class OrderListViewController: UIViewController, UITableViewDataSource, UITableV
             return
         }
         
+        setFootText()
         if !hasMore {
-            loadMoreText.text = "已加载全部数据"
             return
         }
         //print("scrollView.contentOffset.y = \(scrollView.contentOffset.y)")
@@ -148,14 +168,11 @@ class OrderListViewController: UIViewController, UITableViewDataSource, UITableV
                 }
                 
                 self.setNotLoadFooter()
-                if self.hasMore {
-                    self.loadMoreText.text = "上拉查看更多"
-                } else {
-                    self.loadMoreText.text = "已加载全部数据"
-                }
                 
                 self.tableView.reloadData()
                 self.quering = false
+                
+                self.setFootText()
                 
             }
         }

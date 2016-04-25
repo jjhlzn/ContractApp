@@ -57,4 +57,19 @@ class LoginUserStore {
             }
         }
     }
+    
+    func updateApprovalUpdateTime(loginUser: LoginUser, time: NSDate) {
+        //存储登录的信息
+        let context = coreDataStack.mainQueueContext
+        context.performBlockAndWait() {
+            loginUser.lastUpdateApproval = time
+        }
+        
+        do {
+            try coreDataStack.saveChanges()
+        }
+        catch let error {
+            print("Core Data save failed: \(error)")
+        }
+    }
 }
