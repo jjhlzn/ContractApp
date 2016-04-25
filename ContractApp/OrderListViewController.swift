@@ -50,9 +50,8 @@ class OrderListViewController: UIViewController, UITableViewDataSource, UITableV
             cell.orderNoLabel.text = order.orderNo
             cell.guestNameLabel.text = order.guestName
             cell.contractNoLabel.text = order.contractNo
-            cell.amountLabel.text = "¥\(String(format:"%.2f", Double(order.amount)))"
+            cell.amountLabel.text = "\(order.moneyType!)\(String(format:"%.2f", Double(order.amount)))"
             return cell
-        
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

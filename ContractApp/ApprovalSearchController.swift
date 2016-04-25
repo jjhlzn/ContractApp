@@ -114,7 +114,8 @@ class ApprovalSearchController: BaseUIViewController, UITextFieldDelegate {
     }
     
     func getKeyword() -> String {
-        return keywordField.text == nil ? "" : keywordField.text!;
+        return keywordField.text == nil ? "" : keywordField.text!
+        
     }
     
     func addIconToField(field: UITextField, imageName: String) {

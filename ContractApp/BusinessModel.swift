@@ -16,14 +16,16 @@ class Order {
     var orderNo : String?
     var amount : NSNumber = 0.0
     var guestName : String?
+    var moneyType : String?
     
-    init(id: String?, businessPerson : String, contractNo : String, orderNo : String, amount : NSNumber, guestName : String) {
+    init(id: String?, businessPerson : String, contractNo : String, orderNo : String, amount : NSNumber, guestName : String, moneyType : String) {
         self.id = id
         self.businessPerson = businessPerson
         self.contractNo = contractNo
         self.orderNo = orderNo
         self.amount = amount
         self.guestName = guestName
+        self.moneyType = moneyType
     }
     init() {
         

@@ -32,10 +32,10 @@ class ServiceConfiguration {
 class BasicService {
     func sendRequest(url: String, serverResponse: ServerResponse, responseHandler: (dict: NSDictionary) -> Void) -> ServerResponse {
         // Setup the session to make REST GET call.  Notice the URL is https NOT http!!
-        let postEndpoint: String = url
+        var postEndpoint: String = url
         let session = NSURLSession.sharedSession()
+        print("send url: \(postEndpoint)")
         let url = NSURL(string: postEndpoint)!
-        print("send url: \(url)")
         // Make the POST call and handle it in a completion handler
         session.dataTaskWithURL(url, completionHandler: { ( data: NSData?, response: NSURLResponse?, error: NSError?) -> Void in
             // Make sure we get an OK response
@@ -90,7 +90,8 @@ class OrderService : BasicService{
                 var orders = [Order]()
                 let jsonOrders = dict["orders"] as! NSArray
                 for jsonOrder in jsonOrders {
-                    let order = Order(id: jsonOrder["id"] as? String, businessPerson: jsonOrder["businessPerson"] as! String, contractNo: jsonOrder["contractNo"] as! String, orderNo: jsonOrder["orderNo"] as! String, amount: jsonOrder["amount"] as! NSNumber, guestName: jsonOrder["guestName"] as! String)
+                    
+                    let order = Order(id: jsonOrder["id"] as? String, businessPerson: jsonOrder["businessPerson"] as! String, contractNo: jsonOrder["contractNo"] as! String, orderNo: jsonOrder["orderNo"] as! String, amount: jsonOrder["amount"] as! NSNumber, guestName: jsonOrder["guestName"] as! String, moneyType: jsonOrder["moneyType"] as! String)
                     orders.append(order)
                 }
                 orderResponse.orders = orders
@@ -104,7 +105,8 @@ class OrderService : BasicService{
     func makeUrl(keyword: String, startDate: NSDate, endDate: NSDate, index: Int, pageSize: Int) -> String {
         let formatter:NSDateFormatter = NSDateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
-        return ServiceConfiguration.SeachOrderUrl + "?" + "keyword=\(keyword)&startdate=\(formatter.stringFromDate(startDate))&enddate=\(formatter.stringFromDate(endDate))&index=\(index)&pagesize=\(pageSize)"
+        let queryString = "keyword=\(keyword)&startdate=\(formatter.stringFromDate(startDate))&enddate=\(formatter.stringFromDate(endDate))&index=\(index)&pagesize=\(pageSize)"
+        return ServiceConfiguration.SeachOrderUrl + "?" + queryString.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())!
     }
     
     //获取合同基本信息
@@ -123,7 +125,9 @@ class OrderService : BasicService{
     }
     
     func makeGetBasicInfoUrl(orderId: String) -> String {
-        return ServiceConfiguration.GetBasicInfoUrl + "?orderId=\(orderId)"
+        let queryString = "orderId=\(orderId)"
+        return ServiceConfiguration.GetBasicInfoUrl + "?" + queryString
+
     }
     
     //获取合同收购信息
@@ -149,6 +153,7 @@ class OrderService : BasicService{
     }
     
     func makeGetOrderPurchaseInfoUrl(orderId: String) -> String {
+        
         return ServiceConfiguration.GetOrderPurcaseInfoUrl + "?orderId=\(orderId)"
     }
     
@@ -241,8 +246,8 @@ class ApprovalService : BasicService {
     func makeUrl(userId: String, keyword: String, containApproved: Bool, containUnapproved: Bool, startDate: NSDate, endDate: NSDate, index: Int, pageSize: Int) -> String {
         let formatter:NSDateFormatter = NSDateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
-        
-        return ServiceConfiguration.SeachApprovalUrl + "?userid=\(userId)&keyword=\(keyword)&containapproved=\(containApproved)&containunapproved=\(containUnapproved)&startdate=\(formatter.stringFromDate(startDate))&enddate=\(formatter.stringFromDate(endDate))&index=\(index)&pagesize=\(pageSize)"
+        let queryString = "userid=\(userId)&keyword=\(keyword)&containapproved=\(containApproved)&containunapproved=\(containUnapproved)&startdate=\(formatter.stringFromDate(startDate))&enddate=\(formatter.stringFromDate(endDate))&index=\(index)&pagesize=\(pageSize)"
+        return ServiceConfiguration.SeachApprovalUrl + "?" + queryString.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())!
     }
     
     func audit(userId: String, approvalId: String, result: String, completion: ((response: AuditApprovalResponse) -> Void)) -> AuditApprovalResponse {
