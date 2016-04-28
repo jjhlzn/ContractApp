@@ -22,30 +22,6 @@ class BasicService : NSObject, NSURLSessionDelegate {
         }
         
     }
-    private func makeString(params: [String: String], httpMethod: HttpMethod) -> String {
-        if params.count == 0 {
-            return ""
-        }
-        
-        var result = ""
-        for item in params {
-            if httpMethod == HttpMethod.GET {
-                result += "\(item.0)=\(item.1.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())!)&"
-            } else {
-                result += "\(item.0)=\(item.1)&"
-            }
-        }
-        return result
-    }
-    
-    private func makeUrl(url: String, params: [String: String]) -> String {
-        if params.count == 0 {
-            return url
-        }
-        
-        let queryString = makeString(params, httpMethod: .GET)
-        return url + "?" + queryString
-    }
     
     func sendRequest(url: String, parameters: [String: String] = [String: String](),  serverResponse: ServerResponse, responseHandler: (dict: NSDictionary) -> Void) -> ServerResponse {
         var postEndpoint: String = url
@@ -107,4 +83,30 @@ class BasicService : NSObject, NSURLSessionDelegate {
         
         return serverResponse
     }
+    
+    private func makeString(params: [String: String], httpMethod: HttpMethod) -> String {
+        if params.count == 0 {
+            return ""
+        }
+        
+        var result = ""
+        for item in params {
+            if httpMethod == HttpMethod.GET {
+                result += "\(item.0)=\(item.1.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())!)&"
+            } else {
+                result += "\(item.0)=\(item.1)&"
+            }
+        }
+        return result
+    }
+    
+    private func makeUrl(url: String, params: [String: String]) -> String {
+        if params.count == 0 {
+            return url
+        }
+        
+        let queryString = makeString(params, httpMethod: .GET)
+        return url + "?" + queryString
+    }
+
 }
