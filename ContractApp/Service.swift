@@ -10,23 +10,38 @@ import Foundation
 
 class ServiceConfiguration {
     //static let serverName = "localhost"
-    static let serverName = "www.jinjunhang.com"
-    static let serverName21 = "localhost"
+    static let httpMethod = "http"
     
+    static let serverName21 = "jjhtest.hengdianworld.com"
     static let port21 = 3000
-    static let serverName2 = "jjhtest.hengdianworld.com"
-    static let port2 = 80
-    static let SeachOrderUrl = "http://\(serverName2):\(port2)/order/search.json"
-    static let GetOrderPurcaseInfoUrl = "http://\(serverName2):\(port2)/order/getPurchaseInfo.json"
-    static let GetBasicInfoUrl = "http://\(serverName2):\(port2)/order/getBasicInfo.json"
-    static let GetOrderChuyunInfoUrl = "http://\(serverName2):\(port2)/order/getChuyunInfo.json"
-    static let GetOrderFukuangInfoUrl = "http://\(serverName2):\(port2)/order/getFukuangInfo.json"
-    static let GetOrderShouhuiInfoUrl = "http://\(serverName2):\(port2)/order/getShouhuiInfo.json"
-
-    static let SeachApprovalUrl = "http://\(serverName2):\(port2)/approval/search.json"
-    static let AuditApprovalUrl = "http://\(serverName2):\(port2)/approval/audit.json"
     
-    static let loginUrl = "http://\(serverName2):\(port2)/login/login.json"
+    static let serverName2 = "oa.lloydind.cn"
+    static let port2 = 10443
+    
+    static var serverName: String {
+        get {
+            return serverName2
+        }
+    }
+    
+    static var port: Int {
+        get {
+            return port2
+        }
+    }
+
+    
+    static let SeachOrderUrl = "\(httpMethod)://\(serverName):\(port)/order/search.json"
+    static let GetOrderPurcaseInfoUrl = "\(httpMethod)://\(serverName):\(port)/order/getPurchaseInfo.json"
+    static let GetBasicInfoUrl = "\(httpMethod)://\(serverName):\(port)/order/getBasicInfo.json"
+    static let GetOrderChuyunInfoUrl = "\(httpMethod)://\(serverName):\(port)/order/getChuyunInfo.json"
+    static let GetOrderFukuangInfoUrl = "\(httpMethod)://\(serverName):\(port)/order/getFukuangInfo.json"
+    static let GetOrderShouhuiInfoUrl = "\(httpMethod)://\(serverName):\(port)/order/getShouhuiInfo.json"
+
+    static let SeachApprovalUrl = "\(httpMethod)://\(serverName):\(port)/approval/search.json"
+    static let AuditApprovalUrl = "\(httpMethod)://\(serverName):\(port)/approval/audit.json"
+    
+    static let loginUrl = "\(httpMethod)://\(serverName):\(port)/login/login.json"
 }
 
 class BasicService {
