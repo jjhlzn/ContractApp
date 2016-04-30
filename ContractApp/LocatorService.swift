@@ -13,7 +13,7 @@ class LocatorService : BasicService {
     func getServiceLocator(completion: ((response: GetServiceLocatorResponse) -> Void)) -> GetServiceLocatorResponse {
         let response = GetServiceLocatorResponse()
         let params = ["app": "huayuan_contract"]
-        sendRequest("http://localhost:3000/servicelocator", parameters: params, serverResponse: response) { dict -> Void in
+        sendRequest("http://serviceLocator.hengdianworld.com:9000/servicelocator", parameters: params, serverResponse: response) { dict -> Void in
             if response.status == 0 {
                 let resultJson = dict["result"] as! NSDictionary
                 let serviceLocator = ServiceLocator()
