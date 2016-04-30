@@ -10,13 +10,14 @@ import Foundation
 
 class OrderService : BasicService{
     
-    func search(keyword: String, startDate: NSDate, endDate: NSDate, index: Int, pageSize: Int, completion: ((seachOrderResponse: SeachOrderResponse) -> Void)) -> SeachOrderResponse {
+    func search(userId: String, keyword: String, startDate: NSDate, endDate: NSDate, index: Int, pageSize: Int, completion: ((seachOrderResponse: SeachOrderResponse) -> Void)) -> SeachOrderResponse {
         let orderResponse = SeachOrderResponse()
+        //make exception
         
         // Setup the session to make REST GET call.  Notice the URL is https NOT http!!
         let formatter:NSDateFormatter = NSDateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
-        let parameters = ["keyword": keyword, "startdate": formatter.stringFromDate(startDate), "enddate": formatter.stringFromDate(endDate), "index": "\(index)", "pagesize": "\(pageSize)"]
+        let parameters = ["userid": userId, "keyword": keyword, "startdate": formatter.stringFromDate(startDate), "enddate": formatter.stringFromDate(endDate), "index": "\(index)", "pagesize": "\(pageSize)"]
         sendRequest(ServiceConfiguration.SeachOrderUrl, parameters: parameters, serverResponse: orderResponse) { (dict) -> Void in
             if orderResponse.status == 0 {
                 var orders = [Order]()
@@ -24,6 +25,7 @@ class OrderService : BasicService{
                 for jsonOrder in jsonOrders {
                     
                     let order = Order(id: jsonOrder["id"] as? String, businessPerson: jsonOrder["businessPerson"] as! String, contractNo: jsonOrder["contractNo"] as! String, orderNo: jsonOrder["orderNo"] as! String, amount: jsonOrder["amount"] as! NSNumber, guestName: jsonOrder["guestName"] as! String, moneyType: jsonOrder["moneyType"] as! String)
+                    
                     orders.append(order)
                 }
                 orderResponse.orders = orders

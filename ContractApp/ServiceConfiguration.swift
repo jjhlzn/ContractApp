@@ -10,7 +10,10 @@ import Foundation
 
 class ServiceConfiguration {
     //static let serverName = "localhost"
-    static let httpMethod = "https"
+    static let isUseServiceLocator = true
+    static let httpMethod2 = "http"
+    static let serviceLocatorStore = ServiceLocatorStore()
+    
     
     static let serverName4 = "jjhtest.hengdianworld.com"
     static let port4 = 80
@@ -21,15 +24,36 @@ class ServiceConfiguration {
     static let serverName2 = "oa.lloydind.cn"
     static let port2 = 10443
     
+    static let serverName5 = "oa.lloydind.com"
+    static let port5 = 10080
+    
     static var serverName: String {
         get {
-            return serverName2
+            if isUseServiceLocator {
+                return (serviceLocatorStore.GetServiceLocator()!.serverName)!
+            } else {
+                return serverName5
+            }
         }
     }
     
     static var port: Int {
         get {
-            return port2
+            if isUseServiceLocator {
+                return Int((serviceLocatorStore.GetServiceLocator()!.port)!)
+            } else {
+                return port5
+            }
+        }
+    }
+    
+    static var httpMethod: String {
+        get {
+            if isUseServiceLocator {
+                return (serviceLocatorStore.GetServiceLocator()?.http)!
+            } else {
+                return httpMethod2
+            }
         }
     }
     
@@ -44,5 +68,5 @@ class ServiceConfiguration {
     static let SeachApprovalUrl = "\(httpMethod)://\(serverName):\(port)/approval/search.json"
     static let AuditApprovalUrl = "\(httpMethod)://\(serverName):\(port)/approval/audit.json"
     
-    static let loginUrl = "http://\(serverName2):\(port2)/login/login.json"
+    static let loginUrl = "\(httpMethod)://\(serverName):\(port)/login/login.json"
 }

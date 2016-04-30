@@ -26,6 +26,10 @@
 		1CB4ABAA1C87279F000F5B8C /* ContractApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1CB4ABA81C87279F000F5B8C /* ContractApp.xcdatamodeld */; };
 		1CB4ABAC1C872A95000F5B8C /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CB4ABAB1C872A95000F5B8C /* CoreDataStack.swift */; };
 		1CB4ABAE1C872AFE000F5B8C /* LoginUserStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CB4ABAD1C872AFE000F5B8C /* LoginUserStore.swift */; };
+		1CEE8AE81CD3A8ED00865FB6 /* LocatorService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEE8AE71CD3A8ED00865FB6 /* LocatorService.swift */; };
+		1CEE8AEB1CD3B01200865FB6 /* ServiceLocatorEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEE8AE91CD3B01200865FB6 /* ServiceLocatorEntity+CoreDataProperties.swift */; };
+		1CEE8AEC1CD3B01200865FB6 /* ServiceLocatorEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEE8AEA1CD3B01200865FB6 /* ServiceLocatorEntity.swift */; };
+		1CEE8AEE1CD3B03900865FB6 /* ServiceLocatorStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEE8AED1CD3B03900865FB6 /* ServiceLocatorStore.swift */; };
 		1CF69A0B1C8BB65C00D4C59F /* OrderChuyunInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF69A0A1C8BB65C00D4C59F /* OrderChuyunInfoController.swift */; };
 		1CF69A0D1C8BC00600D4C59F /* OrderFukuangInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF69A0C1C8BC00600D4C59F /* OrderFukuangInfoController.swift */; };
 		1CF69A0F1C8BC61800D4C59F /* OrderShouhuiController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF69A0E1C8BC61800D4C59F /* OrderShouhuiController.swift */; };
@@ -86,6 +90,10 @@
 		1CB4ABA91C87279F000F5B8C /* ContractApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ContractApp.xcdatamodel; sourceTree = "<group>"; };
 		1CB4ABAB1C872A95000F5B8C /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		1CB4ABAD1C872AFE000F5B8C /* LoginUserStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginUserStore.swift; sourceTree = "<group>"; };
+		1CEE8AE71CD3A8ED00865FB6 /* LocatorService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocatorService.swift; sourceTree = "<group>"; };
+		1CEE8AE91CD3B01200865FB6 /* ServiceLocatorEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ServiceLocatorEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		1CEE8AEA1CD3B01200865FB6 /* ServiceLocatorEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceLocatorEntity.swift; sourceTree = "<group>"; };
+		1CEE8AED1CD3B03900865FB6 /* ServiceLocatorStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceLocatorStore.swift; sourceTree = "<group>"; };
 		1CF69A0A1C8BB65C00D4C59F /* OrderChuyunInfoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderChuyunInfoController.swift; sourceTree = "<group>"; };
 		1CF69A0C1C8BC00600D4C59F /* OrderFukuangInfoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderFukuangInfoController.swift; sourceTree = "<group>"; };
 		1CF69A0E1C8BC61800D4C59F /* OrderShouhuiController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderShouhuiController.swift; sourceTree = "<group>"; };
@@ -197,6 +205,7 @@
 				1C09D3D21CD236C3004A8F9C /* BasicService.swift */,
 				1C09D3D41CD236EC004A8F9C /* OrderService.swift */,
 				1C09D3D61CD2370A004A8F9C /* ApprovalService.swift */,
+				1CEE8AE71CD3A8ED00865FB6 /* LocatorService.swift */,
 			);
 			name = service8;
 			sourceTree = "<group>";
@@ -211,6 +220,9 @@
 				1CFEDBCB1C87C7AF00503981 /* LoginUser+CoreDataProperties.swift */,
 				1CFEDBCC1C87C7AF00503981 /* LoginUser.swift */,
 				1CB4ABA81C87279F000F5B8C /* ContractApp.xcdatamodeld */,
+				1CEE8AE91CD3B01200865FB6 /* ServiceLocatorEntity+CoreDataProperties.swift */,
+				1CEE8AEA1CD3B01200865FB6 /* ServiceLocatorEntity.swift */,
+				1CEE8AED1CD3B03900865FB6 /* ServiceLocatorStore.swift */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -356,8 +368,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1CEE8AEB1CD3B01200865FB6 /* ServiceLocatorEntity+CoreDataProperties.swift in Sources */,
 				1CF69A151C9264BA00D4C59F /* BaseUIViewController.swift in Sources */,
 				1CFAC86E1C82E5B300EF60D4 /* OrderShougouInfoController.swift in Sources */,
+				1CEE8AEE1CD3B03900865FB6 /* ServiceLocatorStore.swift in Sources */,
 				1CFAC8721C83D57200EF60D4 /* OrderSearchViewController.swift in Sources */,
 				1CFAC86A1C82C21B00EF60D4 /* OrderMenuController.swift in Sources */,
 				1CB4ABAE1C872AFE000F5B8C /* LoginUserStore.swift in Sources */,
@@ -374,6 +388,7 @@
 				1CF69A171C96708200D4C59F /* LaunchViewController.swift in Sources */,
 				1C23597F1C3B7A47006724C9 /* AppDelegate.swift in Sources */,
 				1CF69A0D1C8BC00600D4C59F /* OrderFukuangInfoController.swift in Sources */,
+				1CEE8AE81CD3A8ED00865FB6 /* LocatorService.swift in Sources */,
 				1CFAC8951C858B2E00EF60D4 /* ApprovalListViewController.swift in Sources */,
 				1C26847F1CCC9AC70032C014 /* MyInfoMainCell.swift in Sources */,
 				1C450E681CA809400019A5CA /* MyInfoViewController.swift in Sources */,
@@ -381,6 +396,7 @@
 				1C26847D1CCC71150032C014 /* LoginViewController.swift in Sources */,
 				1C09D3CF1CD22BA2004A8F9C /* LoginService.swift in Sources */,
 				1CFAC86C1C82DC9B00EF60D4 /* OrderBasicInfoViewController.swift in Sources */,
+				1CEE8AEC1CD3B01200865FB6 /* ServiceLocatorEntity.swift in Sources */,
 				1CB4ABAC1C872A95000F5B8C /* CoreDataStack.swift in Sources */,
 				1CFAC8681C81846100EF60D4 /* Cell.swift in Sources */,
 				1CFAC8661C817DF300EF60D4 /* BusinessModel.swift in Sources */,
@@ -528,13 +544,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
 				INFOPLIST_FILE = ContractApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jinjunhang.ContractApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -544,13 +561,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
 				INFOPLIST_FILE = ContractApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jinjunhang.ContractApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

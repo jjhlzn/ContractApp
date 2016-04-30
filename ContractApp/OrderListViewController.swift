@@ -20,6 +20,7 @@ class OrderListViewController: UIViewController, UITableViewDataSource, UITableV
     
     var loadMoreText = UILabel()
     var tableFooterView = UIView()//列表的底部，用于显示“上拉查看更多”的提示，当上拉后显示类容为“松开加载更多”
+    var loginUserStore = LoginUserStore()
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
@@ -155,7 +156,7 @@ class OrderListViewController: UIViewController, UITableViewDataSource, UITableV
         setLoadingFooter()
         //self.initArr()
         
-        orderService.search((queryObject?.keyword)!, startDate: (queryObject?.startDate)!, endDate: (queryObject?.endDate)!, index: page, pageSize: (queryObject?.pageSize)!) {
+        orderService.search((loginUserStore.GetLoginUser()?.userName!)!, keyword: (queryObject?.keyword)!, startDate: (queryObject?.startDate)!, endDate: (queryObject?.endDate)!, index: page, pageSize: (queryObject?.pageSize)!) {
             orderResponse in
             dispatch_async(dispatch_get_main_queue()) {
                 self.page = self.page + 1

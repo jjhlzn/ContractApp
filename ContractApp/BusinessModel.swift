@@ -49,6 +49,8 @@ class OrderBasicInfo {
     }
 }
 
+
+
 //合同收购信息, 工厂付款信息
 class OrderPurchaseInfo {
     var items = [OrderPurchaseItem]()
@@ -90,6 +92,17 @@ class OrderShouHuiInfo {
         self.date = date
         self.amount = amount
     }
+}
+
+class ServiceLocator {
+    var http: String!
+    var serverName: String!
+    var port: Int!
+    
+    init() {
+        
+    }
+    
 }
 
 extension Double
@@ -239,4 +252,8 @@ class AuditApprovalResponse : ServerResponse {
     var result: Bool = false
     var message: String?
     
+}
+
+class GetServiceLocatorResponse : ServerResponse {
+    var result: ServiceLocator?
 }

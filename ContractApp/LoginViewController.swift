@@ -95,11 +95,14 @@ class LoginViewController: BaseUIViewController {
     
     
     func keyboardWillHide(notification: NSNotification) {
-        isKeyboardShow = false
+        if isKeyboardShow {
+            
         
-        view.frame.origin.y += 65
-        logImage.frame = originFrame!
-        logImage.center = originCenter!
+            view.frame.origin.y += 65
+            logImage.frame = originFrame!
+            logImage.center = originCenter!
+        }
+        isKeyboardShow = false
     }
     
     

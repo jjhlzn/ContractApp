@@ -8,20 +8,67 @@
 
 import UIKit
 
-class LaunchViewController: UIViewController {
+class LaunchViewController: BaseUIViewController {
     
+    var serviceLocatorStore = ServiceLocatorStore()
     var loginUserStore = LoginUserStore()
+    var locatorService = LocatorService()
     
     override func viewDidAppear(animated: Bool) {
-
-        //检查一下是否已经登录，如果登录，则直接进入后面的页面
-        if loginUserStore.GetLoginUser() != nil {
-            print("found login user")
-            self.performSegueWithIdentifier("hasLoginSegue", sender: self)
-        } else {
-            print("no login user")
-            self.performSegueWithIdentifier("notLoginSegue", sender: self)
+        
+        if checkIsOutDate() {
+            displayMessage("版本已过期")
+            return
         }
+        
+        locatorService.getServiceLocator() { resp -> Void in
+            dispatch_async(dispatch_get_main_queue()) {
+                if resp.status != 0 {
+                    self.displayMessage("获取ServiceLocator失败")
+                    return
+                }
+                
+                let oldServiceLocator = self.serviceLocatorStore.GetServiceLocator()
+                if oldServiceLocator == nil {
+                    
+                    let saveResult = self.serviceLocatorStore.saveServiceLocator(resp.result!)
+                    if !saveResult {
+                        self.displayMessage("保存ServiceLocator失败")
+                    }
+                } else {
+                    oldServiceLocator?.http = resp.result?.http
+                    oldServiceLocator?.serverName = resp.result?.serverName
+                    oldServiceLocator?.port = resp.result?.port
+                    let saveResult = self.serviceLocatorStore.UpdateServiceLocator()
+                    if !saveResult {
+                        self.displayMessage("更新ServiceLocator失败")
+                    }
+                }
+                
+                //检查一下是否已经登录，如果登录，则直接进入后面的页面
+                if self.loginUserStore.GetLoginUser() != nil {
+                    print("found login user")
+                    self.performSegueWithIdentifier("hasLoginSegue", sender: self)
+                } else {
+                    print("no login user")
+                    self.performSegueWithIdentifier("notLoginSegue", sender: self)
+                }
+            }
+            
+        }
+        
+    }
+    
+    private func checkIsOutDate() -> Bool {
+        let formatter = NSDateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+
+        let currentDateTime = NSDate()
+        if formatter.stringFromDate(currentDateTime) >= "2016-05-30" {
+            return true
+        }
+        return false
+        
     }
     
 }

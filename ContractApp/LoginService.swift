@@ -11,9 +11,8 @@ import Foundation
 class LoginService : BasicService {
     func login(userName: String, password: String, completion: ((loginResponse: LoginResponse) -> Void)) -> LoginResponse {
         let response = LoginResponse()
-        let url = makeUrl(userName, password: password)
         let paramters = ["x": userName, "y": password]
-        sendRequest(url, parameters: paramters, serverResponse: response) { dict -> Void in
+        sendRequest(ServiceConfiguration.loginUrl, parameters: paramters, serverResponse: response) { dict -> Void in
             if response.status == 0 {
                 let jsonLoginResult = dict["result"] as! NSDictionary
                 if jsonLoginResult["success"] as! Bool {

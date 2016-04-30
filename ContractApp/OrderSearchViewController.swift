@@ -19,6 +19,7 @@ class OrderSearchViewController: BaseUIViewController, UITextFieldDelegate {
     var orderService = OrderService()
     
     var queryObject: OrderQueryObject?
+    var loginUserStore = LoginUserStore()
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
@@ -147,12 +148,14 @@ class OrderSearchViewController: BaseUIViewController, UITextFieldDelegate {
     
     @IBAction func seachPressed(sender: UIButton) {
         
+        
+        
         if !checkForm() {
             return
         }
         
         loadingOverlay.showOverlay(self.view)
-        orderService.search(getKeyword(), startDate: getStartDate(),
+        orderService.search((loginUserStore.GetLoginUser()?.userName)!, keyword: getKeyword(), startDate: getStartDate(),
             endDate: getEndDate(), index: 0, pageSize: 10) { orderResponse in
             dispatch_async(dispatch_get_main_queue()) {
                 self.loadingOverlay.hideOverlayView()
