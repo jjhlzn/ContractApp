@@ -12,7 +12,14 @@ class LocatorService : BasicService {
     
     func getServiceLocator(completion: ((response: GetServiceLocatorResponse) -> Void)) -> GetServiceLocatorResponse {
         let response = GetServiceLocatorResponse()
-        let params = ["app": "huayuan_contract"]
+        let version = NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleShortVersionString") as! String
+        let appBundle = NSBundle.mainBundle().objectForInfoDictionaryKey(kCFBundleVersionKey as String) as! String
+        let params = ["app": "huayuan_contract",
+                      "version": "\(version)-\(appBundle)"]
+        
+        print("version = \(version)")
+        print("appBundle = \(appBundle)")
+        print(params)
         sendRequest("http://serviceLocator.hengdianworld.com:9000/servicelocator", parameters: params, serverResponse: response) { dict -> Void in
             if response.status == 0 {
                 let resultJson = dict["result"] as! NSDictionary

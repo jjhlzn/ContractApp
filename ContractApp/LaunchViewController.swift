@@ -36,6 +36,13 @@ class LaunchViewController: BaseUIViewController {
                         self.displayMessage("保存ServiceLocator失败")
                     }
                 } else {
+                    //检查ServiceLocator是否发生更新，如果更新过，应该让登录失效
+                    if oldServiceLocator?.http != resp.result?.http ||
+                       oldServiceLocator?.serverName != resp.result?.serverName ||
+                        oldServiceLocator?.port != resp.result?.port {
+                        self.loginUserStore.removeLoginUser()
+                    }
+                    
                     oldServiceLocator?.http = resp.result?.http
                     oldServiceLocator?.serverName = resp.result?.serverName
                     oldServiceLocator?.port = resp.result?.port
@@ -43,6 +50,7 @@ class LaunchViewController: BaseUIViewController {
                     if !saveResult {
                         self.displayMessage("更新ServiceLocator失败")
                     }
+                    
                 }
                 
                 //检查一下是否已经登录，如果登录，则直接进入后面的页面

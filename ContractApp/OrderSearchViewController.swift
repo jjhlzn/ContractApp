@@ -20,13 +20,15 @@ class OrderSearchViewController: BaseUIViewController, UITextFieldDelegate {
     
     var queryObject: OrderQueryObject?
     var loginUserStore = LoginUserStore()
+    var startDatePicker: UIDatePicker!
+    var endDatePicker: UIDatePicker!
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         self.hideKeyboardWhenTappedAround()
         
-        let startDatePicker = UIDatePicker()
-        let endDatePicker = UIDatePicker()
+        startDatePicker = UIDatePicker()
+        endDatePicker = UIDatePicker()
         
         let formatter = NSDateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
@@ -164,11 +166,10 @@ class OrderSearchViewController: BaseUIViewController, UITextFieldDelegate {
                         self.displayMessage(orderResponse.errorMessage!)
                     }
                 } else {
-                    //if orderResponse.totalNumber != 0 {
-                        self.performSegueWithIdentifier("orderResultSegue", sender: orderResponse)
-                    //} else {
-                      //  self.performSegueWithIdentifier("emptyResultSegue", sender: orderResponse)
-                    //}
+                    self.keyworldField.resignFirstResponder()
+                    self.startDateField.resignFirstResponder()
+                    self.endDateField.resignFirstResponder()
+                    self.performSegueWithIdentifier("orderResultSegue", sender: orderResponse)
                 }
             }
             

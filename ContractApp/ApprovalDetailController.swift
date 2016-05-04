@@ -31,6 +31,7 @@ class ApprovalDetailController: BaseUIViewController, UIAlertViewDelegate {
     @IBOutlet weak var approvalResultNameLabel: UILabel!
     
     var isPassPressed: Bool = false
+    var row: Int!
     
     var loginUser: LoginUser!
     let loginUserStore = LoginUserStore()
@@ -38,6 +39,8 @@ class ApprovalDetailController: BaseUIViewController, UIAlertViewDelegate {
     
     var approval: Approval!
     let approvalService = ApprovalService()
+    
+    var isApprovedSuccess = false
     
     override func viewWillAppear(animated: Bool) {
         
@@ -64,8 +67,13 @@ class ApprovalDetailController: BaseUIViewController, UIAlertViewDelegate {
     
     override func viewWillDisappear(animated: Bool) {
         if self.navigationController?.viewControllers.indexOf(self) == nil {
-            ((self.parentViewController as! UINavigationController).topViewController as! ApprovalListViewController).tableView.reloadData()
+            let topController = (self.parentViewController as! UINavigationController).topViewController as! ApprovalListViewController
+            let tableView = topController.tableView
             
+            if isApprovedSuccess {
+                topController.approvals.removeAtIndex(row)
+                tableView.reloadData()
+            }
         }
     }
     
@@ -99,6 +107,8 @@ class ApprovalDetailController: BaseUIViewController, UIAlertViewDelegate {
                         self.unpassButton.enabled = false
                         self.passButton.hidden = true
                         self.unpassButton.hidden = true
+                        
+                        self.isApprovedSuccess = true
                     } else {
                         self.displayMessage("审批失败")
                     }
