@@ -164,6 +164,9 @@ class ApprovalSearchController: BaseUIViewController, UITextFieldDelegate {
             return
         }
  
+        self.keywordField.resignFirstResponder()
+        self.startDateField.resignFirstResponder()
+        self.endDateField.resignFirstResponder()
         self.performSegueWithIdentifier("approvalResultSegue", sender: nil)
         
         /*
