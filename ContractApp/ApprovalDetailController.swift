@@ -31,6 +31,7 @@ class ApprovalDetailController: BaseUIViewController, UIAlertViewDelegate {
     @IBOutlet weak var approvalResultNameLabel: UILabel!
     
     var isPassPressed: Bool = false
+    var row: Int!
     
     var loginUser: LoginUser!
     let loginUserStore = LoginUserStore()
@@ -64,8 +65,10 @@ class ApprovalDetailController: BaseUIViewController, UIAlertViewDelegate {
     
     override func viewWillDisappear(animated: Bool) {
         if self.navigationController?.viewControllers.indexOf(self) == nil {
-            ((self.parentViewController as! UINavigationController).topViewController as! ApprovalListViewController).tableView.reloadData()
-            
+            let topController = (self.parentViewController as! UINavigationController).topViewController as! ApprovalListViewController
+            let tableView = topController.tableView
+            topController.approvals.removeAtIndex(row)
+            tableView.reloadData()
         }
     }
     

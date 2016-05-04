@@ -54,7 +54,7 @@ class ApprovalListViewController: UIViewController, UITableViewDataSource, UITab
         super.viewWillAppear(animated)
         print("viewWillAppear")
         
-        
+        print("approvals.count = \(approvals.count)")
         createTableFooter()
         
     }
@@ -72,8 +72,13 @@ class ApprovalListViewController: UIViewController, UITableViewDataSource, UITab
         }
         
         firstLoad = false
+        
     }
     
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        print("approvals.count = \(approvals.count)")
+    }
     
     private func needRefreshForTimeout() -> Bool {
         loginUser = loginUserStore.GetLoginUser()
@@ -174,6 +179,7 @@ class ApprovalListViewController: UIViewController, UITableViewDataSource, UITab
         if segue.identifier == "approvalDetailSegue" {
             let dest = segue.destinationViewController as! ApprovalDetailController
             dest.approval = approvals[(tableView.indexPathForSelectedRow?.row)!]
+            dest.row = (tableView.indexPathForSelectedRow?.row)!
         } else if segue.identifier == "searchApprovalSegue" {
             let dest = segue.destinationViewController as! ApprovalSearchController
             dest.queryObject = queryObject

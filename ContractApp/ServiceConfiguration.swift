@@ -27,12 +27,15 @@ class ServiceConfiguration {
     static let serverName5 = "oa.lloydind.com"
     static let port5 = 10080
     
+    static let serverName6 = "localhost"
+    static let port6 = 3000
+    
     static var serverName: String {
         get {
             if isUseServiceLocator {
                 return (serviceLocatorStore.GetServiceLocator()!.serverName)!
             } else {
-                return serverName5
+                return serverName6
             }
         }
     }
@@ -42,7 +45,7 @@ class ServiceConfiguration {
             if isUseServiceLocator {
                 return Int((serviceLocatorStore.GetServiceLocator()!.port)!)
             } else {
-                return port5
+                return port6
             }
         }
     }
@@ -52,7 +55,7 @@ class ServiceConfiguration {
             if isUseServiceLocator {
                 return (serviceLocatorStore.GetServiceLocator()?.http)!
             } else {
-                return httpMethod2
+                return "http"
             }
         }
     }
