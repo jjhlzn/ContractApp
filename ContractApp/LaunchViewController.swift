@@ -21,6 +21,16 @@ class LaunchViewController: BaseUIViewController {
             return
         }
         
+        //检查一下是否已经登录，如果登录，则直接进入后面的页面
+        if self.loginUserStore.GetLoginUser() != nil {
+            print("found login user")
+            self.performSegueWithIdentifier("hasLoginSegue", sender: self)
+        } else {
+            print("no login user")
+            self.performSegueWithIdentifier("notLoginSegue", sender: self)
+        }
+        
+        /*
         locatorService.getServiceLocator() { resp -> Void in
             dispatch_async(dispatch_get_main_queue()) {
                 if resp.status != 0 {
@@ -63,7 +73,7 @@ class LaunchViewController: BaseUIViewController {
                 }
             }
             
-        }
+        }*/
         
     }
     

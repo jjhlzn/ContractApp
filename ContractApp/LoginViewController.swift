@@ -162,6 +162,13 @@ class LoginViewController: BaseUIViewController {
         
         
     }
+    
+    
+    @IBAction func configPressed(sender: UIButton) {
+        performSegueWithIdentifier("configurationSegue", sender: nil)
+        
+    }
+    
 
     
 }

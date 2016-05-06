@@ -10,7 +10,7 @@ import Foundation
 
 class ServiceConfiguration {
     //static let serverName = "localhost"
-    static let isUseServiceLocator = true
+    static let isUseConfig = true
     static let httpMethod2 = "http"
     static let serviceLocatorStore = ServiceLocatorStore()
     
@@ -32,7 +32,7 @@ class ServiceConfiguration {
     
     static var serverName: String {
         get {
-            if isUseServiceLocator {
+            if isUseConfig {
                 return (serviceLocatorStore.GetServiceLocator()!.serverName)!
             } else {
                 return serverName6
@@ -42,7 +42,7 @@ class ServiceConfiguration {
     
     static var port: Int {
         get {
-            if isUseServiceLocator {
+            if isUseConfig {
                 return Int((serviceLocatorStore.GetServiceLocator()!.port)!)
             } else {
                 return port6
@@ -52,7 +52,7 @@ class ServiceConfiguration {
     
     static var httpMethod: String {
         get {
-            if isUseServiceLocator {
+            if isUseConfig {
                 return (serviceLocatorStore.GetServiceLocator()?.http)!
             } else {
                 return "http"
@@ -61,15 +61,57 @@ class ServiceConfiguration {
     }
     
     
-    static let SeachOrderUrl = "\(httpMethod)://\(serverName):\(port)/order/search.json"
-    static let GetOrderPurcaseInfoUrl = "\(httpMethod)://\(serverName):\(port)/order/getPurchaseInfo.json"
-    static let GetBasicInfoUrl = "\(httpMethod)://\(serverName):\(port)/order/getBasicInfo.json"
-    static let GetOrderChuyunInfoUrl = "\(httpMethod)://\(serverName):\(port)/order/getChuyunInfo.json"
-    static let GetOrderFukuangInfoUrl = "\(httpMethod)://\(serverName):\(port)/order/getFukuangInfo.json"
-    static let GetOrderShouhuiInfoUrl = "\(httpMethod)://\(serverName):\(port)/order/getShouhuiInfo.json"
+    static var SeachOrderUrl : String {
+        get {
+            return "\(httpMethod)://\(serverName):\(port)/order/search.json"
+        }
+    }
     
-    static let SeachApprovalUrl = "\(httpMethod)://\(serverName):\(port)/approval/search.json"
-    static let AuditApprovalUrl = "\(httpMethod)://\(serverName):\(port)/approval/audit.json"
+    static var GetOrderPurcaseInfoUrl : String {
+        get {
+            return "\(httpMethod)://\(serverName):\(port)/order/getPurchaseInfo.json"
+        }
+    }
     
-    static let loginUrl = "\(httpMethod)://\(serverName):\(port)/login/login.json"
+    static var GetBasicInfoUrl : String {
+        get {
+            return "\(httpMethod)://\(serverName):\(port)/order/getBasicInfo.json"
+        }
+    }
+    
+    static var GetOrderChuyunInfoUrl : String {
+        get {
+            return "\(httpMethod)://\(serverName):\(port)/order/getChuyunInfo.json"
+        }
+    }
+    
+    static var GetOrderFukuangInfoUrl : String {
+        get {
+            return "\(httpMethod)://\(serverName):\(port)/order/getFukuangInfo.json"
+        }
+    }
+    
+    static var GetOrderShouhuiInfoUrl : String {
+        get {
+            return "\(httpMethod)://\(serverName):\(port)/order/getShouhuiInfo.json"
+        }
+    }
+    
+    static var SeachApprovalUrl : String {
+        get {
+            return "\(httpMethod)://\(serverName):\(port)/approval/search.json"
+        }
+    }
+    
+    static var AuditApprovalUrl : String {
+        get {
+            return "\(httpMethod)://\(serverName):\(port)/approval/audit.json"
+        }
+    }
+    
+    static var loginUrl : String {
+        get {
+            return "\(httpMethod)://\(serverName):\(port)/login/login.json"
+        }
+    }
 }
