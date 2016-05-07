@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ConfigurationController: BaseUIViewController, UITableViewDataSource, UITableViewDelegate {
+class ConfigurationController: BaseUIViewController, UITableViewDataSource, UITableViewDelegate, UIAlertViewDelegate {
 
     @IBOutlet weak var tableView: UITableView!
     let names = [["协议", "http 后者 https"], ["服务器", "服务器地址"], ["端口号", "端口号"]]
@@ -24,11 +24,7 @@ class ConfigurationController: BaseUIViewController, UITableViewDataSource, UITa
         tableView.delegate = self
         
         let serviceLoator = serviceLocatorStore.GetServiceLocator()
-        if serviceLoator == nil {
-            values[0] = "http"
-            values[1] = "jjhtest.hengdianworld.com"
-            values[2] = "80"
-        } else {
+        if serviceLoator != nil {
             values[0] = (serviceLoator?.http)!
             values[1] = (serviceLoator?.serverName)!
             values[2] = "\((serviceLoator?.port)!)"
@@ -84,7 +80,7 @@ class ConfigurationController: BaseUIViewController, UITableViewDataSource, UITa
             new.port = Int(port)
             new.serverName = serverName
             if serviceLocatorStore.saveServiceLocator(new) {
-                displayMessage("保存成功")
+                displayMessage("保存成功", delegate: self)
             } else {
                 displayMessage("保存失败")
             }
@@ -93,13 +89,18 @@ class ConfigurationController: BaseUIViewController, UITableViewDataSource, UITa
             serviceLocator?.port = Int(port)
             serviceLocator?.serverName = serverName
             if serviceLocatorStore.UpdateServiceLocator() {
-                displayMessage("保存成功")
+                displayMessage("保存成功", delegate: self)
             } else {
                 displayMessage("保存失败")
             }
         }
     
     }
+    
+    func alertView(alertView: UIAlertView, clickedButtonAtIndex buttonIndex: Int) {
+        performSegueWithIdentifier("loginSegue", sender: nil)
+    }
+
     
    
     

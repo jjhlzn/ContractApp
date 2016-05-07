@@ -24,6 +24,18 @@ class BaseUIViewController: UIViewController {
         
     }
     
+    func displayMessage(message : String, delegate: UIAlertViewDelegate) {
+        
+        let alertView = UIAlertView()
+        //alertView.title = "系统提示"
+        alertView.message = message
+        alertView.addButtonWithTitle("好的")
+        alertView.cancelButtonIndex=0
+        alertView.delegate=delegate
+        alertView.show()
+        
+    }
+    
     func displayConfirmMessage(message : String, delegate: UIAlertViewDelegate) {
         let alertView = UIAlertView()
         //alertView.title = "系统提示"

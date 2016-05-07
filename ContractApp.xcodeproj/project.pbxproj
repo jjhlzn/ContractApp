@@ -24,6 +24,9 @@
 		1C450E681CA809400019A5CA /* MyInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C450E671CA809400019A5CA /* MyInfoViewController.swift */; };
 		1C6E5CE31CDC94840095AC10 /* ConfigurationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6E5CE21CDC94840095AC10 /* ConfigurationController.swift */; };
 		1C6E5CE51CDC964A0095AC10 /* ConfigurationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6E5CE41CDC964A0095AC10 /* ConfigurationCell.swift */; };
+		1C6E5CE81CDD8C590095AC10 /* KeyValuePair+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6E5CE61CDD8C590095AC10 /* KeyValuePair+CoreDataProperties.swift */; };
+		1C6E5CE91CDD8C590095AC10 /* KeyValuePair.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6E5CE71CDD8C590095AC10 /* KeyValuePair.swift */; };
+		1C6E5CEB1CDD8CA70095AC10 /* KeyValuePairStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6E5CEA1CDD8CA70095AC10 /* KeyValuePairStore.swift */; };
 		1CB4ABA71C86C1F0000F5B8C /* ApprovalDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CB4ABA61C86C1F0000F5B8C /* ApprovalDetailController.swift */; };
 		1CB4ABAA1C87279F000F5B8C /* ContractApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1CB4ABA81C87279F000F5B8C /* ContractApp.xcdatamodeld */; };
 		1CB4ABAC1C872A95000F5B8C /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CB4ABAB1C872A95000F5B8C /* CoreDataStack.swift */; };
@@ -90,6 +93,10 @@
 		1C450E671CA809400019A5CA /* MyInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyInfoViewController.swift; sourceTree = "<group>"; };
 		1C6E5CE21CDC94840095AC10 /* ConfigurationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigurationController.swift; sourceTree = "<group>"; };
 		1C6E5CE41CDC964A0095AC10 /* ConfigurationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigurationCell.swift; sourceTree = "<group>"; };
+		1C6E5CE61CDD8C590095AC10 /* KeyValuePair+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "KeyValuePair+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		1C6E5CE71CDD8C590095AC10 /* KeyValuePair.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyValuePair.swift; sourceTree = "<group>"; };
+		1C6E5CEA1CDD8CA70095AC10 /* KeyValuePairStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyValuePairStore.swift; sourceTree = "<group>"; };
+		1C6E5CEC1CDDAE070095AC10 /* ContractApp 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "ContractApp 2.xcdatamodel"; sourceTree = "<group>"; };
 		1CB4ABA61C86C1F0000F5B8C /* ApprovalDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApprovalDetailController.swift; sourceTree = "<group>"; };
 		1CB4ABA91C87279F000F5B8C /* ContractApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ContractApp.xcdatamodel; sourceTree = "<group>"; };
 		1CB4ABAB1C872A95000F5B8C /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
@@ -228,6 +235,9 @@
 				1CEE8AE91CD3B01200865FB6 /* ServiceLocatorEntity+CoreDataProperties.swift */,
 				1CEE8AEA1CD3B01200865FB6 /* ServiceLocatorEntity.swift */,
 				1CEE8AED1CD3B03900865FB6 /* ServiceLocatorStore.swift */,
+				1C6E5CE61CDD8C590095AC10 /* KeyValuePair+CoreDataProperties.swift */,
+				1C6E5CE71CDD8C590095AC10 /* KeyValuePair.swift */,
+				1C6E5CEA1CDD8CA70095AC10 /* KeyValuePairStore.swift */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -385,14 +395,17 @@
 				1C6E5CE31CDC94840095AC10 /* ConfigurationController.swift in Sources */,
 				1C450E661CA6C44A0019A5CA /* OrderEmptyResultViewController.swift in Sources */,
 				1C09D3D51CD236EC004A8F9C /* OrderService.swift in Sources */,
+				1C6E5CE91CDD8C590095AC10 /* KeyValuePair.swift in Sources */,
 				1CFEDBCD1C87C7AF00503981 /* LoginUser+CoreDataProperties.swift in Sources */,
 				1CFEDBCE1C87C7AF00503981 /* LoginUser.swift in Sources */,
+				1C6E5CE81CDD8C590095AC10 /* KeyValuePair+CoreDataProperties.swift in Sources */,
 				1C450E641CA6C1D00019A5CA /* ApprovalEmptyResultViewController.swift in Sources */,
 				1CFAC8641C817D6300EF60D4 /* OrderListViewController.swift in Sources */,
 				1C2359B91C3CD1E5006724C9 /* User.swift in Sources */,
 				1C09D3D11CD2366A004A8F9C /* ServiceConfiguration.swift in Sources */,
 				1C09D3D71CD2370A004A8F9C /* ApprovalService.swift in Sources */,
 				1CF69A171C96708200D4C59F /* LaunchViewController.swift in Sources */,
+				1C6E5CEB1CDD8CA70095AC10 /* KeyValuePairStore.swift in Sources */,
 				1C6E5CE51CDC964A0095AC10 /* ConfigurationCell.swift in Sources */,
 				1C23597F1C3B7A47006724C9 /* AppDelegate.swift in Sources */,
 				1CF69A0D1C8BC00600D4C59F /* OrderFukuangInfoController.swift in Sources */,
@@ -673,9 +686,10 @@
 		1CB4ABA81C87279F000F5B8C /* ContractApp.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				1C6E5CEC1CDDAE070095AC10 /* ContractApp 2.xcdatamodel */,
 				1CB4ABA91C87279F000F5B8C /* ContractApp.xcdatamodel */,
 			);
-			currentVersion = 1CB4ABA91C87279F000F5B8C /* ContractApp.xcdatamodel */;
+			currentVersion = 1C6E5CEC1CDDAE070095AC10 /* ContractApp 2.xcdatamodel */;
 			path = ContractApp.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
