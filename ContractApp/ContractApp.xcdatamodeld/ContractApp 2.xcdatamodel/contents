@@ -15,9 +15,11 @@
         <attribute name="port" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="serverName" attributeType="String" syncable="YES"/>
     </entity>
+    <entity name="Test" syncable="YES"/>
     <elements>
+        <element name="KeyValuePair" positionX="-63" positionY="18" width="128" height="75"/>
         <element name="LoginUser" positionX="-63" positionY="-18" width="128" height="105"/>
         <element name="ServiceLocatorEntity" positionX="-63" positionY="9" width="128" height="90"/>
-        <element name="KeyValuePair" positionX="-63" positionY="18" width="128" height="75"/>
+        <element name="Test" positionX="-36" positionY="45" width="128" height="45"/>
     </elements>
 </model>

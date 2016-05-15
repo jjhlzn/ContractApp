@@ -137,13 +137,14 @@ class ApprovalListViewController: UIViewController, UITableViewDataSource, UITab
     
     private func createQueryObject() -> ApprovalQueryObject {
         let currentDateTime = NSDate()
+        let tomorrow = currentDateTime.dateByAddingTimeInterval(24 * 60 * 60)
         //let oneMonthAgo = currentDateTime.dateByAddingTimeInterval(-10 * 12 * 31 * 24 * 60 * 60)
         let oneMonthAgo = currentDateTime.dateByAddingTimeInterval(-31 * 24 * 60 * 60)
         
         let queryObject = ApprovalQueryObject()
         queryObject.keyword = ""
         queryObject.startDate = oneMonthAgo
-        queryObject.endDate = currentDateTime
+        queryObject.endDate = tomorrow
         queryObject.containApproved = false
         queryObject.containUnapproved = true
         return queryObject

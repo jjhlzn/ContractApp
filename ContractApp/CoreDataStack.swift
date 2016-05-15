@@ -28,7 +28,11 @@ class CoreDataStack {
         
         let pathComponent = "\(self.managedObjectModelName).sqlite"
         let url = self.applicationDocumentDirectory.URLByAppendingPathComponent(pathComponent)
-        let store = try! coordinator.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: url, options: nil)
+        let options = [ NSMigratePersistentStoresAutomaticallyOption : true, NSInferMappingModelAutomaticallyOption : true ]
+        
+        let store = try! coordinator.addPersistentStoreWithType(NSSQLiteStoreType,
+                                                                configuration: nil,
+                                                                URL: url, options: options)
         return coordinator
     }()
     

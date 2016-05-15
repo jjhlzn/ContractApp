@@ -34,7 +34,9 @@ class ServiceLocatorStore {
             if mainQueueUsers?.count == 0 {
                 return nil
             } else {
-                return mainQueueUsers![0]
+                let entity = mainQueueUsers![0]
+                print("serverName = \(entity.serverName)")
+                return entity
             }
         }
         return nil

@@ -97,6 +97,7 @@ class BasicService : NSObject, NSURLSessionDelegate {
                 result += "\(item.0)=\(item.1)&"
             }
         }
+        print ("input = \(result)")
         return result
     }
     

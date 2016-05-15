@@ -73,7 +73,10 @@ class MyInfoViewController: BaseUIViewController, UITableViewDataSource, UITable
             } else  {
                 let cell = tableView.dequeueReusableCellWithIdentifier("myInfoOtherCell") as! MyInfoCell
                 cell.nameLabel.text = "版本号"
-                cell.valueLabel.text = "1.0"
+                let version = NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleShortVersionString") as! String
+                let appBundle = NSBundle.mainBundle().objectForInfoDictionaryKey(kCFBundleVersionKey as String) as! String
+
+                cell.valueLabel.text = "\(version) (\(appBundle))"
                 return cell
 
             }

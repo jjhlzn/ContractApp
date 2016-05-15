@@ -42,11 +42,14 @@ class OrderSearchViewController: BaseUIViewController, UITextFieldDelegate {
             
         } else {
             let currentDateTime = NSDate()
+            let tomorrow = currentDateTime.dateByAddingTimeInterval(24 * 60 * 60)
             let oneMonthAgo = currentDateTime.dateByAddingTimeInterval(-31 * 24 * 60 * 60)
+            
             startDatePicker.date = oneMonthAgo
             
             startDateField.text = formatter.stringFromDate(oneMonthAgo)
-            endDateField.text = formatter.stringFromDate(currentDateTime)
+            endDateField.text = formatter.stringFromDate(tomorrow)
+            endDatePicker.date = tomorrow
         }
 
         

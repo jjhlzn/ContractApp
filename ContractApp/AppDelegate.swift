@@ -21,6 +21,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         UITabBar.appearance().tintColor = color
         UINavigationBar.appearance().tintColor = color
+        
+        
+        let serviceLocatorStore = ServiceLocatorStore()
+        if serviceLocatorStore.GetServiceLocator() == nil {
+            let serviceLocator = ServiceLocator()
+            serviceLocator.http = "http"
+            serviceLocator.serverName = "jjhtest.hengdianworld.com"
+            serviceLocator.port = 80
+            serviceLocatorStore.saveServiceLocator(serviceLocator)
+        }
+        
         return true
     }
 
