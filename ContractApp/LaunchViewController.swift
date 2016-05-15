@@ -15,11 +15,11 @@ class LaunchViewController: BaseUIViewController {
     var locatorService = LocatorService()
     
     override func viewDidAppear(animated: Bool) {
-        
+        /*
         if checkIsOutDate() {
             displayMessage("版本已过期")
             return
-        }
+        }*/
         
         //检查一下是否已经登录，如果登录，则直接进入后面的页面
         if self.loginUserStore.GetLoginUser() != nil {
