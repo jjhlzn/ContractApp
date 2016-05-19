@@ -46,7 +46,8 @@ class ApprovalListViewController: UIViewController, UITableViewDataSource, UITab
         if (queryObject == nil) {
             queryObject = createQueryObject()
         }
-
+        
+        
 
     }
     
@@ -56,6 +57,19 @@ class ApprovalListViewController: UIViewController, UITableViewDataSource, UITab
         
         print("approvals.count = \(approvals.count)")
         createTableFooter()
+        
+        //清除badge
+        LoginService().resetBadge((LoginUserStore().GetLoginUser()?.userName)!) {
+            response -> Void in
+        }
+        UIApplication.sharedApplication().applicationIconBadgeNumber = 0
+        let tabBarController = self.parentViewController?.parentViewController as? UITabBarController
+        if tabBarController != nil {
+            let tabArray = tabBarController!.tabBar.items as NSArray!
+            let tabItem = tabArray.objectAtIndex(1) as! UITabBarItem
+            tabItem.badgeValue = nil
+        }
+
         
     }
     
@@ -72,6 +86,8 @@ class ApprovalListViewController: UIViewController, UITableViewDataSource, UITab
         }
         
         firstLoad = false
+        
+        
         
     }
     
@@ -207,7 +223,7 @@ class ApprovalListViewController: UIViewController, UITableViewDataSource, UITab
         tableView.tableFooterView = tableFooterView
     }
     
-    private func setFootText() {
+    func setFootText() {
         loadMoreText.font = UIFont(name: "Helvetica Neue", size: 10)
         loadMoreText.textColor = UIColor.grayColor()
         if quering {

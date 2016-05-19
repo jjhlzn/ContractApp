@@ -63,6 +63,8 @@ class ApprovalDetailController: BaseUIViewController, UIAlertViewDelegate {
         } else {
              self.approvalResultLabel.text = "无"
         }
+        //只要进入过这个页面就将badge设置为0
+        UIApplication.sharedApplication().applicationIconBadgeNumber = 0
     }
     
     override func viewWillDisappear(animated: Bool) {

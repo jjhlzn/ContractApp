@@ -35,7 +35,7 @@ class ServiceLocatorStore {
                 return nil
             } else {
                 let entity = mainQueueUsers![0]
-                print("serverName = \(entity.serverName)")
+                //print("serverName = \(entity.serverName)")
                 return entity
             }
         }

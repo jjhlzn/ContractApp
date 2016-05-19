@@ -228,6 +228,15 @@ class LoginResponse : ServerResponse {
     }
 }
 
+class RegisterDeviceResponse : ServerResponse {
+    
+}
+
+class ResetBadgeResponse : ServerResponse {
+    
+}
+
+
 class GetOrderPurchaseInfoResponse : ServerResponse {
     var orderPurchaseInfo: OrderPurchaseInfo?
 }

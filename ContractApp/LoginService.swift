@@ -33,4 +33,25 @@ class LoginService : BasicService {
     func makeUrl(userName: String, password: String) -> String {
         return ServiceConfiguration.loginUrl
     }
+    
+    func registerDevice(userName: String, deviceToken: String, completion: ((registerDeviceResponse: RegisterDeviceResponse) -> Void)) -> RegisterDeviceResponse {
+        let response = RegisterDeviceResponse()
+        let parameters = ["username": userName, "devicetoken": deviceToken, "platform": "ios"]
+        sendRequest(ServiceConfiguration.registerDeviceUrl, parameters: parameters, serverResponse: response) {
+            dict -> Void in
+            
+        }
+        completion(registerDeviceResponse: response)
+        return response
+    }
+    
+    func resetBadge(userName: String, completion: ((resetBadgeResponse: ResetBadgeResponse) -> Void)) -> ResetBadgeResponse {
+        let response = ResetBadgeResponse()
+        let parameters = ["username": userName]
+        sendRequest(ServiceConfiguration.resetBadgeUrl, parameters: parameters, serverResponse: response) {
+            dict -> Void in
+        }
+        return response
+    }
+    
 }

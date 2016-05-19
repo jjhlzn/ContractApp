@@ -49,7 +49,18 @@ class BaseUIViewController: UIViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
        // self.hideKeyboardWhenTappedAround()
+        print("BaseViewController: viewWillAppear")
+        let badge = UIApplication.sharedApplication().applicationIconBadgeNumber
+        if tabBarController != nil && badge > 0 {
+            let tabArray = tabBarController!.tabBar.items as NSArray!
+            let tabItem = tabArray.objectAtIndex(1) as! UITabBarItem
+            
+            tabItem.badgeValue = "\(badge)"
+        }
     }
+    
+    
+    
     
     func checkDate(date: String) -> Bool {
         let formatter = NSDateFormatter()

@@ -7,13 +7,13 @@
 //
 
 import UIKit
+import AudioToolbox
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
-
+    
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         
@@ -32,29 +32,208 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             serviceLocatorStore.saveServiceLocator(serviceLocator)
         }
         
+        registerForPushNotifications(application, didFinishLaunchingWithOptions: launchOptions)
+        
         return true
     }
 
-    func applicationWillResignActive(application: UIApplication) {
-        // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-        // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
+    func registerForPushNotifications(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) {
+        XGPush.startApp(2200199196, appKey:"IW7L767TA5BH");
+        
+        XGPush.initForReregister { () -> Void in
+            
+            if(!XGPush.isUnRegisterStatus()){
+                
+                print("注册通知");
+                
+                if (UIApplication.instancesRespondToSelector(Selector( "registerUserNotificationSettings:" ))){
+                    
+                    let notificationSettings = UIUserNotificationSettings(
+                        forTypes: [.Badge, .Sound, .Alert], categories: nil)
+                    application.registerUserNotificationSettings(notificationSettings)
+                    
+                    application.registerForRemoteNotifications();
+                    
+                    
+                    
+                } else {
+                    
+                   // application.registerForRemoteNotificationTypes(.Alert | .Sound | .Badge);
+                    let notificationSettings = UIUserNotificationSettings(
+                        forTypes: [.Badge, .Sound, .Alert], categories: nil)
+                    application.registerUserNotificationSettings(notificationSettings)
+                    
+                    application.registerForRemoteNotifications();
+                }
+                
+            }
+            
+        }
+        
+        //推送反馈(app不在前台运行时，点击推送激活时)
+        XGPush.handleLaunching(launchOptions)
     }
-
-    func applicationDidEnterBackground(application: UIApplication) {
-        // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-        // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    
+    
+    
+    func application(application: UIApplication, didRegisterUserNotificationSettings notificationSettings: UIUserNotificationSettings) {
+        if notificationSettings.types != .None {
+            application.registerForRemoteNotifications()
+        }
     }
-
+    
+    //应用在进入前台时会执行的代码
     func applicationWillEnterForeground(application: UIApplication) {
-        // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+        print("applicationWillEnterForeground")
+        
+        
+        let currentViewController = getVisibleViewController(nil)
+        
+        if currentViewController != nil {
+            let tabBarController = currentViewController?.parentViewController as? UITabBarController
+            if tabBarController != nil {
+                let tabArray = tabBarController!.tabBar.items as NSArray!
+                let tabItem = tabArray.objectAtIndex(1) as! UITabBarItem
+                if application.applicationIconBadgeNumber > 0 {
+                    tabItem.badgeValue = "\(application.applicationIconBadgeNumber)"
+                }
+            }
+            
+            if let navController = currentViewController as? UINavigationController {
+                if let topController = navController.topViewController as? ApprovalListViewController {
+                    topController.refresh(application)
+                    topController.tableView.reloadData()
+                }
+            }
+        }
+
+    }
+    
+    var deviceToken = ""
+    func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
+        let  deviceTokenStr : String = XGPush.registerDevice(deviceToken);
+        print("Device Token:", deviceTokenStr)
+        self.deviceToken = deviceTokenStr
+        registerDeviceTokenToServer() { response -> Void in
+            
+        }
+    }
+    
+    func registerDeviceTokenToServer(completion: ((response: RegisterDeviceResponse) -> Void)) {
+        let loginUser = LoginUserStore().GetLoginUser()
+        if loginUser != nil {
+            LoginService().registerDevice((loginUser?.userName)!, deviceToken: deviceToken, completion: completion)
+            print("register \(deviceToken) to \((loginUser?.userName)!)")
+        }
+    }
+    
+    func unregisterDeviceTokenFromServer(completion: ((response: RegisterDeviceResponse) -> Void)) {
+        let loginUser = LoginUserStore().GetLoginUser()
+        if loginUser != nil {
+            LoginService().registerDevice((loginUser?.userName)!, deviceToken: "", completion: completion)
+            print("unregister \(deviceToken) to \((loginUser?.userName)!)")
+        }
+    }
+    
+    func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError) {
+        if error.code == 3010 {
+            
+            print ( "Push notifications are not supported in the iOS Simulator." )
+            
+        } else {
+            
+            print ( "application:didFailToRegisterForRemoteNotificationsWithError: \(error) " )
+            
+        }
     }
 
-    func applicationDidBecomeActive(application: UIApplication) {
-        // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-    }
+    
+    //app在前台运行时收到远程通知
+    func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
+        print("userInfo: ")
+        print(userInfo);
+        print("---------")
+        XGPush.handleReceiveNotification(userInfo);
+        //badgeCount = badgeCount + 1
+        
+        
+        if let aps = userInfo["aps"] as? NSDictionary {
+            if let badge = aps["badge"] as? Int {
+                application.applicationIconBadgeNumber = badge
+            }
+        }
+        
+        if (application.applicationState == .Active ) {
 
-    func applicationWillTerminate(application: UIApplication) {
-        // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+            AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
+            
+            let currentViewController = getVisibleViewController(nil)
+            
+            if currentViewController != nil {
+                let tabBarController = currentViewController?.parentViewController as? UITabBarController
+                if tabBarController != nil {
+                    let tabArray = tabBarController!.tabBar.items as NSArray!
+                    let tabItem = tabArray.objectAtIndex(1) as! UITabBarItem
+                    tabItem.badgeValue = "\(application.applicationIconBadgeNumber)"
+                }
+                
+                if let navController = currentViewController as? UINavigationController {
+                    if let topController = navController.topViewController as? ApprovalListViewController {
+                        let approval = createApprovalFromNotificaiton(userInfo)
+                        topController.approvals.insert(approval, atIndex: 0)
+                        topController.tableView.reloadData()
+                        topController.setFootText()
+                    }
+                }
+            }
+            
+        }
+    }
+    
+    private func createApprovalFromNotificaiton(userInfo: [NSObject : AnyObject]) -> Approval {
+        let approval = Approval()
+        if let aps = userInfo["aps"] as? NSDictionary {
+            if let json = aps["approval"] as? NSDictionary {
+                approval.id = json["id"] as? String
+                approval.amount = json["amount"] as! NSNumber
+                approval.approvalObject = json["approvalObject"] as? String
+                approval.approvalResult = json["approvalResult"] as? String
+                approval.keyword = json["keyword"] as? String
+                approval.reportDate = json["reportDate"] as? String
+                approval.reporter = json["reporter"] as? String
+                approval.status = json["status"] as? String
+                approval.type = json["type"] as? String
+            }
+        }
+        return approval
+    }
+    
+    func getVisibleViewController(var rootViewController: UIViewController?) -> UIViewController? {
+        
+        if rootViewController == nil {
+            rootViewController = UIApplication.sharedApplication().keyWindow?.rootViewController
+        }
+        
+        if rootViewController?.presentedViewController == nil {
+            return rootViewController
+        }
+        
+        if let presented = rootViewController?.presentedViewController {
+            if presented.isKindOfClass(UINavigationController) {
+                let navigationController = presented as! UINavigationController
+                print(navigationController.viewControllers.last!)
+                return navigationController.viewControllers.last!
+            }
+            
+            if presented.isKindOfClass(UITabBarController) {
+                let tabBarController = presented as! UITabBarController
+                print(tabBarController.selectedViewController!)
+                return tabBarController.selectedViewController!
+            }
+            
+            return getVisibleViewController(presented)
+        }
+        return nil
     }
 
 

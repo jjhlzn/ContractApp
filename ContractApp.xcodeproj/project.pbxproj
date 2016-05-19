@@ -22,6 +22,12 @@
 		1C450E641CA6C1D00019A5CA /* ApprovalEmptyResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C450E631CA6C1D00019A5CA /* ApprovalEmptyResultViewController.swift */; };
 		1C450E661CA6C44A0019A5CA /* OrderEmptyResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C450E651CA6C44A0019A5CA /* OrderEmptyResultViewController.swift */; };
 		1C450E681CA809400019A5CA /* MyInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C450E671CA809400019A5CA /* MyInfoViewController.swift */; };
+		1C5A6FC91CEB6E9B000E7282 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C5A6FC81CEB6E9B000E7282 /* CFNetwork.framework */; };
+		1C5A6FCB1CEB6EAA000E7282 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C5A6FCA1CEB6EAA000E7282 /* SystemConfiguration.framework */; };
+		1C5A6FCD1CEB6EB8000E7282 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C5A6FCC1CEB6EB8000E7282 /* CoreTelephony.framework */; };
+		1C5A6FD21CEB707D000E7282 /* libz.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C5A6FD01CEB705C000E7282 /* libz.1.dylib */; };
+		1C5A6FD61CEB70B8000E7282 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C5A6FD51CEB70B8000E7282 /* Security.framework */; };
+		1C5A6FDC1CEB71AC000E7282 /* libXG-SDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C5A6FDB1CEB71AC000E7282 /* libXG-SDK.a */; };
 		1C6E5CE31CDC94840095AC10 /* ConfigurationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6E5CE21CDC94840095AC10 /* ConfigurationController.swift */; };
 		1C6E5CE51CDC964A0095AC10 /* ConfigurationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6E5CE41CDC964A0095AC10 /* ConfigurationCell.swift */; };
 		1C6E5CE81CDD8C590095AC10 /* KeyValuePair+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6E5CE61CDD8C590095AC10 /* KeyValuePair+CoreDataProperties.swift */; };
@@ -91,6 +97,16 @@
 		1C450E631CA6C1D00019A5CA /* ApprovalEmptyResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApprovalEmptyResultViewController.swift; sourceTree = "<group>"; };
 		1C450E651CA6C44A0019A5CA /* OrderEmptyResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderEmptyResultViewController.swift; sourceTree = "<group>"; };
 		1C450E671CA809400019A5CA /* MyInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyInfoViewController.swift; sourceTree = "<group>"; };
+		1C5A6FC81CEB6E9B000E7282 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		1C5A6FCA1CEB6EAA000E7282 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		1C5A6FCC1CEB6EB8000E7282 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		1C5A6FCE1CEB6F3F000E7282 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		1C5A6FD01CEB705C000E7282 /* libz.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.dylib; path = ../../../../usr/lib/libz.1.dylib; sourceTree = "<group>"; };
+		1C5A6FD51CEB70B8000E7282 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		1C5A6FD81CEB711D000E7282 /* ContractApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ContractApp-Bridging-Header.h"; sourceTree = "<group>"; };
+		1C5A6FD91CEB7175000E7282 /* XGPush.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XGPush.h; path = xinge_sdk/XGPush.h; sourceTree = "<group>"; };
+		1C5A6FDA1CEB7175000E7282 /* XGSetting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XGSetting.h; path = xinge_sdk/XGSetting.h; sourceTree = "<group>"; };
+		1C5A6FDB1CEB71AC000E7282 /* libXG-SDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libXG-SDK.a"; path = "xinge_sdk/libXG-SDK.a"; sourceTree = "<group>"; };
 		1C6E5CE21CDC94840095AC10 /* ConfigurationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigurationController.swift; sourceTree = "<group>"; };
 		1C6E5CE41CDC964A0095AC10 /* ConfigurationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigurationCell.swift; sourceTree = "<group>"; };
 		1C6E5CE61CDD8C590095AC10 /* KeyValuePair+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "KeyValuePair+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -129,6 +145,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1C5A6FDC1CEB71AC000E7282 /* libXG-SDK.a in Frameworks */,
+				1C5A6FD61CEB70B8000E7282 /* Security.framework in Frameworks */,
+				1C5A6FD21CEB707D000E7282 /* libz.1.dylib in Frameworks */,
+				1C5A6FCD1CEB6EB8000E7282 /* CoreTelephony.framework in Frameworks */,
+				1C5A6FCB1CEB6EAA000E7282 /* SystemConfiguration.framework in Frameworks */,
+				1C5A6FC91CEB6E9B000E7282 /* CFNetwork.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -152,6 +174,16 @@
 		1C2359721C3B7A47006724C9 = {
 			isa = PBXGroup;
 			children = (
+				1C5A6FDB1CEB71AC000E7282 /* libXG-SDK.a */,
+				1C5A6FD91CEB7175000E7282 /* XGPush.h */,
+				1C5A6FDA1CEB7175000E7282 /* XGSetting.h */,
+				1C5A6FD81CEB711D000E7282 /* ContractApp-Bridging-Header.h */,
+				1C5A6FD51CEB70B8000E7282 /* Security.framework */,
+				1C5A6FD01CEB705C000E7282 /* libz.1.dylib */,
+				1C5A6FCE1CEB6F3F000E7282 /* libz.tbd */,
+				1C5A6FCC1CEB6EB8000E7282 /* CoreTelephony.framework */,
+				1C5A6FCA1CEB6EAA000E7282 /* SystemConfiguration.framework */,
+				1C5A6FC81CEB6E9B000E7282 /* CFNetwork.framework */,
 				1C23597D1C3B7A47006724C9 /* ContractApp */,
 				1C23597C1C3B7A47006724C9 /* Products */,
 			);
@@ -321,6 +353,14 @@
 					1C23597A1C3B7A47006724C9 = {
 						CreatedOnToolsVersion = 7.1.1;
 						DevelopmentTeam = KG295RN6U3;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					1C23598E1C3B7A47006724C9 = {
 						CreatedOnToolsVersion = 7.1.1;
@@ -569,9 +609,14 @@
 				INFOPLIST_FILE = ContractApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/xinge_sdk",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.jinjunhang.ContractApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/lzn/Desktop/ContractApp/ContractApp-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -586,9 +631,14 @@
 				INFOPLIST_FILE = ContractApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/xinge_sdk",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.jinjunhang.ContractApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/lzn/Desktop/ContractApp/ContractApp-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

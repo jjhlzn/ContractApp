@@ -114,4 +114,16 @@ class ServiceConfiguration {
             return "\(httpMethod)://\(serverName):\(port)/login/login.json"
         }
     }
+    
+    static var registerDeviceUrl : String {
+        get {
+            return "\(httpMethod)://\(serverName):\(port)/login/registerdevice.json"
+        }
+    }
+    
+    static var resetBadgeUrl : String {
+        get {
+            return "\(httpMethod)://\(serverName):\(port)/login/resetbadge.json"
+        }
+    }
 }

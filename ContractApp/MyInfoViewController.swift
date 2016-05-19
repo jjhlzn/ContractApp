@@ -95,9 +95,13 @@ class MyInfoViewController: BaseUIViewController, UITableViewDataSource, UITable
     func alertView(alertView: UIAlertView, clickedButtonAtIndex buttonIndex: Int) {
         switch buttonIndex {
         case 0:
-            loginUserStore.removeLoginUser()
-            performSegueWithIdentifier("logoutSegue", sender: nil)
-
+            
+            (UIApplication.sharedApplication().delegate as! AppDelegate).unregisterDeviceTokenFromServer()  {
+                response -> Void in
+                self.loginUserStore.removeLoginUser()
+                self.performSegueWithIdentifier("logoutSegue", sender: nil)
+            }
+            
             break;
         case 1:
             break;

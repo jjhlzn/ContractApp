@@ -144,8 +144,11 @@ class LoginViewController: BaseUIViewController {
                             print("Core Data save failed: \(error)")
                         }
                         
-                        
-                        self.performSegueWithIdentifier("loginSuccessSegue", sender: self)
+                        (UIApplication.sharedApplication().delegate as! AppDelegate).registerDeviceTokenToServer() {
+                            response -> Void in
+                             self.performSegueWithIdentifier("loginSuccessSegue", sender: self)
+                        }
+                       
                     } else {
                         if response.errorMessage != nil {
                             self.displayMessage(response.errorMessage!)
