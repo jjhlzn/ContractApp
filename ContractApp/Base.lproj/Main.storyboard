@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="kf3-dZ-P1J">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="kf3-dZ-P1J">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -19,7 +19,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="orderMenuCell" id="4pt-YA-sWh">
-                                        <rect key="frame" x="0.0" y="92" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="28" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4pt-YA-sWh" id="cze-6O-yEm">
                                             <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
@@ -1292,7 +1292,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lv9-fj-jWE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-657" y="-1553"/>
+            <point key="canvasLocation" x="-779" y="-1657"/>
         </scene>
         <!--审批-->
         <scene sceneID="Bfp-aO-8Zp">
@@ -1327,9 +1327,9 @@
         <image name="userIcon" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="49w-if-76T"/>
+        <segue reference="r0f-PF-mLV"/>
         <segue reference="IGP-XW-Mia"/>
-        <segue reference="Yj5-5N-0r6"/>
+        <segue reference="49w-if-76T"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.019607843140000001" green="0.37647058820000001" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
 </document>
