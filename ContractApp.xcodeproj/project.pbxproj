@@ -19,9 +19,17 @@
 		1C2359B91C3CD1E5006724C9 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C2359B81C3CD1E5006724C9 /* User.swift */; };
 		1C26847D1CCC71150032C014 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C26847C1CCC71150032C014 /* LoginViewController.swift */; };
 		1C26847F1CCC9AC70032C014 /* MyInfoMainCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C26847E1CCC9AC70032C014 /* MyInfoMainCell.swift */; };
+		1C3945F41D010E8E00BD0AFC /* BarcodeScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C3945F31D010E8E00BD0AFC /* BarcodeScannerViewController.swift */; };
 		1C450E641CA6C1D00019A5CA /* ApprovalEmptyResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C450E631CA6C1D00019A5CA /* ApprovalEmptyResultViewController.swift */; };
 		1C450E661CA6C44A0019A5CA /* OrderEmptyResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C450E651CA6C44A0019A5CA /* OrderEmptyResultViewController.swift */; };
 		1C450E681CA809400019A5CA /* MyInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C450E671CA809400019A5CA /* MyInfoViewController.swift */; };
+		1C451F711D019D4F00DC29F9 /* WeixinScanVIewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C451F701D019D4F00DC29F9 /* WeixinScanVIewController.swift */; };
+		1C451F731D01A44800DC29F9 /* PriceReportService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C451F721D01A44800DC29F9 /* PriceReportService.swift */; };
+		1C451F751D01A7DF00DC29F9 /* PriceReportListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C451F741D01A7DF00DC29F9 /* PriceReportListViewController.swift */; };
+		1C451F771D01AB9500DC29F9 /* PriceReportCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C451F761D01AB9500DC29F9 /* PriceReportCell.swift */; };
+		1C451F7A1D01B4A900DC29F9 /* PagableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C451F791D01B4A900DC29F9 /* PagableController.swift */; };
+		1C451F7C1D01C53D00DC29F9 /* PriceReportSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C451F7B1D01C53D00DC29F9 /* PriceReportSearchViewController.swift */; };
+		1C451F7E1D01CA4D00DC29F9 /* PriceReportDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C451F7D1D01CA4D00DC29F9 /* PriceReportDetailViewController.swift */; };
 		1C5A6FC91CEB6E9B000E7282 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C5A6FC81CEB6E9B000E7282 /* CFNetwork.framework */; };
 		1C5A6FCB1CEB6EAA000E7282 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C5A6FCA1CEB6EAA000E7282 /* SystemConfiguration.framework */; };
 		1C5A6FCD1CEB6EB8000E7282 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C5A6FCC1CEB6EB8000E7282 /* CoreTelephony.framework */; };
@@ -33,6 +41,9 @@
 		1C6E5CE81CDD8C590095AC10 /* KeyValuePair+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6E5CE61CDD8C590095AC10 /* KeyValuePair+CoreDataProperties.swift */; };
 		1C6E5CE91CDD8C590095AC10 /* KeyValuePair.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6E5CE71CDD8C590095AC10 /* KeyValuePair.swift */; };
 		1C6E5CEB1CDD8CA70095AC10 /* KeyValuePairStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6E5CEA1CDD8CA70095AC10 /* KeyValuePairStore.swift */; };
+		1C7285C41D025B0F00E70A38 /* ReportDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7285C31D025B0F00E70A38 /* ReportDetailCell.swift */; };
+		1C93A7B61D026A4100A639BB /* RSBarcodeScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C93A7B51D026A4100A639BB /* RSBarcodeScanViewController.swift */; };
+		1C93A7BB1D0296B000A639BB /* CreatePriceReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C93A7BA1D0296B000A639BB /* CreatePriceReportViewController.swift */; };
 		1CB4ABA71C86C1F0000F5B8C /* ApprovalDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CB4ABA61C86C1F0000F5B8C /* ApprovalDetailController.swift */; };
 		1CB4ABAA1C87279F000F5B8C /* ContractApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1CB4ABA81C87279F000F5B8C /* ContractApp.xcdatamodeld */; };
 		1CB4ABAC1C872A95000F5B8C /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CB4ABAB1C872A95000F5B8C /* CoreDataStack.swift */; };
@@ -58,6 +69,7 @@
 		1CFAC8951C858B2E00EF60D4 /* ApprovalListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CFAC8941C858B2E00EF60D4 /* ApprovalListViewController.swift */; };
 		1CFEDBCD1C87C7AF00503981 /* LoginUser+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CFEDBCB1C87C7AF00503981 /* LoginUser+CoreDataProperties.swift */; };
 		1CFEDBCE1C87C7AF00503981 /* LoginUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CFEDBCC1C87C7AF00503981 /* LoginUser.swift */; };
+		C6A51E16DEE5975CD489192D /* Pods_ContractApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DA43F7C5AE0388649978706 /* Pods_ContractApp.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,9 +106,17 @@
 		1C2359B81C3CD1E5006724C9 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		1C26847C1CCC71150032C014 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		1C26847E1CCC9AC70032C014 /* MyInfoMainCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyInfoMainCell.swift; sourceTree = "<group>"; };
+		1C3945F31D010E8E00BD0AFC /* BarcodeScannerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarcodeScannerViewController.swift; sourceTree = "<group>"; };
 		1C450E631CA6C1D00019A5CA /* ApprovalEmptyResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApprovalEmptyResultViewController.swift; sourceTree = "<group>"; };
 		1C450E651CA6C44A0019A5CA /* OrderEmptyResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderEmptyResultViewController.swift; sourceTree = "<group>"; };
 		1C450E671CA809400019A5CA /* MyInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyInfoViewController.swift; sourceTree = "<group>"; };
+		1C451F701D019D4F00DC29F9 /* WeixinScanVIewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeixinScanVIewController.swift; sourceTree = "<group>"; };
+		1C451F721D01A44800DC29F9 /* PriceReportService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PriceReportService.swift; sourceTree = "<group>"; };
+		1C451F741D01A7DF00DC29F9 /* PriceReportListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PriceReportListViewController.swift; sourceTree = "<group>"; };
+		1C451F761D01AB9500DC29F9 /* PriceReportCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PriceReportCell.swift; sourceTree = "<group>"; };
+		1C451F791D01B4A900DC29F9 /* PagableController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PagableController.swift; sourceTree = "<group>"; };
+		1C451F7B1D01C53D00DC29F9 /* PriceReportSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PriceReportSearchViewController.swift; sourceTree = "<group>"; };
+		1C451F7D1D01CA4D00DC29F9 /* PriceReportDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PriceReportDetailViewController.swift; sourceTree = "<group>"; };
 		1C5A6FC81CEB6E9B000E7282 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		1C5A6FCA1CEB6EAA000E7282 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		1C5A6FCC1CEB6EB8000E7282 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
@@ -113,6 +133,9 @@
 		1C6E5CE71CDD8C590095AC10 /* KeyValuePair.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyValuePair.swift; sourceTree = "<group>"; };
 		1C6E5CEA1CDD8CA70095AC10 /* KeyValuePairStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyValuePairStore.swift; sourceTree = "<group>"; };
 		1C6E5CEC1CDDAE070095AC10 /* ContractApp 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "ContractApp 2.xcdatamodel"; sourceTree = "<group>"; };
+		1C7285C31D025B0F00E70A38 /* ReportDetailCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportDetailCell.swift; sourceTree = "<group>"; };
+		1C93A7B51D026A4100A639BB /* RSBarcodeScanViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSBarcodeScanViewController.swift; sourceTree = "<group>"; };
+		1C93A7BA1D0296B000A639BB /* CreatePriceReportViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreatePriceReportViewController.swift; sourceTree = "<group>"; };
 		1CB4ABA61C86C1F0000F5B8C /* ApprovalDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApprovalDetailController.swift; sourceTree = "<group>"; };
 		1CB4ABA91C87279F000F5B8C /* ContractApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ContractApp.xcdatamodel; sourceTree = "<group>"; };
 		1CB4ABAB1C872A95000F5B8C /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
@@ -138,6 +161,9 @@
 		1CFAC8941C858B2E00EF60D4 /* ApprovalListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApprovalListViewController.swift; sourceTree = "<group>"; };
 		1CFEDBCB1C87C7AF00503981 /* LoginUser+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LoginUser+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		1CFEDBCC1C87C7AF00503981 /* LoginUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginUser.swift; sourceTree = "<group>"; };
+		6DA43F7C5AE0388649978706 /* Pods_ContractApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ContractApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9013814D5B600B421CBB98D3 /* Pods-ContractApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ContractApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ContractApp/Pods-ContractApp.debug.xcconfig"; sourceTree = "<group>"; };
+		F3C8FD2DE3DBEC0604AB82E4 /* Pods-ContractApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ContractApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-ContractApp/Pods-ContractApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +177,7 @@
 				1C5A6FCD1CEB6EB8000E7282 /* CoreTelephony.framework in Frameworks */,
 				1C5A6FCB1CEB6EAA000E7282 /* SystemConfiguration.framework in Frameworks */,
 				1C5A6FC91CEB6E9B000E7282 /* CFNetwork.framework in Frameworks */,
+				C6A51E16DEE5975CD489192D /* Pods_ContractApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -171,6 +198,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		06038FCE0EE361D3B511202E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6DA43F7C5AE0388649978706 /* Pods_ContractApp.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		1C2359721C3B7A47006724C9 = {
 			isa = PBXGroup;
 			children = (
@@ -186,6 +221,8 @@
 				1C5A6FC81CEB6E9B000E7282 /* CFNetwork.framework */,
 				1C23597D1C3B7A47006724C9 /* ContractApp */,
 				1C23597C1C3B7A47006724C9 /* Products */,
+				6E98444C4B148F9DCD265283 /* Pods */,
+				06038FCE0EE361D3B511202E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -202,6 +239,7 @@
 		1C23597D1C3B7A47006724C9 /* ContractApp */ = {
 			isa = PBXGroup;
 			children = (
+				1C451F781D01B49000DC29F9 /* lib */,
 				1C2684801CCC9AF00032C014 /* cell */,
 				1C26847B1CCC6C140032C014 /* model */,
 				1C26847A1CCC6BF60032C014 /* service8 */,
@@ -228,6 +266,13 @@
 				1C450E671CA809400019A5CA /* MyInfoViewController.swift */,
 				1C26847C1CCC71150032C014 /* LoginViewController.swift */,
 				1C6E5CE21CDC94840095AC10 /* ConfigurationController.swift */,
+				1C3945F31D010E8E00BD0AFC /* BarcodeScannerViewController.swift */,
+				1C451F701D019D4F00DC29F9 /* WeixinScanVIewController.swift */,
+				1C451F741D01A7DF00DC29F9 /* PriceReportListViewController.swift */,
+				1C451F7B1D01C53D00DC29F9 /* PriceReportSearchViewController.swift */,
+				1C451F7D1D01CA4D00DC29F9 /* PriceReportDetailViewController.swift */,
+				1C93A7B51D026A4100A639BB /* RSBarcodeScanViewController.swift */,
+				1C93A7BA1D0296B000A639BB /* CreatePriceReportViewController.swift */,
 			);
 			path = ContractApp;
 			sourceTree = "<group>";
@@ -250,6 +295,7 @@
 				1C09D3D41CD236EC004A8F9C /* OrderService.swift */,
 				1C09D3D61CD2370A004A8F9C /* ApprovalService.swift */,
 				1CEE8AE71CD3A8ED00865FB6 /* LocatorService.swift */,
+				1C451F721D01A44800DC29F9 /* PriceReportService.swift */,
 			);
 			name = service8;
 			sourceTree = "<group>";
@@ -280,8 +326,27 @@
 				1C26847E1CCC9AC70032C014 /* MyInfoMainCell.swift */,
 				1CFAC8671C81846100EF60D4 /* Cell.swift */,
 				1C6E5CE41CDC964A0095AC10 /* ConfigurationCell.swift */,
+				1C451F761D01AB9500DC29F9 /* PriceReportCell.swift */,
+				1C7285C31D025B0F00E70A38 /* ReportDetailCell.swift */,
 			);
 			name = cell;
+			sourceTree = "<group>";
+		};
+		1C451F781D01B49000DC29F9 /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				1C451F791D01B4A900DC29F9 /* PagableController.swift */,
+			);
+			name = lib;
+			sourceTree = "<group>";
+		};
+		6E98444C4B148F9DCD265283 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9013814D5B600B421CBB98D3 /* Pods-ContractApp.debug.xcconfig */,
+				F3C8FD2DE3DBEC0604AB82E4 /* Pods-ContractApp.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -291,9 +356,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1C2359A31C3B7A47006724C9 /* Build configuration list for PBXNativeTarget "ContractApp" */;
 			buildPhases = (
+				A2AAEF28E932CE45A62BB0AC /* 📦 Check Pods Manifest.lock */,
 				1C2359771C3B7A47006724C9 /* Sources */,
 				1C2359781C3B7A47006724C9 /* Frameworks */,
 				1C2359791C3B7A47006724C9 /* Resources */,
+				72D20C208E54B3B1FB9D20B8 /* 📦 Embed Pods Frameworks */,
+				2B14D1243F5A47B3E86AA9AC /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -419,6 +487,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		2B14D1243F5A47B3E86AA9AC /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ContractApp/Pods-ContractApp-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		72D20C208E54B3B1FB9D20B8 /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ContractApp/Pods-ContractApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A2AAEF28E932CE45A62BB0AC /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		1C2359771C3B7A47006724C9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -434,9 +550,11 @@
 				1CF69A0F1C8BC61800D4C59F /* OrderShouhuiController.swift in Sources */,
 				1C6E5CE31CDC94840095AC10 /* ConfigurationController.swift in Sources */,
 				1C450E661CA6C44A0019A5CA /* OrderEmptyResultViewController.swift in Sources */,
+				1C3945F41D010E8E00BD0AFC /* BarcodeScannerViewController.swift in Sources */,
 				1C09D3D51CD236EC004A8F9C /* OrderService.swift in Sources */,
 				1C6E5CE91CDD8C590095AC10 /* KeyValuePair.swift in Sources */,
 				1CFEDBCD1C87C7AF00503981 /* LoginUser+CoreDataProperties.swift in Sources */,
+				1C451F7C1D01C53D00DC29F9 /* PriceReportSearchViewController.swift in Sources */,
 				1CFEDBCE1C87C7AF00503981 /* LoginUser.swift in Sources */,
 				1C6E5CE81CDD8C590095AC10 /* KeyValuePair+CoreDataProperties.swift in Sources */,
 				1C450E641CA6C1D00019A5CA /* ApprovalEmptyResultViewController.swift in Sources */,
@@ -447,25 +565,34 @@
 				1CF69A171C96708200D4C59F /* LaunchViewController.swift in Sources */,
 				1C6E5CEB1CDD8CA70095AC10 /* KeyValuePairStore.swift in Sources */,
 				1C6E5CE51CDC964A0095AC10 /* ConfigurationCell.swift in Sources */,
+				1C451F731D01A44800DC29F9 /* PriceReportService.swift in Sources */,
 				1C23597F1C3B7A47006724C9 /* AppDelegate.swift in Sources */,
+				1C451F7A1D01B4A900DC29F9 /* PagableController.swift in Sources */,
 				1CF69A0D1C8BC00600D4C59F /* OrderFukuangInfoController.swift in Sources */,
+				1C93A7B61D026A4100A639BB /* RSBarcodeScanViewController.swift in Sources */,
 				1CEE8AE81CD3A8ED00865FB6 /* LocatorService.swift in Sources */,
 				1CFAC8951C858B2E00EF60D4 /* ApprovalListViewController.swift in Sources */,
 				1C26847F1CCC9AC70032C014 /* MyInfoMainCell.swift in Sources */,
 				1C450E681CA809400019A5CA /* MyInfoViewController.swift in Sources */,
 				1CFAC8931C85823300EF60D4 /* ApprovalSearchController.swift in Sources */,
+				1C451F711D019D4F00DC29F9 /* WeixinScanVIewController.swift in Sources */,
 				1C26847D1CCC71150032C014 /* LoginViewController.swift in Sources */,
 				1C09D3CF1CD22BA2004A8F9C /* LoginService.swift in Sources */,
 				1CFAC86C1C82DC9B00EF60D4 /* OrderBasicInfoViewController.swift in Sources */,
 				1CEE8AEC1CD3B01200865FB6 /* ServiceLocatorEntity.swift in Sources */,
 				1CB4ABAC1C872A95000F5B8C /* CoreDataStack.swift in Sources */,
+				1C451F7E1D01CA4D00DC29F9 /* PriceReportDetailViewController.swift in Sources */,
 				1CFAC8681C81846100EF60D4 /* Cell.swift in Sources */,
 				1CFAC8661C817DF300EF60D4 /* BusinessModel.swift in Sources */,
+				1C451F751D01A7DF00DC29F9 /* PriceReportListViewController.swift in Sources */,
+				1C93A7BB1D0296B000A639BB /* CreatePriceReportViewController.swift in Sources */,
 				1CB4ABA71C86C1F0000F5B8C /* ApprovalDetailController.swift in Sources */,
 				1CB4ABAA1C87279F000F5B8C /* ContractApp.xcdatamodeld in Sources */,
 				1CF69A0B1C8BB65C00D4C59F /* OrderChuyunInfoController.swift in Sources */,
+				1C7285C41D025B0F00E70A38 /* ReportDetailCell.swift in Sources */,
 				1CF69A131C92616300D4C59F /* LoadingOverlay.swift in Sources */,
 				1C09D3D31CD236C3004A8F9C /* BasicService.swift in Sources */,
+				1C451F771D01AB9500DC29F9 /* PriceReportCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -601,6 +728,7 @@
 		};
 		1C2359A41C3B7A47006724C9 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9013814D5B600B421CBB98D3 /* Pods-ContractApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -623,6 +751,7 @@
 		};
 		1C2359A51C3B7A47006724C9 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F3C8FD2DE3DBEC0604AB82E4 /* Pods-ContractApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";

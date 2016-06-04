@@ -142,33 +142,37 @@ class Approval {
     }
 }
 
-class ServerResponse  {
+public class ServerResponse : NSObject {
     var status : Int = 0
     var errorMessage : String?
 }
 
-class PageServerResponse : ServerResponse{
+class PageServerResponse<T> : ServerResponse {
     var totalNumber : Int = 0
+    var resultSet: [T] = [T]()
 }
 
-class SeachOrderResponse : PageServerResponse {
-    var orders : [Order]!
-    init(orders : [Order]) {
-        self.orders = orders
-    }
-    override init() {
-        
+class SeachOrderResponse : PageServerResponse<Order> {
+    var orders : [Order] {
+        get {
+            return resultSet
+        }
+        set(value) {
+            resultSet = value
+        }
     }
 }
 
 
-class SearchApprovalResponse : PageServerResponse {
-    var approvals = [Approval]()
-    init(approvals: [Approval]) {
-        self.approvals = approvals
-    }
-    override init() {
-        
+class SearchApprovalResponse : PageServerResponse<Approval> {
+
+    var approvals : [Approval] {
+        get {
+            return resultSet
+        }
+        set (value) {
+            resultSet = value
+        }
     }
 }
 
@@ -265,4 +269,83 @@ class AuditApprovalResponse : ServerResponse {
 
 class GetServiceLocatorResponse : ServerResponse {
     var result: ServiceLocator?
+}
+
+
+class Product {
+    var id : String
+    var specification: String
+    var price: NSNumber
+    var moneyType: String
+    var englishName: String
+    init(id: String, specification: String, price: NSNumber, moneyType: String, englishName: String = "") {
+        self.id = id
+        self.specification = specification
+        self.price = price
+        self.moneyType = moneyType
+        self.englishName = englishName
+    }
+}
+
+class PriceReport {
+    var id : String
+    var date : String
+    var status: String
+    var detailInfo: String = ""
+    
+    var products = [Product]()
+    
+    init(id: String, date: String, status: String, detailInfo: String = "") {
+        self.id = id
+        self.date = date
+        self.status = status
+        self.detailInfo = detailInfo
+    }
+}
+
+class SearchPriceReportResponse : PageServerResponse<PriceReport> {
+    var priceReports :[PriceReport] {
+        get {
+            return resultSet
+        }
+        set(value) {
+            resultSet = value
+        }
+    }
+}
+
+class PriceReportQueryObject : QueryObject {
+    var keyword: String
+    var startDate: NSDate
+    var endDate: NSDate
+    var pageSize: Int = 10
+    
+    init(keyword: String, startDate: NSDate, endDate: NSDate)
+    {
+        self.keyword = keyword
+        self.startDate = startDate
+        self.endDate = endDate
+    }
+}
+
+class GetPriceReportResonse : PageServerResponse<Product> {
+    var products :[Product] {
+        get {
+            return resultSet
+        }
+        set(value) {
+            resultSet = value
+        }
+    }
+
+}
+
+
+class SearchProductsResonse : ServerResponse {
+    var products = [Product]()
+}
+
+
+class SubmitReportResonse : ServerResponse {
+    var report : PriceReport?
 }

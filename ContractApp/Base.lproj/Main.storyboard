@@ -19,7 +19,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="orderMenuCell" id="4pt-YA-sWh">
-                                        <rect key="frame" x="0.0" y="28" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="92" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4pt-YA-sWh" id="cze-6O-yEm">
                                             <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
@@ -43,7 +43,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3ej-9z-xPc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1546" y="-828"/>
+            <point key="canvasLocation" x="2063" y="-737"/>
         </scene>
         <!--收购合同信息-->
         <scene sceneID="6ZV-c5-F7y">
@@ -59,7 +59,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="shougouHeaderCell" id="z4T-D3-erf">
-                                        <rect key="frame" x="0.0" y="28" width="320" height="60"/>
+                                        <rect key="frame" x="0.0" y="92" width="320" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="z4T-D3-erf" id="ggh-7Z-aAe">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="59"/>
@@ -76,7 +76,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="shougouContentCell" id="QPT-G5-dUa" customClass="OrderPurchaseInfoCell" customModule="ContractApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="88" width="320" height="60"/>
+                                        <rect key="frame" x="0.0" y="152" width="320" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="QPT-G5-dUa" id="Yi0-e7-1TQ">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="59"/>
@@ -131,7 +131,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FrJ-ke-kPH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3135" y="-1157"/>
+            <point key="canvasLocation" x="3767" y="-1173"/>
         </scene>
         <!--出运信息-->
         <scene sceneID="cXo-IH-LTN">
@@ -195,7 +195,95 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X0E-7I-MPS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3033" y="-1813"/>
+            <point key="canvasLocation" x="2746" y="-1867"/>
+        </scene>
+        <!--扫描条形码-->
+        <scene sceneID="ciQ-He-PWv">
+            <objects>
+                <viewController hidesBottomBarWhenPushed="YES" id="DIY-As-9Ak" customClass="RSBarcodeScanViewController" customModule="ContractApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="LeW-cD-A3s">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="扫描条形码" id="MQN-Jz-da7">
+                        <barButtonItem key="rightBarButtonItem" title="完成" id="5tS-ej-bSF">
+                            <connections>
+                                <action selector="finishButtonPressed:" destination="DIY-As-9Ak" id="1kw-FU-wyS"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <segue destination="WSr-Fr-01F" kind="push" identifier="createReportSegue" id="Upv-NU-m9J"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uam-m0-tvC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="169" y="2484"/>
+        </scene>
+        <!--报价单详情-->
+        <scene sceneID="IlM-3t-Hff">
+            <objects>
+                <viewController id="aAb-ld-VUg" customClass="PriceReportDetailViewController" customModule="ContractApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" id="GQ7-xw-eF4">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="reportDetailCell" id="kj5-gE-PtP" customClass="ReportDetailCell" customModule="ContractApp" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="320" height="60"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kj5-gE-PtP" id="WQx-oT-hOE">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="59"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="产品货号" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ofK-1S-ubM">
+                                            <rect key="frame" x="8" y="1" width="127" height="29"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="价格" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="p44-ea-gJK">
+                                            <rect key="frame" x="246" y="-1" width="66" height="29"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="规格型号" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="PDh-0r-r9T">
+                                            <rect key="frame" x="143" y="-1" width="95" height="29"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="产品英文名" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="8iQ-7y-p54">
+                                            <rect key="frame" x="8" y="30" width="304" height="29"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="englishNameLabel" destination="8iQ-7y-p54" id="K9C-3S-viC"/>
+                                    <outlet property="idLabel" destination="ofK-1S-ubM" id="5s0-Ms-Sg7"/>
+                                    <outlet property="priceLabel" destination="p44-ea-gJK" id="eBD-LK-bAc"/>
+                                    <outlet property="specificationLabel" destination="PDh-0r-r9T" id="L3L-Kg-sPT"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="报价单详情" id="6Zl-NC-f7R"/>
+                    <connections>
+                        <outlet property="tableView" destination="GQ7-xw-eF4" id="ePM-q6-Mst"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YSl-28-vEK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="756" y="1097"/>
         </scene>
         <!--合同基本信息-->
         <scene sceneID="rBP-35-yfX">
@@ -289,7 +377,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jB9-yy-1A0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2649" y="-1813"/>
+            <point key="canvasLocation" x="2375" y="-1824"/>
         </scene>
         <!--我-->
         <scene sceneID="LQB-VN-5bb">
@@ -395,7 +483,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="39C-kB-XMU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="441" y="458"/>
+            <point key="canvasLocation" x="69" y="779"/>
         </scene>
         <!--订单列表-->
         <scene sceneID="Fqr-ca-mPy">
@@ -475,7 +563,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WpO-nC-bkz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1303" y="-1363"/>
+            <point key="canvasLocation" x="1835" y="-1363"/>
         </scene>
         <!--订单-->
         <scene sceneID="B4k-It-phJ">
@@ -542,7 +630,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RtW-ms-gRn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="725" y="-1541"/>
+            <point key="canvasLocation" x="791" y="-1685"/>
         </scene>
         <!--启动-->
         <scene sceneID="8kA-uf-Tm3">
@@ -594,7 +682,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y7j-fK-yX7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1757" y="-531"/>
+            <point key="canvasLocation" x="-1405" y="-654"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="2vs-hg-pvI">
@@ -608,12 +696,97 @@
                     <connections>
                         <segue destination="ym3-Dx-ab8" kind="relationship" relationship="viewControllers" id="BUO-aU-egJ"/>
                         <segue destination="G6A-Ot-Y2s" kind="relationship" relationship="viewControllers" id="Fhg-nP-DFq"/>
+                        <segue destination="nxu-2D-8fS" kind="relationship" relationship="viewControllers" id="Epg-lR-xws"/>
                         <segue destination="nWY-6V-ywI" kind="relationship" relationship="viewControllers" id="mjj-de-WcG"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vFP-vf-Kzp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-794" y="-816"/>
+            <point key="canvasLocation" x="-465" y="-606"/>
+        </scene>
+        <!--报价-->
+        <scene sceneID="p3Y-k3-Dq4">
+            <objects>
+                <viewController id="ABu-nX-UKj" customClass="PriceReportListViewController" customModule="ContractApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cZq-fJ-U77">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" id="DqR-Lc-ffD">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="priceReportCell" id="uiS-KV-2ew" customClass="PriceReportCell" customModule="ContractApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="92" width="320" height="60"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="uiS-KV-2ew" id="mpd-2I-Wkn">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="59"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="详情" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="pSM-MO-ONV">
+                                                    <rect key="frame" x="8" y="29" width="304" height="29"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="10"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="状态" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="elQ-74-oJM">
+                                                    <rect key="frame" x="176" y="2" width="53" height="29"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="报价单号" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="hQD-AY-FVV">
+                                                    <rect key="frame" x="8" y="2" width="143" height="29"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="日期" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="zCm-dv-qbX">
+                                                    <rect key="frame" x="217" y="2" width="95" height="29"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="dateLabel" destination="zCm-dv-qbX" id="czy-aV-PGk"/>
+                                            <outlet property="detailLabel" destination="pSM-MO-ONV" id="2md-cW-87Z"/>
+                                            <outlet property="idLabel" destination="hQD-AY-FVV" id="ZxV-Y0-dYN"/>
+                                            <outlet property="statusLabel" destination="elQ-74-oJM" id="a48-m3-ILE"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="报价" id="O3G-1Q-ZG8">
+                        <barButtonItem key="leftBarButtonItem" systemItem="search" id="XPk-B8-Aoo">
+                            <connections>
+                                <action selector="searchButtonPressed:" destination="ABu-nX-UKj" id="u4V-ul-rZx"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Hhs-qy-DlJ">
+                            <connections>
+                                <segue destination="DIY-As-9Ak" kind="push" id="IZ6-O1-5s6"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="DqR-Lc-ffD" id="byB-n3-PPT"/>
+                        <segue destination="aAb-ld-VUg" kind="push" identifier="priceReportDetailSegue" id="vzE-Lm-hJa"/>
+                        <segue destination="rOu-k9-2zD" kind="push" identifier="searchPriceReportSegue" id="2jH-Ds-SzB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7zN-i4-b9C" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="134" y="1590"/>
         </scene>
         <!--审批-->
         <scene sceneID="0sG-W9-Qat">
@@ -707,7 +880,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Xl-u4-2Ab" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1864" y="965"/>
+            <point key="canvasLocation" x="2073" y="979"/>
         </scene>
         <!--审批列表-->
         <scene sceneID="ulj-2s-WVN">
@@ -809,7 +982,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ijh-ci-3Tx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1106" y="220"/>
+            <point key="canvasLocation" x="1075" y="331"/>
         </scene>
         <!--审批详情-->
         <scene sceneID="nFO-eT-g2l">
@@ -960,7 +1133,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j1Q-Rp-Sda" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2045" y="-105"/>
+            <point key="canvasLocation" x="2050" y="56"/>
         </scene>
         <!--订单查询-->
         <scene sceneID="IRF-Mp-m0U">
@@ -1045,7 +1218,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="shougouHeaderCell" id="DHZ-bW-Npv">
-                                        <rect key="frame" x="0.0" y="28" width="320" height="60"/>
+                                        <rect key="frame" x="0.0" y="92" width="320" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="DHZ-bW-Npv" id="YtY-Ey-HFv">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="59"/>
@@ -1062,7 +1235,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="shougouContentCell" id="8f8-aW-rPe" customClass="OrderPurchaseInfoCell" customModule="ContractApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="88" width="320" height="60"/>
+                                        <rect key="frame" x="0.0" y="152" width="320" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8f8-aW-rPe" id="bhY-ks-ZiQ">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="59"/>
@@ -1117,7 +1290,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KDf-fn-5q7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2746" y="-1034"/>
+            <point key="canvasLocation" x="3278" y="-1034"/>
         </scene>
         <!--我-->
         <scene sceneID="WCo-pa-RUa">
@@ -1209,7 +1382,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tir-2j-fVx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1267" y="-1473"/>
+            <point key="canvasLocation" x="-1325" y="-1685"/>
         </scene>
         <!--服务器配置-->
         <scene sceneID="hPk-Ny-HEd">
@@ -1241,7 +1414,7 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="50" sectionHeaderHeight="18" sectionFooterHeight="18" id="kl4-oY-NJh">
                                 <rect key="frame" x="0.0" y="66" width="320" height="502"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="configurationCell" id="Fib-4H-xpP" customClass="ConfigurationCell" customModule="ContractApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="50" width="320" height="50"/>
@@ -1254,7 +1427,7 @@
                                                     <rect key="frame" x="15" y="14" width="68" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" id="Qhr-Ln-aur">
@@ -1292,7 +1465,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lv9-fj-jWE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-779" y="-1657"/>
+            <point key="canvasLocation" x="-731" y="-1807"/>
         </scene>
         <!--审批-->
         <scene sceneID="Bfp-aO-8Zp">
@@ -1312,7 +1485,156 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QRd-Su-JKx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="886" y="-540"/>
+            <point key="canvasLocation" x="1418" y="-540"/>
+        </scene>
+        <!--报价-->
+        <scene sceneID="Ck5-hq-TMW">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="nxu-2D-8fS" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="报价" image="reportPrice" id="cfn-mV-agh"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="U2b-Xs-P4Z">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="ABu-nX-UKj" kind="relationship" relationship="rootViewController" id="UTg-oW-Kph"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gK5-XI-FFi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-651" y="164"/>
+        </scene>
+        <!--报价-->
+        <scene sceneID="icr-m3-dap">
+            <objects>
+                <viewController title="报价" id="rOu-k9-2zD" customClass="PriceReportSearchViewController" customModule="ContractApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="65f-qZ-Yux">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" id="zfd-Ap-kC3">
+                                <rect key="frame" x="12" y="149" width="135" height="30"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="2BI-pW-PR0">
+                                <rect key="frame" x="12" y="218" width="298" height="47"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.019607843140000001" green="0.37647058820000001" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="查  询">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="searchPressed:" destination="rOu-k9-2zD" eventType="touchUpInside" id="V3H-iu-AC8"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="开始日期" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="YXu-bK-jfM">
+                                <rect key="frame" x="12" y="130" width="101" height="21"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="结束日期" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="AC3-hk-ecN">
+                                <rect key="frame" x="175" y="130" width="101" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="关键字" textAlignment="natural" minimumFontSize="17" id="9cg-w2-UZC">
+                                <rect key="frame" x="12" y="79" width="298" height="30"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" id="gGb-Wa-bWk">
+                                <rect key="frame" x="175" y="149" width="135" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="报价" id="HXS-kn-LpE" userLabel="报价"/>
+                    <connections>
+                        <outlet property="endDateField" destination="gGb-Wa-bWk" id="p7X-w6-Hb7"/>
+                        <outlet property="keywordField" destination="9cg-w2-UZC" id="hKL-LN-HA7"/>
+                        <outlet property="startDateField" destination="zfd-Ap-kC3" id="J0R-kd-oQn"/>
+                        <segue destination="ABu-nX-UKj" kind="push" identifier="priceReportResultSegue" id="J8w-ZJ-JGi"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Iz6-YU-Aj2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-675" y="1378"/>
+        </scene>
+        <!--创建报价单-->
+        <scene sceneID="wpK-Og-Baj">
+            <objects>
+                <viewController title="创建报价单" id="WSr-Fr-01F" customClass="CreatePriceReportViewController" customModule="ContractApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" id="h8E-4n-q9L">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="reportDetailCell" id="3kL-Oy-eis" customClass="ReportDetailCell" customModule="ContractApp" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="320" height="60"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3kL-Oy-eis" id="A43-8k-pFZ">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="59"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="产品货号" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="5EX-Wp-Yqu">
+                                            <rect key="frame" x="8" y="1" width="127" height="29"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="产品英文名" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="vBM-Pb-osh">
+                                            <rect key="frame" x="8" y="30" width="304" height="29"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="规格型号" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="tUC-ME-Cjc">
+                                            <rect key="frame" x="220" y="-1" width="95" height="29"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="englishNameLabel" destination="vBM-Pb-osh" id="lze-y7-8wM"/>
+                                    <outlet property="idLabel" destination="5EX-Wp-Yqu" id="QXy-O7-hVX"/>
+                                    <outlet property="specificationLabel" destination="tUC-ME-Cjc" id="bGL-Zy-bdM"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="创建报价单" id="amV-gH-fJi" userLabel="创建报价单">
+                        <barButtonItem key="rightBarButtonItem" title="提交" id="089-8G-p0G">
+                            <connections>
+                                <action selector="submitButtonPressed:" destination="WSr-Fr-01F" id="6OI-6S-Gh1"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="h8E-4n-q9L" id="4hh-mk-g4B"/>
+                        <segue destination="ABu-nX-UKj" kind="push" identifier="reportListSegue" id="es0-fL-Q3d"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Y3p-Rb-ANu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="732" y="1845"/>
         </scene>
     </scenes>
     <resources>
@@ -1322,14 +1644,16 @@
         <image name="me-filled" width="27" height="27"/>
         <image name="order" width="27" height="27"/>
         <image name="order-filled" width="27" height="27"/>
+        <image name="reportPrice" width="25" height="25"/>
         <image name="shenpi" width="27" height="27"/>
         <image name="shenpi-filled" width="27" height="27"/>
         <image name="userIcon" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="r0f-PF-mLV"/>
         <segue reference="IGP-XW-Mia"/>
+        <segue reference="UTg-oW-Kph"/>
         <segue reference="49w-if-76T"/>
+        <segue reference="5cR-bU-QgN"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.019607843140000001" green="0.37647058820000001" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
 </document>

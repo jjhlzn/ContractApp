@@ -91,10 +91,7 @@ class ApprovalListViewController: UIViewController, UITableViewDataSource, UITab
         
     }
     
-    override func viewWillDisappear(animated: Bool) {
-        super.viewWillDisappear(animated)
-        print("approvals.count = \(approvals.count)")
-    }
+
     
     private func needRefreshForTimeout() -> Bool {
         loginUser = loginUserStore.GetLoginUser()

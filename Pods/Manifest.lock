@@ -1,0 +1,15 @@
+PODS:
+  - RSBarcodes_Swift (0.1.9)
+  - swiftScan (1.0.8)
+
+DEPENDENCIES:
+  - RSBarcodes_Swift (~> 0.1.9)
+  - swiftScan
+
+SPEC CHECKSUMS:
+  RSBarcodes_Swift: 3c37a05faa0c8742739e1b47eec2f0d3d786330f
+  swiftScan: 2dc76303bc7c2dcb7bde9c539f9bd6a7520abc8e
+
+PODFILE CHECKSUM: 973ae33bff0415db693ccc35476a956b68696928
+
+COCOAPODS: 1.0.0

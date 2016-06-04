@@ -126,4 +126,28 @@ class ServiceConfiguration {
             return "\(httpMethod)://\(serverName):\(port)/login/resetbadge.json"
         }
     }
+    
+    static var searchPriceReportUrl : String {
+        get {
+            return "\(httpMethod)://\(serverName):\(port)/price_report/search.json"
+        }
+    }
+    
+    static var getPriceReportUrl : String {
+        get {
+            return "\(httpMethod)://\(serverName):\(port)/price_report/getPriceReport.json"
+        }
+    }
+    
+    static var searchProducstUrl : String {
+        get {
+            return "\(httpMethod)://\(serverName):\(port)/price_report/searchProducts.json"
+        }
+    }
+    
+    static var submitReportUrl : String {
+        get {
+            return "\(httpMethod)://\(serverName):\(port)/price_report/submit.json"
+        }
+    }
 }
