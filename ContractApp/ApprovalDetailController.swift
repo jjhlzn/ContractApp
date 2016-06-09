@@ -30,6 +30,8 @@ class ApprovalDetailController: BaseUIViewController, UIAlertViewDelegate {
     
     @IBOutlet weak var approvalResultNameLabel: UILabel!
     
+    var approvalSuccessAlertViewDelegate : ApprovalSuccessAlertViewDelegate?
+    
     var isPassPressed: Bool = false
     var row: Int!
     
@@ -44,6 +46,7 @@ class ApprovalDetailController: BaseUIViewController, UIAlertViewDelegate {
     
     override func viewWillAppear(animated: Bool) {
         
+        approvalSuccessAlertViewDelegate = ApprovalSuccessAlertViewDelegate(controller: self)
         loginUser = loginUserStore.GetLoginUser()!
         
         approvalObjectLabel.text = approval.approvalObject
@@ -68,6 +71,7 @@ class ApprovalDetailController: BaseUIViewController, UIAlertViewDelegate {
     }
     
     override func viewWillDisappear(animated: Bool) {
+        print("ApprovalDetailController#viewWillDisappear")
         if self.navigationController?.viewControllers.indexOf(self) == nil {
             let topController = (self.parentViewController as! UINavigationController).topViewController as! ApprovalListViewController
             let tableView = topController.tableView
@@ -102,7 +106,7 @@ class ApprovalDetailController: BaseUIViewController, UIAlertViewDelegate {
                     self.displayMessage(response.errorMessage!)
                 } else {
                     if response.result {
-                        self.displayMessage("审批成功")
+                        self.displayMessage("审批成功", delegate: self.approvalSuccessAlertViewDelegate!)
                         self.approval.status = "已批"
                         self.statusLabel.text = "已批"
                         self.passButton.enabled = false
@@ -145,5 +149,19 @@ class ApprovalDetailController: BaseUIViewController, UIAlertViewDelegate {
             break;
         }
     }
+    
+    class ApprovalSuccessAlertViewDelegate : NSObject, UIAlertViewDelegate {
+        
+        var controller : UIViewController
+        init(controller: UIViewController) {
+            self.controller = controller
+        }
+        
+        func alertView(alertView: UIAlertView, clickedButtonAtIndex buttonIndex: Int) {
+            controller.navigationController?.popViewControllerAnimated(true)
+        }
+    }
 }
+
+
 

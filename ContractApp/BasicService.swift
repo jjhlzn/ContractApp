@@ -66,9 +66,11 @@ class BasicService : NSObject, NSURLSessionDelegate {
                     let dict = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers) as! NSDictionary
                     
                     serverResponse.status = dict["status"] as! Int
+                    serverResponse.errorMessage = dict["errorMessage"] as? String
+                    /*
                     if  serverResponse.status !=  0 {
                         return
-                    }
+                    } */
                     
                     responseHandler(dict: dict)
                 }

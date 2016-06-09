@@ -16,5 +16,6 @@ class ReportDetailCell: UITableViewCell {
     
     @IBOutlet weak var englishNameLabel: UILabel!
 
+    @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
 }

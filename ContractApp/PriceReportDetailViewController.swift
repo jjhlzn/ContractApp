@@ -44,6 +44,7 @@ class PriceReportDetailViewController: BaseUIViewController, UITableViewDataSour
         let product = pagableController.data[indexPath.row]
         let cell = tableView.dequeueReusableCellWithIdentifier("reportDetailCell") as! ReportDetailCell
         cell.idLabel.text = product.id
+        cell.nameLabel.text = product.name
         cell.specificationLabel.text = product.specification
         cell.priceLabel.text = "\(product.moneyType)\(String(format:"%.2f", Double(product.price)))"
         cell.englishNameLabel.text = product.englishName

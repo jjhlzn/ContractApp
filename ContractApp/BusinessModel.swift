@@ -144,7 +144,7 @@ class Approval {
 
 public class ServerResponse : NSObject {
     var status : Int = 0
-    var errorMessage : String?
+    var errorMessage : String? = ""
 }
 
 class PageServerResponse<T> : ServerResponse {
@@ -274,12 +274,14 @@ class GetServiceLocatorResponse : ServerResponse {
 
 class Product {
     var id : String
+    var name :  String
     var specification: String
     var price: NSNumber
     var moneyType: String
     var englishName: String
-    init(id: String, specification: String, price: NSNumber, moneyType: String, englishName: String = "") {
+    init(id: String, name: String, specification: String, price: NSNumber, moneyType: String, englishName: String = "") {
         self.id = id
+        self.name = name
         self.specification = specification
         self.price = price
         self.moneyType = moneyType
@@ -290,13 +292,15 @@ class Product {
 class PriceReport {
     var id : String
     var date : String
+    var reporter : String
     var status: String
     var detailInfo: String = ""
     
     var products = [Product]()
     
-    init(id: String, date: String, status: String, detailInfo: String = "") {
+    init(id: String, reporter: String, date: String, status: String, detailInfo: String = "") {
         self.id = id
+        self.reporter = reporter
         self.date = date
         self.status = status
         self.detailInfo = detailInfo

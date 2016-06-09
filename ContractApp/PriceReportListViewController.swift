@@ -72,6 +72,7 @@ class PriceReportListViewController: BaseUIViewController, UITableViewDataSource
         cell.dateLabel.text = report.date
         cell.statusLabel.text = report.status
         cell.detailLabel.text = report.detailInfo
+        cell.reporterLabel.text = report.reporter
 
         return cell
     }

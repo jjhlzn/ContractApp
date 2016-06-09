@@ -10,6 +10,7 @@ import UIKit
 
 class PriceReportCell: UITableViewCell {
 
+    @IBOutlet weak var reporterLabel: UILabel!
     @IBOutlet weak var idLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var statusLabel: UILabel!

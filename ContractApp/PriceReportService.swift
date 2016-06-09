@@ -26,7 +26,7 @@ class PriceReportService : BasicService {
                 let jsonReports = dict["reports"] as! NSArray
                 for jsonReport in jsonReports {
                     
-                    let report = PriceReport(id: jsonReport["id"] as! String, date: jsonReport["date"] as! String, status: jsonReport["status"] as! String, detailInfo: jsonReport["detailInfo"] as! String)
+                    let report = PriceReport(id: jsonReport["id"] as! String, reporter: jsonReport["reporter"] as! String, date: jsonReport["date"] as! String, status: jsonReport["status"] as! String, detailInfo: jsonReport["detailInfo"] as! String)
                     
                     reports.append(report)
                 }
@@ -51,7 +51,7 @@ class PriceReportService : BasicService {
                 let jsonReports = dict["products"] as! NSArray
                 for jsonProduct in jsonReports {
                     
-                    let product = Product(id: jsonProduct["id"] as! String, specification: jsonProduct["specification"] as! String, price: jsonProduct["price"] as! NSNumber, moneyType: jsonProduct["moneyType"] as! String, englishName: jsonProduct["englishName"] as! String)
+                    let product = Product(id: jsonProduct["id"] as! String, name: jsonProduct["name"] as! String, specification: jsonProduct["specification"] as! String, price: jsonProduct["price"] as! NSNumber, moneyType: jsonProduct["moneyType"] as! String, englishName: jsonProduct["englishName"] as! String)
                     
                     products.append(product)
                 }
@@ -80,7 +80,7 @@ class PriceReportService : BasicService {
                 let jsonReports = dict["products"] as! NSArray
                 for jsonProduct in jsonReports {
                     
-                    let product = Product(id: jsonProduct["id"] as! String, specification: jsonProduct["specification"] as! String, price: jsonProduct["price"] as! NSNumber, moneyType: jsonProduct["moneyType"] as! String, englishName: jsonProduct["englishName"] as! String)
+                    let product = Product(id: jsonProduct["id"] as! String, name: jsonProduct["name"] as! String, specification: jsonProduct["specification"] as! String, price: jsonProduct["price"] as! NSNumber, moneyType: jsonProduct["moneyType"] as! String, englishName: jsonProduct["englishName"] as! String)
                     
                     products.append(product)
                 }
@@ -104,7 +104,7 @@ class PriceReportService : BasicService {
         sendRequest(ServiceConfiguration.submitReportUrl, parameters: parameters, serverResponse: response) { dict -> Void in
             if response.status == 0 {
                 let jsonReport = dict["report"] as! NSDictionary
-                let report = PriceReport(id: jsonReport["id"] as! String, date: jsonReport["date"] as! String, status: jsonReport["status"] as! String, detailInfo: jsonReport["detailInfo"] as! String)
+                let report = PriceReport(id: jsonReport["id"] as! String, reporter: jsonReport["reporter"] as! String, date: jsonReport["date"] as! String, status: jsonReport["status"] as! String, detailInfo: jsonReport["detailInfo"] as! String)
                 response.report = report
             }
             completion(response: response)

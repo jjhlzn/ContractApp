@@ -19,7 +19,7 @@ class BaseUIViewController: UIViewController {
         alertView.message = message
         alertView.addButtonWithTitle("好的")
         alertView.cancelButtonIndex=0
-        alertView.delegate=self
+        //alertView.delegate=self
         alertView.show()
         
     }
